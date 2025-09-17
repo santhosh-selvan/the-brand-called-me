@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me | The Brand Called Me</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --soft-orange: #F97316;
+      --deep-orange: #EA580C;
+      --warm-cream: #FEF7ED;
+      --soft-gray: #F8F9FA;
+      --dark: #111827;
+      --mid-gray: #6B7280;
+      --gradient-orange: linear-gradient(135deg, #F97316, #EA580C);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--warm-cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .site-header {
+      padding: 2rem 0;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--deep-orange);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    /* Section */
+    .section {
+      padding: 6rem 2rem;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--mid-gray);
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      margin-bottom: 1.2rem;
+      color: var(--mid-gray);
+    }
+
+    .profile-info {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-top: 2rem;
+    }
+
+    .profile-info p {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      color: var(--mid-gray);
+    }
+
+    .profile-info a {
+      color: var(--deep-orange);
+      text-decoration: none;
+    }
+
+    .profile-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Why "The Brand Called Me" */
+    .brand-story {
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      text-align: center;
+      max-width: 900px;
+      margin: 4rem auto;
+    }
+
+    .brand-story h3 {
+      font-size: 2.2rem;
+      color: var(--deep-orange);
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-story p {
+      font-size: 1.2rem;
+      color: var(--mid-gray);
+      line-height: 1.8;
+    }
+
+    /* Hobbies */
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .hobby-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .hobby-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .hobby-card i {
+      font-size: 2.5rem;
+      color: var(--soft-orange);
+    }
+
+    .hobby-card h4 {
+      color: var(--dark);
+      margin: 1rem 0 0.5rem;
+    }
+
+    /* Achievements */
+    .achievement-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .achievement-item {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--soft-orange);
+    }
+
+    .achievement-item h4 {
+      margin: 0 0 0.8rem;
+      color: var(--dark);
+      font-size: 1.4rem;
+    }
+    /* Active Navigation Link */
+.nav-links a.nav-link {
+  position: relative;
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-links a.nav-link:hover {
+  color: var(--deep-orange);
+}
+
+/* Active Link Indicator (Orange Underline) */
+.nav-links a.nav-link.active {
+  color: var(--deep-orange);
+}
+
+.nav-links a.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--soft-orange);
+  border-radius: 3px;
+}
+
+    /* Testimonials */
+    .testimonials {
+      background: var(--soft-gray);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: """;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 5rem;
+      color: var(--soft-orange);
+      opacity: 0.1;
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonial-content p {
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: var(--mid-gray);
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .testimonial-role {
+      font-size: 0.9rem;
+      color: var(--mid-gray);
+    }
+
+    /* Footer */
+    .footer {
+      background: white;
+      padding: 4rem 2rem;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      color: var(--mid-gray);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--deep-orange);
+      margin-bottom: 1rem;
+    }
+
+    .footer-about p {
+      margin-bottom: 1.5rem;
+      color: var(--mid-gray);
+    }
+
+    .footer-links h4 {
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--mid-gray);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--mid-gray);
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--mid-gray);
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">The Brand Called Me</a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+<a href="about.html" class="nav-link active">About Me</a>
+<a href="portfolio.html" class="nav-link">Portfolio</a>
+<a href="newsletter.html" class="nav-link">Newsletter</a>
+<a href="contact.html" class="nav-link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Me -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">More than a candidate — a campaign</p>
+
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Who Am I?</h3>
+          <p>I'm Santhosh Selvan — a strategic thinker, content creator, and digital innovator currently pursuing an <strong>MSc in Digital Strategy</strong> at the University of Southampton.</p>
+          <p>With hands-on experience in <strong>social media management, campaign execution, and data-driven content</strong>, I’m building a career at the intersection of technology, creativity, and business growth.</p>
+          <p>Eager to bring my skills to forward-thinking brands, where innovation meets impact.</p>
+
+          <div class="profile-info">
+            <p><strong>Email:</strong> <a href="mailto:santhoshselvan0603@gmail.com">santhoshselvan0603@gmail.com</a></p>
+            <p><strong>Phone:</strong> +44 7741024616</p>
+            <p><strong>Location:</strong> Southampton (eager to relocate)</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank">linkedin.com/in/santhosh-selvan</a></p>
+          </div>
+        </div>
+
+        <div>
+          <img src="https://media.licdn.com/dms/image/v2/D5622AQFxQUIKTG9qZw/feedshare-shrink_1280/B56ZkB1i4CHQAs-/0/1756672440600?e=1759968000&v=beta&t=Qe1oFSppBR3G5wUjAP02ehx7TddABwLz3MDBsiMwjqo" alt="Santhosh Selvan" style="width:100%; border-radius:12px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why "The Brand Called Me" -->
+  <section class="section">
+    <div class="brand-story">
+      <h3>Why “The Brand Called Me”?</h3>
+      <p>This isn’t just a portfolio. It’s an <strong>ad campaign</strong> — for <strong>me</strong>.<br>
+         I’m not waiting to be discovered. I’m <strong>launching myself</strong> into the world with purpose, proof, and personality.<br>
+         This brand is my voice, my value, and my vision — all in one place.</p>
+    </div>
+  </section>
+
+  <!-- Hobbies -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Hobbies & Interests</h2>
+      <p class="section-subtitle">What fuels my creativity</p>
+      <div class="hobby-grid">
+        <div class="hobby-card">
+          <i class="fas fa-camera"></i>
+          <h4>Photography</h4>
+          <p>Capturing moments and stories through the lens</p>
+        </div>
+        <div class="hobby-card">
+          <i class="fas fa-film"></i>
+          <h4>Videography</h4>
+          <p>Telling stories through motion and sound</p>
+        </div>
+        <div class="hobby-card">
+          <i class="fas fa-music"></i>
+          <h4>Music</h4>
+          <p>Exploring rhythm, emotion, and expression</p>
+        </div>
+        <div class="hobby-card">
+          <i class="fas fa-book"></i>
+          <h4>Reading</h4>
+          <p>Expanding my mind through books on strategy and innovation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Key Achievements</h2>
+      <div class="achievement-list">
+        <div class="achievement-item">
+          <h4>LGBTQ+ Awareness Event — First of Its Kind</h4>
+          <p>As Managing Director of the Department Club, I organized a landmark LGBTQ+ awareness event at my college — a bold step toward inclusion and visibility.</p>
+        </div>
+        <div class="achievement-item">
+          <h4>30+ Engaging Content Pieces Created</h4>
+          <p>As a Social Media Intern, I created over 30 pieces of text, image, and video content that boosted brand awareness and engagement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section testimonials">
+    <div class="section-container">
+      <h2 class="section-title">Testimonials</h2>
+      <p class="section-subtitle">What others say about my work</p>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>Santhosh led our social media strategy with precision and creativity. His content drove real engagement.</p>
+            <div class="testimonial-author">Manager</div>
+            <div class="testimonial-role">Tech Deziana</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>As Managing Director, he organized our first LGBTQ+ event — a bold, impactful moment for our college.</p>
+            <div class="testimonial-author">Head of Department</div>
+            <div class="testimonial-role">SA College of Arts and Science</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>Santhosh is self-motivated, strategic, and always ready to take initiative. A true leader.</p>
+            <div class="testimonial-author">Team Member</div>
+            <div class="testimonial-role">Department Club</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <div class="footer-logo">The Brand Called Me</div>
+        <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank"><i class="fas fa-file-pdf"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:santhoshselvan0603@gmail.com">Email Me</a></li>
+          <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank">LinkedIn</a></li>
+          <li><a href="tel:+447741024616">Call Me</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+  <h4>Explore My Work</h4>
+  <ul>
+    <li><a href="portfolio.html">View Portfolio</a></li>
+    <li><a href="newsletter.html">Read Insights</a></li>
+    <li><a href="https://santhosh06.my.canva.site/" target="_blank">Interactive Presentation</a></li>
+  </ul>
+</div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 The Brand Called Me. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-out', once: true });
+  </script>
+
+</body>
+</html>

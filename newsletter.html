@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Newsletter | The Brand Called Me</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --soft-orange: #F97316;
+      --deep-orange: #EA580C;
+      --warm-cream: #FEF7ED;
+      --soft-gray: #F8F9FA;
+      --dark: #111827;
+      --mid-gray: #6B7280;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--warm-cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .site-header {
+      padding: 2rem 0;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--deep-orange);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    /* Section */
+    .section {
+      padding: 6rem 2rem;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--mid-gray);
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    /* Article Grid */
+    .article-grid {
+      display: grid;
+      gap: 3rem;
+    }
+
+    /* Article Card */
+    .article-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    .article-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .article-content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .article-date {
+      color: var(--soft-orange);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .article-title {
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin: 0 0 1rem;
+    }
+
+    .article-summary {
+      color: var(--mid-gray);
+      margin: 0 0 1rem;
+      line-height: 1.7;
+    }
+
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .article-tag {
+      background: rgba(249, 115, 22, 0.1);
+      color: var(--soft-orange);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Popups */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .popup.active {
+      display: flex;
+    }
+
+    .popup-content {
+      background: white;
+      width: 90%;
+      max-width: 900px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 16px;
+      padding: 3rem;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--deep-orange);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.5rem;
+      border: none;
+    }
+
+    .popup-close:hover {
+      background: #D94600;
+    }
+
+    .popup-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--dark);
+      margin: 0 0 0.5rem;
+    }
+
+    .popup-date {
+      color: var(--soft-orange);
+      font-weight: 600;
+      margin: 0 0 1.5rem;
+    }
+
+    .popup-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+
+    .popup-section {
+      margin: 1.5rem 0;
+    }
+
+    .popup-section h4 {
+      color: var(--deep-orange);
+      margin: 0 0 1rem;
+      font-size: 1.3rem;
+    }
+
+    .popup-section ul {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .popup-section li {
+      margin-bottom: 0.8rem;
+      color: var(--mid-gray);
+    }
+
+    .popup-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .popup-skill {
+      background: rgba(249, 115, 22, 0.1);
+      color: var(--soft-orange);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer {
+      background: white;
+      padding: 4rem 2rem;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      color: var(--mid-gray);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--deep-orange);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links h4 {
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--mid-gray);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--mid-gray);
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--mid-gray);
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
+    /* Active Navigation Link */
+.nav-links a.nav-link {
+  position: relative;
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-links a.nav-link:hover {
+  color: var(--deep-orange);
+}
+
+/* Active Link Indicator (Orange Underline) */
+.nav-links a.nav-link.active {
+  color: var(--deep-orange);
+}
+
+.nav-links a.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--soft-orange);
+  border-radius: 3px;
+}
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .article-card {
+        grid-template-columns: 1fr;
+      }
+      .article-image {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2.2rem;
+      }
+      .popup-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">The Brand Called Me</a>
+      <nav class="nav-links">
+<a href="index.html" class="nav-link">Home</a>
+<a href="about.html" class="nav-link">About Me</a>
+<a href="portfolio.html" class="nav-link">Portfolio</a>
+<a href="newsletter.html" class="nav-link active">Newsletter</a>
+<a href="contact.html" class="nav-link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+<!-- Section: Newsletter -->
+<section class="section">
+  <div class="section-container">
+    <h2 class="section-title">Newsletter</h2>
+    <p class="section-subtitle">Thoughts, projects, and strategic insights — straight from the brand</p>
+
+    <div class="article-grid">
+      <!-- Article 1: AI Insight (Newest) -->
+      <div class="article-card" onclick="openPopup('ai-popup')">
+        <img src="https://media.licdn.com/dms/image/v2/D5622AQHAco0bS5KBaQ/feedshare-shrink_1280/B56ZkkNHFGH8As-/0/1757249042045?e=1759968000&v=beta&t=Uos4QFOfxti87AJT_f4PP3nzGmTCeJnzAD3w-cE6iHk" alt="AI in Marketing" class="article-image">
+        <div class="article-content">
+          <div class="article-date">October 2025</div>
+          <h3 class="article-title">📌 Weekly Insight: AI in Promotional Content</h3>
+          <p class="article-summary">The real issue isn’t AI — it’s transparency. Why honesty builds trust, even when machines help create content.</p>
+          <div class="article-tags">
+            <span class="article-tag">#AI</span>
+            <span class="article-tag">#Transparency</span>
+            <span class="article-tag">#MarketingEthics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 2: GAP vs AE -->
+      <div class="article-card" onclick="openPopup('gap-popup')">
+        <img src="https://media.licdn.com/dms/image/v2/D5622AQFZauS7bAnhCA/feedshare-shrink_800/B56ZjiSSW1IAAg-/0/1756143101964?e=1759968000&v=beta&t=Am2KekNW8xLRmnB409Dtm0wavnDnscliyN6iGsxQ8l4" alt="GAP vs American Eagle" class="article-image">
+        <div class="article-content">
+          <div class="article-date">August 2025</div>
+          <h3 class="article-title">📌 Weekly Insight:GAP’s Denim Danced. AE’s Ad Tripped.</h3>
+          <p class="article-summary">Why one campaign sparked joy and the other sparked backlash — and what it means for brand storytelling in 2025.</p>
+          <div class="article-tags">
+            <span class="article-tag">#Marketing</span>
+            <span class="article-tag">#BrandStrategy</span>
+            <span class="article-tag">#ViralMarketing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 3: Brand Campaign -->
+      <div class="article-card" onclick="openPopup('brand-popup')">
+        <img src="https://media.licdn.com/dms/image/v2/D5622AQFxQUIKTG9qZw/feedshare-shrink_800/B56ZkB1i4CHQAg-/0/1756672440470?e=1759968000&v=beta&t=bKIgSnOY-NCZLk9mEJ3eURCBRy0NFuOgpEjOfMQQSh0" alt="The Brand Called Me" class="article-image">
+        <div class="article-content">
+          <div class="article-date">February 2025</div>
+          <h3 class="article-title">🚀 Not a Candidate. A Campaign.</h3>
+          <p class="article-summary">Introducing 'The Brand Called Me' — a personal brand campaign that blends strategy, creativity, and authenticity.</p>
+          <div class="article-tags">
+            <span class="article-tag">#PersonalBranding</span>
+            <span class="article-tag">#Marketing</span>
+            <span class="article-tag">#HireMe</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 4: Student Innovation Project -->
+      <div class="article-card" onclick="openPopup('sip-popup')">
+        <img src="https://media.licdn.com/dms/image/v2/D5622AQE0v8hAHXTe_g/feedshare-shrink_800/B56ZVDOwuJGQAk-/0/1740589698898?e=1759968000&v=beta&t=aC22WkKsDep2f7n7WynTuX4eF8kUgGDE62BD39YC6v8" alt="Student Innovation Project" class="article-image">
+        <div class="article-content">
+          <div class="article-date">January 2025</div>
+          <h3 class="article-title">Building a Support System for Mountaineer Families</h3>
+          <p class="article-summary">Our team designed a sustainable financial aid model for families affected by mountaineering accidents — blending empathy with innovation.</p>
+          <div class="article-tags">
+            <span class="article-tag">#Innovation</span>
+            <span class="article-tag">#SocialImpact</span>
+            <span class="article-tag">#Nimsdai</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 5: MSc at Southampton -->
+      <div class="article-card" onclick="openPopup('msc-popup')">
+        <img src="https://media.licdn.com/dms/image/v2/D5622AQFkCdN5xTob2A/feedshare-shrink_800/B56ZeKYf.GGoAk-/0/1750373369713?e=1759968000&v=beta&t=YTFX6jCfjAvoc5CMucDIZyLTWHYFJI7yjrUSCOUoMgg" alt="MSc at Southampton" class="article-image">
+        <div class="article-content">
+          <div class="article-date">September 2024</div>
+          <h3 class="article-title">Starting My MSc at the University of Southampton</h3>
+          <p class="article-summary">Excited to begin my MSc in Digital Strategy & Information Systems — where data meets storytelling and innovation.</p>
+          <div class="article-tags">
+            <span class="article-tag">#MSc</span>
+            <span class="article-tag">#UniversityOfSouthampton</span>
+            <span class="article-tag">#DigitalStrategy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 6: Internship Completion (Oldest) -->
+      <div class="article-card" onclick="openPopup('internship-popup')">
+        <img src="https://assets-global.website-files.com/5a1eb87c9afe1000014a4c7d/6263e7054c546e35514fa3c6_Poster%20(3).png" alt="Social Media Internship" class="article-image">
+        <div class="article-content">
+          <div class="article-date">December 2023</div>
+          <h3 class="article-title">From Intern to Strategist: My Remote Social Media Journey</h3>
+          <p class="article-summary">Completing my internship at Dezaina.tech taught me how to build strategy from scratch — using calendars, AI, and data to drive real engagement.</p>
+          <div class="article-tags">
+            <span class="article-tag">#Internship</span>
+            <span class="article-tag">#SocialMedia</span>
+            <span class="article-tag">#RemoteWork</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <div class="footer-logo">The Brand Called Me</div>
+        <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank"><i class="fas fa-file-pdf"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:santhoshselvan0603@gmail.com">Email Me</a></li>
+          <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank">LinkedIn</a></li>
+          <li><a href="tel:+447741024616">Call Me</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+  <h4>Explore My Work</h4>
+  <ul>
+    <li><a href="portfolio.html">View Portfolio</a></li>
+    <li><a href="newsletter.html">Read Insights</a></li>
+    <li><a href="https://santhosh06.my.canva.site/" target="_blank">Interactive Presentation</a></li>
+  </ul>
+</div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 The Brand Called Me. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Popups -->
+
+<!-- Popup 1: AI Insight (Oct 2025) -->
+<div class="popup" id="ai-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('ai-popup')">✕</button>
+    <h2 class="popup-title">📌 Weekly Insight: AI in Promotional Content</h2>
+    <p class="popup-date">October 2025</p>
+    <img src="https://media.licdn.com/dms/image/v2/D5622AQHAco0bS5KBaQ/feedshare-shrink_1280/B56ZkkNHFGH8As-/0/1757249042045?e=1759968000&v=beta&t=Uos4QFOfxti87AJT_f4PP3nzGmTCeJnzAD3w-cE6iHk" alt="AI in Marketing" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>The Real Issue Isn’t AI — It’s Trust</h4>
+      <p>We keep hearing: "AI is ruining creativity." But what if the real issue isn’t the technology, but how we talk about it?</p>
+      <p>In a recent blind test, most participants couldn’t even spot AI-generated promotional posters. But when told the content was AI-made, trust dropped sharply — not because of quality, but because of secrecy.</p>
+      <p>And here’s the shift: 23% of respondents blamed the Marketing/PR team, not the AI developers. That’s a wake-up call.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>PR Is No Longer Just About Messaging</h4>
+      <p>It’s about ethical gatekeeping. In the age of synthetic media, transparency isn’t a risk — it’s the foundation of trust.</p>
+      <p>So if you’re using AI:</p>
+      <ul>
+        <li><strong>Say so early:</strong> Label AI-assisted content clearly.</li>
+        <li><strong>Frame it as a tool:</strong> Not a replacement, but an enhancer.</li>
+        <li><strong>Credit human oversight:</strong> Show the team behind the machine.</li>
+        <li><strong>Own the narrative:</strong> Don’t wait for backlash — lead with honesty.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>What I Learned</h4>
+      <p>Audiences aren’t asking for perfection. They’re asking for honesty. The future of ethical AI communication starts with conversation — and I’m committed to leading it.</p>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">AI Ethics</span>
+      <span class="popup-skill">Transparency</span>
+      <span class="popup-skill">Public Relations</span>
+      <span class="popup-skill">Brand Trust</span>
+      <span class="popup-skill">Marketing Strategy</span>
+    </div>
+  </div>
+</div>
+
+<!-- Popup 2: GAP vs AE (Aug 2025) -->
+<div class="popup" id="gap-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('gap-popup')">✕</button>
+    <h2 class="popup-title">GAP’s Denim Danced. AE’s Ad Tripped.</h2>
+    <p class="popup-date">August 2025</p>
+    <img src="https://media.licdn.com/dms/image/v2/D5622AQFZauS7bAnhCA/feedshare-shrink_800/B56ZjiSSW1IAAg-/0/1756143101964?e=1759968000&v=beta&t=Am2KekNW8xLRmnB409Dtm0wavnDnscliyN6iGsxQ8l4" alt="GAP Denim Campaign" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Why One Campaign Sparked Joy, the Other Backlash</h4>
+      <p>On August 19, GAP launched its denim campaign with KATSEYE, the global girl group. Y2K-inspired fits, sharp choreography, and Kelis’ “Milkshake” — but the brilliance was deeper.</p>
+      <p>Each member symbolized a different personality, background, and style. Together, they formed an iridescent whole — a metaphor for denim’s diversity.</p>
+      <p>GAP didn’t just show jeans. It showed range.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Now Compare to American Eagle x Sydney Sweeney</h4>
+      <p>Sydney is talented, influential — but AE branded her in the flattest way: a pun on “Great Jeans/Genes.”</p>
+      <p>Instead of celebrating individuality, they reduced her to biology. In 2025, when conversations around beauty standards are louder than ever, the ad backfired.</p>
+      <p>Both went viral. But GAP sparked joy and nostalgia. AE sparked backlash and debate.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>The Lesson for Marketers</h4>
+      <p>A spokesperson is never just a person. They’re a symbol.</p>
+      <p>KATSEYE became a metaphor for denim’s diversity. Sydney was reduced to a tagline.</p>
+      <p><strong>Attention is easy. Affection is earned.</strong></p>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Brand Strategy</span>
+      <span class="popup-skill">Viral Marketing</span>
+      <span class="popup-skill">Cultural Insight</span>
+      <span class="popup-skill">Advertising</span>
+      <span class="popup-skill">Marketing Analysis</span>
+    </div>
+  </div>
+</div>
+
+<!-- Popup 3: Brand Campaign (Feb 2025) -->
+<div class="popup" id="brand-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('brand-popup')">✕</button>
+    <h2 class="popup-title">🚀 Not a Candidate. A Campaign.</h2>
+    <p class="popup-date">February 2025</p>
+    <img src="https://media.licdn.com/dms/image/v2/D5622AQFxQUIKTG9qZw/feedshare-shrink_800/B56ZkB1i4CHQAg-/0/1756672440470?e=1759968000&v=beta&t=bKIgSnOY-NCZLk9mEJ3eURCBRy0NFuOgpEjOfMQQSh0" alt="The Brand Called Me" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Introducing: The Brand Called Me</h4>
+      <p>Every brand deserves a launch. This is mine.</p>
+      <p>This isn’t a job search. It’s a marketing drop — a mix of strategy, creativity, and a little bit of drama.</p>
+      <p>I’m not just applying. I’m launching.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Why I’m Doing This</h4>
+      <p>In a world where candidates blend in, I want to stand out — not as a resume, but as a story.</p>
+      <p>The goal? To build a personal brand that reflects my values: strategic depth, creative execution, and authentic storytelling.</p>
+      <p>I want to work with teams that don’t just hire talent — they build movements.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>The Aim</h4>
+      <p>To attract forward-thinking organizations in marketing, strategy, or product — where innovation is the norm, not the exception.</p>
+      <p>Stay tuned for the rollout. This is just the beginning.</p>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Personal Branding</span>
+      <span class="popup-skill">Marketing Strategy</span>
+      <span class="popup-skill">Creative Campaigns</span>
+      <span class="popup-skill">Storytelling</span>
+      <span class="popup-skill">Digital Marketing</span>
+    </div>
+  </div>
+</div>
+
+<!-- Popup 4: Student Innovation Project (Jan 2025) -->
+<div class="popup" id="sip-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('sip-popup')">✕</button>
+    <h2 class="popup-title">Building a Support System for Mountaineer Families</h2>
+    <p class="popup-date">January 2025</p>
+    <img src="https://media.licdn.com/dms/image/v2/D5622AQE0v8hAHXTe_g/feedshare-shrink_800/B56ZVDOwuJGQAk-/0/1740589698898?e=1759968000&v=beta&t=aC22WkKsDep2f7n7WynTuX4eF8kUgGDE62BD39YC6v8" alt="Student Innovation Project" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>The Challenge</h4>
+      <p>My team and I took part in the Student Innovation Project with the Nimsdai Foundation and the University of Southampton. Our mission: develop a financial aid model for families affected by mountaineering accidents.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Our Solution</h4>
+      <ul>
+        <li><strong>Financial & Emotional Support:</strong> A digital platform for resource access and emotional care.</li>
+        <li><strong>Sustainable Funding:</strong> Explored models like memorial climbs and corporate sponsorships.</li>
+        <li><strong>Fair Application Process:</strong> Designed a Survivor Priority Index (SPI) for equitable aid distribution.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Team & Gratitude</h4>
+      <p>Working with Ivan Chan, Xi Zhengyuan, Chenyi Wang, and 艺娜 Yina was inspiring. Special thanks to Glen Mallen from Nimsdai Foundation, and Rebecca Petty and Dan Bradley for their guidance.</p>
+      <p>This journey was about empathy, innovation, and impact — and I’m proud of what we built.</p>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Innovation</span>
+      <span class="popup-skill">Social Impact</span>
+      <span class="popup-skill">Problem Solving</span>
+      <span class="popup-skill">Team Collaboration</span>
+      <span class="popup-skill">Sustainable Design</span>
+    </div>
+  </div>
+</div>
+
+<!-- Popup 5: MSc at Southampton (Sep 2024) -->
+<div class="popup" id="msc-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('msc-popup')">✕</button>
+    <h2 class="popup-title">Starting My MSc at the University of Southampton</h2>
+    <p class="popup-date">September 2024</p>
+    <img src="https://media.licdn.com/dms/image/v2/D5622AQFkCdN5xTob2A/feedshare-shrink_800/B56ZeKYf.GGoAk-/0/1750373369713?e=1759968000&v=beta&t=YTFX6jCfjAvoc5CMucDIZyLTWHYFJI7yjrUSCOUoMgg" alt="MSc at Southampton" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>A New Chapter</h4>
+      <p>I’m thrilled to begin my MSc in Digital Strategy & Information Systems at the University of Southampton.</p>
+      <p>After months of preparation, I’ve moved to the UK, ready to dive into a curriculum that blends data, strategy, and innovation.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>What I’m Excited About</h4>
+      <ul>
+        <li><strong>Digital Business:</strong> Osterwalder’s Canvas, competitive strategy, monetization models.</li>
+        <li><strong>Web Development:</strong> Building full-stack apps with HTML, CSS, JS, PHP, MySQL.</li>
+        <li><strong>Simulation:</strong> Using AnyLogic to model marketing ROI and supply chain dynamics.</li>
+        <li><strong>Agile & Innovation:</strong> Sprint planning, stakeholder engagement, ABC model.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Looking Ahead</h4>
+      <p>This is more than a degree. It’s a transformation. I’m ready to grow, learn, and contribute.</p>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Digital Strategy</span>
+      <span class="popup-skill">Web Development</span>
+      <span class="popup-skill">Data Analytics</span>
+      <span class="popup-skill">Agile</span>
+      <span class="popup-skill">AnyLogic</span>
+    </div>
+  </div>
+</div>
+
+<!-- Popup 6: Internship Completion (Dec 2023) -->
+<div class="popup" id="internship-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('internship-popup')">✕</button>
+    <h2 class="popup-title">From Intern to Strategist: My Remote Social Media Journey</h2>
+    <p class="popup-date">December 2023</p>
+    <img src="https://assets-global.website-files.com/5a1eb87c9afe1000014a4c7d/6263e7054c546e35514fa3c6_Poster%20(3).png" alt="Social Media Internship" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>The Experience</h4>
+      <p>I’m delighted to share that I successfully completed my Social Media Marketing internship at Dezaina.tech from August to September 2023.</p>
+      <p>It was a remote role, and I collaborated with a small but dynamic team to build and execute campaigns from scratch.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>How I Did It</h4>
+      <ul>
+        <li><strong>Content Calendar:</strong> Created a one-month content calendar using Asana and Canva, aligning with market trends and audience behavior.</li>
+        <li><strong>Market Analysis:</strong> Researched competitors and trends to pitch data-driven content ideas.</li>
+        <li><strong>AI Tools:</strong> Used generative AI to brainstorm headlines and refine copy, always with human oversight.</li>
+        <li><strong>Team Collaboration:</strong> Coordinated with designers and copywriters to ensure brand consistency.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>What I Learned</h4>
+      <p>This internship taught me how to turn strategy into action. I learned to balance creativity with data, and to communicate clearly in a remote environment.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Skills & Tools</h4>
+      <div class="popup-skills">
+        <span class="popup-skill">Content Creation</span>
+        <span class="popup-skill">Canva</span>
+        <span class="popup-skill">Asana</span>
+        <span class="popup-skill">AI Tools</span>
+        <span class="popup-skill">Remote Collaboration</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- JavaScript -->
+  <script>
+    function openPopup(id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePopup(id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close popup on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.popup.active').forEach(popup => {
+          closePopup(popup.id);
+        });
+      }
+    });
+
+    // Close popup if clicking outside the content
+    document.querySelectorAll('.popup').forEach(popup => {
+      popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+          closePopup(popup.id);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
