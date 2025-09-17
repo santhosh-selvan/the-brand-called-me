@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | The Brand Called Me</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+
+    /* Active Navigation Link */
+.nav-links a.nav-link {
+  position: relative;
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-links a.nav-link:hover {
+  color: var(--deep-orange);
+}
+
+/* Active Link Indicator (Orange Underline) */
+.nav-links a.nav-link.active {
+  color: var(--deep-orange);
+}
+
+.nav-links a.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--soft-orange);
+  border-radius: 3px;
+}
+
+
+
+
+    :root {
+      --soft-orange: #F97316;
+      --deep-orange: #EA580C;
+      --warm-cream: #FEF7ED;
+      --soft-gray: #F8F9FA;
+      --dark: #111827;
+      --mid-gray: #6B7280;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--warm-cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .site-header {
+      padding: 2rem 0;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--deep-orange);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    /* Section */
+    .section {
+      padding: 6rem 2rem;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--mid-gray);
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+     /* Footer */
+    .footer {
+      background: white;
+      padding: 4rem 2rem;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      color: var(--mid-gray);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--deep-orange);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links h4 {
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--mid-gray);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--mid-gray);
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--mid-gray);
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      background: var(--soft-orange);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .contact-text h4 {
+      margin: 0 0 0.3rem;
+      font-size: 1.2rem;
+      color: var(--dark);
+    }
+
+    .contact-text p {
+      margin: 0;
+      color: var(--mid-gray);
+      font-size: 1rem;
+    }
+
+    .contact-text a {
+      color: var(--deep-orange);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* Portfolio Link */
+    .portfolio-link {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .portfolio-link h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin: 0 0 1rem;
+    }
+
+    .portfolio-link p {
+      color: var(--mid-gray);
+      margin: 0 0 1.5rem;
+    }
+
+    .portfolio-btn {
+      background: var(--soft-orange);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .portfolio-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    /* Cover Letter */
+    .cover-letter {
+      background: white;
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .cover-letter h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--deep-orange);
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .cover-letter .signature {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--dark);
+      margin-top: 2rem;
+      font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2.2rem;
+      }
+      .contact-item {
+        gap: 0.8rem;
+      }
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+<header class="site-header">
+  <div class="header-container">
+    <a href="index.html" class="logo">The Brand Called Me</a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+<a href="about.html" class="nav-link">About Me</a>
+<a href="portfolio.html" class="nav-link">Portfolio</a>
+<a href="newsletter.html" class="nav-link">Newsletter</a>
+<a href="contact.html" class="nav-link active">Contact Me</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- Section: Contact -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Let’s Connect</h2>
+      <p class="section-subtitle">I’d love to hear from you — whether it’s a job opportunity, collaboration, or just a chat about strategy and storytelling.</p>
+
+      <div class="contact-grid">
+        <!-- Left: Contact Info & Portfolio -->
+        <div class="contact-info">
+          <!-- Email -->
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email Me</h4>
+              <p>Send a message directly to my inbox.</p>
+              <a href="mailto:santhoshselvan0603@gmail.com">santhoshselvan0603@gmail.com</a>
+            </div>
+          </div>
+
+          <!-- LinkedIn -->
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </div>
+            <div class="contact-text">
+              <h4>LinkedIn</h4>
+              <p>Let’s connect and stay in touch.</p>
+              <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank">linkedin.com/in/santhosh-selvan</a>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Call Me</h4>
+              <p>Available for calls in UK time.</p>
+              <a href="tel:+447741024616">+44 7741 024616</a>
+            </div>
+          </div>
+
+          <!-- Portfolio Link -->
+          <div class="portfolio-link">
+            <h3>🚀 My Interactive Portfolio</h3>
+            <p>A visual journey of my work, strategy, and brand campaign — built in Canva.</p>
+            <a href="https://santhosh06.my.canva.site/" target="_blank" class="portfolio-btn">
+              View Presentation →
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Cover Letter -->
+        <div>
+          <div class="cover-letter">
+            <h2>A Note from Me</h2>
+            <p>Dear Hiring Team,</p>
+            <p>I’m not just applying for a role — I’m launching a brand. A brand built on the belief that strategy, creativity, and authenticity can change how we connect with audiences.</p>
+            <p>From building full-stack web apps to analyzing Netflix’s business model, I’ve learned that real impact comes from asking the right questions, not just having the right answers.</p>
+            <p>This portfolio isn’t a resume. It’s a campaign — a deliberate choice to be different. I blend data with storytelling, innovation with empathy, and vision with execution.</p>
+            <p>I’m ready to bring this mindset to forward-thinking teams in strategy, marketing, or product. I don’t just want a job. I want to build the future — with you.</p>
+            <p>I’d love to discuss how my skills can contribute to your mission.</p>
+            <div class="signature">Santhosh Selvan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <div class="footer-logo">The Brand Called Me</div>
+        <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank"><i class="fas fa-file-pdf"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:santhoshselvan0603@gmail.com">Email Me</a></li>
+          <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank">LinkedIn</a></li>
+          <li><a href="tel:+447741024616">Call Me</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+  <h4>Explore My Work</h4>
+  <ul>
+    <li><a href="portfolio.html">View Portfolio</a></li>
+    <li><a href="newsletter.html">Read Insights</a></li>
+    <li><a href="https://santhosh06.my.canva.site/" target="_blank">Interactive Presentation</a></li>
+  </ul>
+</div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 The Brand Called Me. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
