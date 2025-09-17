@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SANTHOSH SELVAN I S</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --soft-orange: #F97316;
+      --deep-orange: #EA580C;
+      --warm-cream: #FEF7ED;
+      --dark: #111827;
+      --mid-gray: #6B7280;
+      --gradient-orange: linear-gradient(135deg, #F97316, #EA580C);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--warm-cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background Stripes - Alternating Zebra Pattern */
+    .background-stripes {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .background-stripes .stripe {
+      position: absolute;
+      width: 100%;
+      font-size: 3.25rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      white-space: nowrap;
+      opacity: 0.12;
+      color: #000;
+      transform: skewY(-12deg);
+      animation: scrollStripeAlternate 40s linear infinite;
+    }
+    .background-stripes .stripe:nth-child(odd) {
+      animation-direction: normal;
+    }
+    .background-stripes .stripe:nth-child(even) {
+      animation-direction: reverse;
+    }
+    .background-stripes .stripe:nth-child(1) { top: 12%; }
+    .background-stripes .stripe:nth-child(2) { top: 36%; }
+    .background-stripes .stripe:nth-child(3) { top: 60%; }
+    .background-stripes .stripe:nth-child(4) { top: 84%; }
+
+    @keyframes scrollStripeAlternate {
+      0% { transform: translateX(100%) skewY(-12deg); }
+      100% { transform: translateX(-100%) skewY(-12deg); }
+    }
+
+    /* Header */
+    .site-header {
+      padding: 2rem 0;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--deep-orange);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a.nav-link {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a.nav-link:hover {
+      color: var(--deep-orange);
+    }
+
+    .nav-links a.nav-link.active {
+      color: var(--deep-orange);
+    }
+
+    .nav-links a.nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--soft-orange);
+      border-radius: 3px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 12rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      color: var(--mid-gray);
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero .highlight {
+      color: var(--soft-orange);
+      font-weight: 600;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--gradient-orange);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.4s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    /* Moving Skills inside body */
+    .skills-body-marquee {
+      margin: 2rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .skills-body-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 2.5rem;
+      animation: scrollBodyLogos 35s linear infinite;
+    }
+
+    .skills-body-item {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--deep-orange);
+      text-decoration: none;
+    }
+
+    .skills-body-item i {
+      font-size: 1.2rem;
+    }
+
+    .skills-body-item:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes scrollBodyLogos {
+      0% { transform: translateX(100%) }
+      100% { transform: translateX(-100%) }
+    }
+
+    /* Footer */
+    .footer {
+      background: white;
+      padding: 4rem 2rem;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      color: var(--mid-gray);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--deep-orange);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links h4 {
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--mid-gray);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--mid-gray);
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--mid-gray);
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .background-stripes .stripe {
+        font-size: 2.2rem;
+      }
+      .skills-body-item {
+        font-size: 0.9rem;
+      }
+      .skills-body-track {
+        gap: 1.2rem;
+        animation-duration: 40s;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Stripes -->
+  <div class="background-stripes">
+    <div class="stripe">STRATEGIST • CREATOR • INNOVATOR • ANALYST • LEADER • BUILDER</div>
+    <div class="stripe">PUBLIC RELATIONS • MARKETING • DIGITAL STRATEGY • RESEARCH • COMMUNITY</div>
+    <div class="stripe">PASSIONATE • DRIVEN • CREATIVE • FOCUSED</div>
+    <div class="stripe">RESULTS • INSIGHTS • STORYTELLING • SYSTEMS</div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">The Brand Called Me</a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About Me</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="newsletter.html" class="nav-link">Newsletter</a>
+        <a href="contact.html" class="nav-link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>SANTHOSH SELVAN I S</h1>
+    <p>A <span class="highlight">data-driven strategist</span> building a brand to <span class="highlight">earn his seat at the table</span>.<br>
+       Mobile tech enthusiast. Content creator. Community builder. Future innovator.</p>
+    <div class="cta-buttons">
+      <a href="portfolio.html" class="cta-btn"><i class="fas fa-briefcase"></i> View Portfolio</a>
+      <a href="contact.html" class="cta-btn"><i class="fas fa-envelope"></i> Get in Touch</a>
+    </div>
+
+    <!-- Moving Skills inside body -->
+    <div class="skills-body-marquee">
+      <div class="skills-body-track">
+        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/Microsoft_Power_BI" target="_blank"><i class="fa-solid fa-square-poll-vertical"></i> Power BI</a>
+        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/Microsoft_Excel" target="_blank"><i class="fa-solid fa-file-excel"></i> Excel</a>
+        <span class="skills-body-item"><i class="fa-solid fa-chart-line"></i> Data Analytics</span>
+        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/Canva" target="_blank"><i class="fa-solid fa-palette"></i> Canva</a>
+        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/Figma" target="_blank"><i class="fa-brands fa-figma"></i> Figma</a>
+        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/C++" target="_blank"><i class="fa-solid fa-code"></i> C++</a>
+        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/HTML" target="_blank"><i class="fa-brands fa-html5"></i> HTML</a>
+        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/CSS" target="_blank"><i class="fa-brands fa-css3-alt"></i> CSS</a>
+        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/Hootsuite" target="_blank"><i class="fa-solid fa-bullhorn"></i> Hootsuite</a>
+        <span class="skills-body-item"><i class="fa-solid fa-hashtag"></i> Social Media Management</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <div class="footer-logo">The Brand Called Me</div>
+        <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank"><i class="fas fa-file-pdf"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:santhoshselvan0603@gmail.com">Email Me</a></li>
+          <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank">LinkedIn</a></li>
+          <li><a href="tel:+447741024616">Call Me</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+  <h4>Explore My Work</h4>
+  <ul>
+    <li><a href="portfolio.html">View Portfolio</a></li>
+    <li><a href="newsletter.html">Read Insights</a></li>
+    <li><a href="https://santhosh06.my.canva.site/" target="_blank">Interactive Presentation</a></li>
+  </ul>
+</div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 The Brand Called Me. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
