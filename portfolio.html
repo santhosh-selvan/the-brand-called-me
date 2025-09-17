@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | The Brand Called Me</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --soft-orange: #F97316;
+      --deep-orange: #EA580C;
+      --warm-cream: #FEF7ED;
+      --soft-gray: #F8F9FA;
+      --dark: #111827;
+      --mid-gray: #6B7280;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--warm-cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .site-header {
+      padding: 2rem 0;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--deep-orange);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    /* Section */
+    .section {
+      padding: 6rem 2rem;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--mid-gray);
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    /* Horizontal Gallery */
+    .gallery-container {
+      position: relative;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 1rem 0;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--soft-orange) transparent;
+    }
+
+    .gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .gallery::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .gallery::-webkit-scrollbar-thumb {
+      background-color: var(--soft-orange);
+      border-radius: 4px;
+    }
+
+    .gallery-card {
+      flex: 0 0 300px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      color: var(--dark);
+      margin: 0 0 0.5rem;
+    }
+
+    .card-org {
+      color: var(--mid-gray);
+      font-size: 1rem;
+      margin: 0 0 0.8rem;
+      font-style: italic;
+    }
+
+    .card-summary {
+      font-size: 1rem;
+      color: var(--mid-gray);
+      margin: 0 0 1rem;
+    }
+
+    .card-skill {
+      display: inline-block;
+      background: rgba(249, 115, 22, 0.1);
+      color: var(--soft-orange);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin: 0.2rem 0.2rem 0 0;
+    }
+    /* Active Navigation Link */
+.nav-links a.nav-link {
+  position: relative;
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-links a.nav-link:hover {
+  color: var(--deep-orange);
+}
+
+/* Active Link Indicator (Orange Underline) */
+.nav-links a.nav-link.active {
+  color: var(--deep-orange);
+}
+
+.nav-links a.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--soft-orange);
+  border-radius: 3px;
+}
+
+    /* Popups */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .popup.active {
+      display: flex;
+    }
+
+    .popup-content {
+      background: white;
+      width: 90%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 16px;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--deep-orange);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.5rem;
+      border: none;
+    }
+
+    .popup-close:hover {
+      background: #D94600;
+    }
+
+    .popup-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--dark);
+      margin: 0 0 0.5rem;
+    }
+
+    .popup-org {
+      color: var(--mid-gray);
+      font-size: 1.1rem;
+      margin: 0 0 1.5rem;
+      font-style: italic;
+    }
+
+    .popup-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+    }
+
+    .popup-section {
+      margin: 1.5rem 0;
+    }
+
+    .popup-section h4 {
+      color: var(--deep-orange);
+      margin: 0 0 1rem;
+      font-size: 1.3rem;
+    }
+
+    .popup-section ul {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .popup-section li {
+      margin-bottom: 0.8rem;
+      color: var(--mid-gray);
+    }
+
+    .popup-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .popup-skill {
+      background: rgba(249, 115, 22, 0.1);
+      color: var(--soft-orange);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer {
+      background: white;
+      padding: 4rem 2rem;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      color: var(--mid-gray);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--deep-orange);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links h4 {
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--mid-gray);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--mid-gray);
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--deep-orange);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--mid-gray);
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2.2rem;
+      }
+      .card-title {
+        font-size: 1.3rem;
+      }
+      .popup-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">The Brand Called Me</a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+<a href="about.html" class="nav-link">About Me</a>
+<a href="portfolio.html" class="nav-link active">Portfolio</a>
+<a href="newsletter.html" class="nav-link">Newsletter</a>
+<a href="contact.html" class="nav-link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Section 1: Experience -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">Real impact, real results</p>
+
+      <div class="gallery-container">
+        <div class="gallery">
+          <!-- Card 1 -->
+          <div class="gallery-card" onclick="openPopup('social-media-popup')">
+            <img src="https://www.hubspot.com/hs-fs/hubfs/Featured%20Image%20-%20Social%20Media%20Content%20Calendar.png?width=449&height=449&name=Featured%20Image%20-%20Social%20Media%20Content%20Calendar.png" alt="Social Media Intern" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Social Media Management Intern</h3>
+              <p class="card-org">Tech Deziana | Oct 2023 – Nov 2023</p>
+              <p class="card-summary">Created 30+ engaging posts across Facebook and Instagram, increasing brand awareness and engagement.</p>
+              <div>
+                <span class="card-skill">Content Creation</span>
+                <span class="card-skill">Analytics</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="gallery-card" onclick="openPopup('managing-director-popup')">
+            <img src="https://imgs.search.brave.com/hN3NcuhNd2sSKhUUssAyT6-MO0QnLwghQXkqjiFr8nE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE0/ODc0NDY1OS92ZWN0/b3IvdG9wLXZpZXct/b2YteW91bmctcGVv/cGxlLXNpdHRpbmct/YXQtdGhlLXRhYmxl/LWFuZC1sZWFybmlu/Zy1lbmdsaXNoLXN0/dWRlbnRzLXN0dWR5/aW5nLXRvZ2V0aGVy/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz01amJKTjhMQVdn/NnI5QjlhZUlqMWJ4/Y1JZUUhWd2NXV045/dUQ3OFlqT2RjPQ" alt="Managing Director" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Managing Director</h3>
+              <p class="card-org">Department Club, SA College | Jan 2022 – Jan 2023</p>
+              <p class="card-summary">Planned and executed 10+ major campaigns, leading a 5-member team with autonomy.</p>
+              <div>
+                <span class="card-skill">Leadership</span>
+                <span class="card-skill">Event Mgmt</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="gallery-card" onclick="openPopup('sales-assistant-popup')">
+            <img src="https://imgs.search.brave.com/PHdWrjfuq_7QgLOumfCm-fIrvg3GYiGdv9MmykxI7jg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTMz/NjcwODQ0Ni9waG90/by9jYXItc2Vydmlj/ZS1hc2lhbi1zYWxl/c21hbi1yZWNvbW1l/bmQtbmV3LXRpcmUt/d2hlZWwtb24tc2hl/bHZlcy1zaGVsZi10/by1zZW5pb3ItZWxk/ZXJseS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9YTJtX2pP/UWxYelpkc0duMmt0/ajNJQVc5azliVVBN/aUhaRDNXNDkwLS1l/WT0" alt="Sales Assistant" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Sales Assistant</h3>
+              <p class="card-org">Naveen Auto Spares | Nov 2023 – Jul 2024</p>
+              <p class="card-summary">Optimized sales by understanding customer needs and recommending products.</p>
+              <div>
+                <span class="card-skill">Customer Service</span>
+                <span class="card-skill">Operations</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="gallery-card" onclick="openPopup('secretary-popup')">
+            <img src="https://mcet.in/wp-content/uploads/CCC-Logo.png" alt="Secretary" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Secretary</h3>
+              <p class="card-org">Citizen Consumer Club | Jan 2021 – Jan 2022</p>
+              <p class="card-summary">Developed press kits and coordinated with stakeholders for community events.</p>
+              <div>
+                <span class="card-skill">Communication</span>
+                <span class="card-skill">Event Planning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Projects -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Innovation & execution</p>
+
+      <div class="gallery-container">
+        <div class="gallery">
+          <!-- Project 1 -->
+          <div class="gallery-card" onclick="openPopup('ecowander-popup')">
+            <img src="https://media.licdn.com/dms/image/v2/D5622AQFkCdN5xTob2A/feedshare-shrink_800/B56ZeKYf.GGoAk-/0/1750373369713?e=1759968000&v=beta&t=YTFX6jCfjAvoc5CMucDIZyLTWHYFJI7yjrUSCOUoMgg" alt="EcoWander" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">EcoWander</h3>
+              <p class="card-org">University of Southampton | Apr 2025</p>
+              <p class="card-summary">Full-stack web app for sustainable adventure travel with dynamic pricing and accessibility.</p>
+              <div>
+                <span class="card-skill">Web Dev</span>
+                <span class="card-skill">UX</span>
+                <span class="card-skill">PHP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="gallery-card" onclick="openPopup('netflix-popup')">
+            <img src="https://media.licdn.com/dms/image/v2/D5622AQEeOxWM5dvhIg/feedshare-shrink_800/B56ZcWfex8GoAg-/0/1748429043822?e=1759968000&v=beta&t=xkgqmmRkMWNhnY7DC25RW1UF9qUmwniHNjJLao2CtC4" alt="Netflix Analysis" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Netflix Business Model Analysis</h3>
+              <p class="card-org">University of Southampton | Mar 2025</p>
+              <p class="card-summary">Osterwalder’s Canvas analysis of streaming wars, benchmarking against Disney+ and HBO Max.</p>
+              <div>
+                <span class="card-skill">Strategy</span>
+                <span class="card-skill">Analysis</span>
+                <span class="card-skill">Benchmarking</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="gallery-card" onclick="openPopup('training-popup')">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.4SZXJEIICsSiLLm4Zqv8NQHaE0?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Training Platform" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Business Analytics Training Platform</h3>
+              <p class="card-org">University of Southampton | Jan 2025</p>
+              <p class="card-summary">56-page proposal for an AI-powered training platform with Figma wireframes.</p>
+              <div>
+                <span class="card-skill">AI Strategy</span>
+                <span class="card-skill">Figma</span>
+                <span class="card-skill">Agile</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="gallery-card" onclick="openPopup('sip-popup')">
+            <img src="https://media.licdn.com/dms/image/v2/D5622AQE0v8hAHXTe_g/feedshare-shrink_800/B56ZVDOwuJGQAk-/0/1740589698898?e=1759968000&v=beta&t=aC22WkKsDep2f7n7WynTuX4eF8kUgGDE62BD39YC6v8" alt="SIP Project" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Student Innovation Project</h3>
+              <p class="card-org">University of Southampton & Nimsdai Foundation | Jan 2025</p>
+              <p class="card-summary">Proposed financial/emotional support for bereaved families of mountaineers.</p>
+              <div>
+                <span class="card-skill">Innovation</span>
+                <span class="card-skill">Social Impact</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="gallery-card" onclick="openPopup('des-popup')">
+            <img src="https://thvnext.bing.com/th/id/OIP.1LyJj-CrPj-p8tAdOhYa6QHaDq?w=335&h=173&c=7&r=0&o=7&cb=ucfimg2&dpr=1.2&pid=1.7&rm=3&ucfimg=1" alt="DES Simulation" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Marketing Channel Simulation</h3>
+              <p class="card-org">University of Southampton | Nov 2024</p>
+              <p class="card-summary">AnyLogic model to optimize ROI across paid ads, email, and social channels.</p>
+              <div>
+                <span class="card-skill">Simulation</span>
+                <span class="card-skill">ROI</span>
+                <span class="card-skill">AnyLogic</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="gallery-card" onclick="openPopup('health-popup')">
+            <img src="https://treinetic.com/wp-content/uploads/2021/07/Agile-Development-Methadology.jpg" alt="Health Waikato" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Public Sector IT Failure</h3>
+              <p class="card-org">University of Southampton | Nov 2024</p>
+              <p class="card-summary">Analyzed Health Waikato’s SMS failure using balance sheet framework.</p>
+              <div>
+                <span class="card-skill">Public Sector</span>
+                <span class="card-skill">Agile</span>
+                <span class="card-skill">ABC Model</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 7 -->
+          <div class="gallery-card" onclick="openPopup('decoy-popup')">
+            <img src="https://behavioraldevlab.org/media/blog/img/decoy-effect.jpg" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Academic Research: Decoy Effect</h3>
+              <p class="card-org">University of Madras | Jan 2023</p>
+              <p class="card-summary">Analyzed how asymmetric pricing influences consumer decisions.</p>
+              <div>
+                <span class="card-skill">Consumer Psych</span>
+                <span class="card-skill">Behavioral Econ</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 8 -->
+          <div class="gallery-card" onclick="openPopup('freelance-popup')">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.jmdik6wP9ba1h0XxosWjMQHaEK?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Freelance Research" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Platformization of Freelance Work</h3>
+              <p class="card-org">University of Madras | Jan 2022</p>
+              <p class="card-summary">Researched gig economy trends and digital branding challenges.</p>
+              <div>
+                <span class="card-skill">Gig Economy</span>
+                <span class="card-skill">Digital Branding</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Education -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Education</h2>
+      <p class="section-subtitle">Academic foundation for strategic innovation</p>
+
+      <div class="gallery-container">
+        <div class="gallery">
+          <!-- Education 1 -->
+          <div class="gallery-card" onclick="openPopup('msc-popup')">
+            <img src="https://imgs.search.brave.com/pmh8UXYugwt3qowqHcLk6wAmKuDJapeEe-jE1w7Twdk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTYx/NDE3NjkwMy9waG90/by90aGUtdW5pdmVy/c2l0eS1vZi1zb3V0/aGFtcHRvbi5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9U2VC/bXdHSVktZEhYQ1Fz/Nko1OXN1NFAwTHJl/YXFmVGNBMGV6Qm96/WTJCdz0" alt="University of Southampton" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">MSc Digital Strategy & Info Systems</h3>
+              <p class="card-org">University of Southampton | Sep 2024 – Present</p>
+              <p class="card-summary">Courses: Digital Business, Web Dev, Simulation, Agile.</p>
+              <div>
+                <span class="card-skill">Digital Strategy</span>
+                <span class="card-skill">Web Dev</span>
+                <span class="card-skill">AnyLogic</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education 2 -->
+          <div class="gallery-card" onclick="openPopup('bcom-popup')">
+            <img src="https://imgs.search.brave.com/nWPxoBFhZuv7_b0TvTp_u0Gpr7zxnxxHzcE0YmaM_0g/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy82/LzYzL1VuaXZlcnNp/dHlfb2ZfTWFkcmFz/X0VudHJhbmNlX0Fy/Y2hfYXRfQ2hlcGF1/a19DYW1wdXMuSlBH" alt="University of Madras" class="card-image">
+            <div class="card-content">
+              <h3 class="card-title">Bachelor of Commerce General</h3>
+              <p class="card-org">University of Madras | Jul 2020 – Jul 2023</p>
+              <p class="card-summary">Courses: Consumer Psychology, Financial Analysis, Marketing.</p>
+              <div>
+                <span class="card-skill">Consumer Psych</span>
+                <span class="card-skill">Financial Analysis</span>
+                <span class="card-skill">Market Research</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Skills -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">Tools I use to drive impact</p>
+
+      <div class="gallery-container">
+        <div class="gallery">
+          <!-- Skill 1 -->
+          <div class="gallery-card" onclick="openPopup('web-dev-popup')">
+            <div class="card-content" style="text-align: center; padding: 2rem;">
+              <i class="fas fa-code" style="font-size: 3rem; color: var(--soft-orange); margin-bottom: 1rem;"></i>
+              <h3 class="card-title">Web Development</h3>
+              <p>HTML5, CSS3, JavaScript, PHP, MySQL, Bootstrap, Figma</p>
+            </div>
+          </div>
+
+          <!-- Skill 2 -->
+          <div class="gallery-card" onclick="openPopup('strategy-popup')">
+            <div class="card-content" style="text-align: center; padding: 2rem;">
+              <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--soft-orange); margin-bottom: 1rem;"></i>
+              <h3 class="card-title">Strategic Analysis</h3>
+              <p>Osterwalder's Canvas, Competitive Analysis, Business Modeling</p>
+            </div>
+          </div>
+
+          <!-- Skill 3 -->
+          <div class="gallery-card" onclick="openPopup('analytics-popup')">
+            <div class="card-content" style="text-align: center; padding: 2rem;">
+              <i class="fas fa-database" style="font-size: 3rem; color: var(--soft-orange); margin-bottom: 1rem;"></i>
+              <h3 class="card-title">Data Analytics</h3>
+              <p>Power BI, AnyLogic, A/B Testing, ROI Optimization</p>
+            </div>
+          </div>
+
+          <!-- Skill 4 -->
+          <div class="gallery-card" onclick="openPopup('project-popup')">
+            <div class="card-content" style="text-align: center; padding: 2rem;">
+              <i class="fas fa-project-diagram" style="font-size: 3rem; color: var(--soft-orange); margin-bottom: 1rem;"></i>
+              <h3 class="card-title">Project Management</h3>
+              <p>Agile, Scrum, Trello, Stakeholder Coordination</p>
+            </div>
+          </div>
+
+          <!-- Skill 5 -->
+          <div class="gallery-card" onclick="openPopup('ai-popup')">
+            <div class="card-content" style="text-align: center; padding: 2rem;">
+              <i class="fas fa-robot" style="font-size: 3rem; color: var(--soft-orange); margin-bottom: 1rem;"></i>
+              <h3 class="card-title">AI & Innovation</h3>
+              <p>BERT, NLP, Adaptive Learning, AI Strategy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Summary -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Final Summary</h2>
+      <p class="section-subtitle"><strong>Why I stand out</strong></p>
+      <div style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: var(--mid-gray); text-align: center;">
+<p>What sets me apart is a unique blend of <strong>strategic thinking and hands-on creativity.</strong>. I approach every project with a <strong>data-driven mindset </strong>. to understand its business impact.</p>
+<p>From analyzing market trends to launching high-impact campaigns, I focus on delivering results with <strong>clarity and innovation</strong>.</p>
+<p>I’m ready to bring this mindset to forward-thinking teams in <strong>marketing, strategy, or product management</strong>.</p>
+<p><a href="contact.html" style="color: var(--deep-orange); text-decoration: underline;">Get in touch</a> to discuss how I can contribute.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <div class="footer-logo">The Brand Called Me</div>
+        <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank"><i class="fas fa-file-pdf"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:santhoshselvan0603@gmail.com">Email Me</a></li>
+          <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank">LinkedIn</a></li>
+          <li><a href="tel:+447741024616">Call Me</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+  <h4>Explore My Work</h4>
+  <ul>
+    <li><a href="portfolio.html">View Portfolio</a></li>
+    <li><a href="newsletter.html">Read Insights</a></li>
+    <li><a href="https://santhosh06.my.canva.site/" target="_blank">Interactive Presentation</a></li>
+  </ul>
+</div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 The Brand Called Me. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Popups -->
+<!-- Experience Popups -->
+
+<div class="popup" id="social-media-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('social-media-popup')">×</button>
+    <h2 class="popup-title">Social Media Management Intern</h2>
+    <p class="popup-org">Tech Deziana | Oct 2023 – Nov 2023 | India</p>
+    <img src="https://www.hubspot.com/hs-fs/hubfs/Featured%20Image%20-%20Social%20Media%20Content%20Calendar.png?width=449&height=449&name=Featured%20Image%20-%20Social%20Media%20Content%20Calendar.png" alt="Social Media Intern" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Key Responsibilities</h4>
+      <ul>
+        <li>Assisted in channel management and integrated campaign planning, ensuring consistent and timely posts across 4 key platforms, including Facebook and Instagram.</li>
+        <li>Created and curated over 30+ pieces of engaging content, including text, images, and videos, to increase brand awareness and engagement.</li>
+        <li>Helped manage online communities with followers by engaging with fans and responding to comments to support overall community operations.</li>
+        <li>Supported the implementation and analysis of data-driven campaigns, providing insights on best practices and growth opportunities.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Key Achievements</h4>
+      <ul>
+        <li>Increased engagement by 35% through a structured content calendar and targeted posting times.</li>
+        <li>Identified optimal posting windows using analytics, improving reach and visibility across platforms.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Skills & Contributions</h4>
+      <ul>
+        <li>Content Creation, Community Engagement, Adobe Creative Suite, Canva, Data Analytics, Social Media Strategy</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Content Creation</span>
+      <span class="popup-skill">Social Media</span>
+      <span class="popup-skill">Canva</span>
+      <span class="popup-skill">Analytics</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="managing-director-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('managing-director-popup')">×</button>
+    <h2 class="popup-title">Managing Director</h2>
+    <p class="popup-org">Department Club, SA College of Arts and Science | Jan 2022 – Jan 2023 | India</p>
+    <img src="https://imgs.search.brave.com/hN3NcuhNd2sSKhUUssAyT6-MO0QnLwghQXkqjiFr8nE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE0/ODc0NDY1OS92ZWN0/b3IvdG9wLXZpZXct/b2YteW91bmctcGVv/cGxlLXNpdHRpbmct/YXQtdGhlLXRhYmxl/LWFuZC1sZWFybmlu/Zy1lbmdsaXNoLXN0/dWRlbnRzLXN0dWR5/aW5nLXRvZ2V0aGVy/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz01amJKTjhMQVdn/NnI5QjlhZUlqMWJ4/Y1JZUUhWd2NXV045/dUQ3OFlqT2RjPQ" alt="Managing Director" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Key Responsibilities</h4>
+      <ul>
+        <li>Planned and executed 10+ major campaigns for a community-focused organization, demonstrating a strong ability to manage projects from inception to completion.</li>
+        <li>Collaborated with a broad team of 5+ members to align on social media best practices, ensuring all activities adhered to central processes.</li>
+        <li>Demonstrated a self-motivated and adaptable nature, tackling challenging situations and managing multiple projects simultaneously with a high degree of autonomy.</li>
+        <li>Organized the first LGBTQ+ awareness event at the college, promoting inclusion and open dialogue.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Key Achievements</h4>
+      <ul>
+        <li>First LGBTQ+ event in college history — landmark for inclusion and social impact.</li>
+        <li>Increased club membership by 40% through targeted outreach and engagement strategies.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Skills & Contributions</h4>
+      <ul>
+        <li>Leadership, Event Management, Public Speaking, Team Collaboration, Communication</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Leadership</span>
+      <span class="popup-skill">Event Management</span>
+      <span class="popup-skill">Team Collaboration</span>
+      <span class="popup-skill">Public Speaking</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="sales-assistant-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('sales-assistant-popup')">×</button>
+    <h2 class="popup-title">Sales Assistant</h2>
+    <p class="popup-org">Naveen Auto Spares Parts | Nov 2023 – Jul 2024 | Avadi, India</p>
+    <img src="https://imgs.search.brave.com/PHdWrjfuq_7QgLOumfCm-fIrvg3GYiGdv9MmykxI7jg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTMz/NjcwODQ0Ni9waG90/by9jYXItc2Vydmlj/ZS1hc2lhbi1zYWxl/c21hbi1yZWNvbW1l/bmQtbmV3LXRpcmUt/d2hlZWwtb24tc2hl/bHZlcy1zaGVsZi10/by1zZW5pb3ItZWxk/ZXJseS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9YTJtX2pP/UWxYelpkc0duMmt0/ajNJQVc5azliVVBN/aUhaRDNXNDkwLS1l/WT0" alt="Sales Assistant" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Key Responsibilities</h4>
+      <ul>
+        <li>Optimised all sales opportunities by enthusiastically serving customers, establishing their needs, and confidently recommending products.</li>
+        <li>Operated the till in an efficient manner, processing all methods of payment with high regard to customer care and security procedures.</li>
+        <li>Managed stock levels, processed sales transactions, and maintained accurate inventory, demonstrating an ability to support overall store operations.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Key Achievements</h4>
+      <ul>
+        <li>Improved inventory tracking, reducing discrepancies by 25% through regular audits and digital logging.</li>
+        <li>Recognized as top performer for customer satisfaction and service speed.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Skills & Contributions</h4>
+      <ul>
+        <li>Sales, Customer Service, Cash Handling, Inventory Management, Operations</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Sales</span>
+      <span class="popup-skill">Customer Service</span>
+      <span class="popup-skill">Inventory</span>
+      <span class="popup-skill">Operations</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="secretary-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('secretary-popup')">×</button>
+    <h2 class="popup-title">Secretary</h2>
+    <p class="popup-org">Citizen Consumer Club, SA College of Arts and Science | Jan 2021 – Jan 2022 | India</p>
+    <img src="https://mcet.in/wp-content/uploads/CCC-Logo.png" alt="Secretary" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Key Responsibilities</h4>
+      <ul>
+        <li>Exhibited great communication skills by developing standardized press kits and interacting with various internal and external stakeholders.</li>
+        <li>Contributed to maintaining the overall cleanliness and organization of resources and events, highlighting a commitment to standards.</li>
+        <li>Coordinated logistics for 5+ community events, ensuring smooth execution and stakeholder alignment.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Key Achievements</h4>
+      <ul>
+        <li>Streamlined press kit distribution, saving 10+ hours monthly in preparation time.</li>
+        <li>Improved event organization and stakeholder coordination, leading to higher attendance and engagement.</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Skills & Contributions</h4>
+      <ul>
+        <li>Communication, Documentation, Event Planning, Stakeholder Management, Organization</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Communication</span>
+      <span class="popup-skill">Event Planning</span>
+      <span class="popup-skill">Organization</span>
+      <span class="popup-skill">Documentation</span>
+    </div>
+  </div>
+</div>
+
+<!-- Projects Popups -->
+
+<div class="popup" id="ecowander-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('ecowander-popup')">×</button>
+    <h2 class="popup-title">EcoWander: Responsive Web App</h2>
+    <p class="popup-org">University of Southampton | Apr 2025</p>
+    <img src="https://media.licdn.com/dms/image/v2/D5622AQFkCdN5xTob2A/feedshare-shrink_800/B56ZeKYf.GGoAk-/0/1750373369713?e=1759968000&v=beta&t=YTFX6jCfjAvoc5CMucDIZyLTWHYFJI7yjrUSCOUoMgg" alt="EcoWander" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Project Overview</h4>
+      <p>Designed and developed a full-stack, responsive web application for a fictional eco-friendly travel company promoting sustainable adventure tourism. Created the entire brand identity — name, logo, color scheme, typography — and built the site using HTML5, CSS3, JavaScript, PHP, and MySQL, hosted on the university’s LAMP server.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Key Features</h4>
+      <ul>
+        <li>Interactive booking calculator with dynamic pricing (30% child discount, 15% VAT)</li>
+        <li>Tabbed journey interface for sustainability assessment, booking steps, and location details</li>
+        <li>Responsive design using Bootstrap 5 with custom CSS variables</li>
+        <li>Backend integration with MySQL to securely retrieve package data via PHP prepared statements</li>
+        <li>Accessibility & performance: ARIA labels, lazy loading, and mobile-first layout</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Deliverables</h4>
+      <ul>
+        <li>Multi-page responsive website</li>
+        <li>1,000-word design report justifying technical and aesthetic decisions</li>
+        <li>Limited use of generative AI tools only for debugging (e.g., resolving date logic and MySQL connection issues), with full academic transparency</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Web Development</span>
+      <span class="popup-skill">UX Research</span>
+      <span class="popup-skill">Responsive Design</span>
+      <span class="popup-skill">PHP</span>
+      <span class="popup-skill">MySQL</span>
+      <span class="popup-skill">Bootstrap</span>
+      <span class="popup-skill">Accessibility (a11y)</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="netflix-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('netflix-popup')">×</button>
+    <h2 class="popup-title">Netflix Business Model Analysis</h2>
+    <p class="popup-org">University of Southampton | Mar 2025</p>
+    <img src="https://media.licdn.com/dms/image/v2/D5622AQEeOxWM5dvhIg/feedshare-shrink_800/B56ZcWfex8GoAg-/0/1748429043822?e=1759968000&v=beta&t=xkgqmmRkMWNhnY7DC25RW1UF9qUmwniHNjJLao2CtC4" alt="Netflix Analysis" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Project Overview</h4>
+      <p>Conducted a 360° analysis of Netflix's business model using Osterwalder's Canvas framework to evaluate its competitive positioning in the streaming wars, with particular focus on content strategy, monetization challenges, and technological advantages.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Detailed Analysis</h4>
+      <ul>
+        <li><strong>Business Model Deconstruction:</strong> Mapped all 9 elements of Osterwalder's Canvas including Key Partners (Sony, AWS, TikTok creators), Revenue Streams (Subscription tiers $7–$20/month, emerging ad business), Cost Structure (70% content spend, $17B/year with 60% flop rate)</li>
+        <li><strong>Competitive Benchmarking:</strong> Compared against Disney+ (franchise model) and HBO Max (premium content): Netflix's $25 ad CPM vs. HBO's $40; 3 major franchises vs. Disney's 12</li>
+        <li><strong>Critical Challenges:</strong> $16B content debt, 23% creator attrition, rising production costs ($30M/episode for Stranger Things S5)</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Key Findings & Conclusion</h4>
+      <p><strong>Strategic Advantages:</strong> Unmatched recommendation algorithm (2,000+ taste clusters), global content leadership (25% Korean productions), first-mover binge strategy.<br>
+      <strong>Vulnerabilities:</strong> High-risk content model, lagging ad monetization, intense competition.<br>
+      <strong>Recommendations:</strong> Optimize ad-tier pricing, expand into interactive media/gaming, develop franchise IP to rival Disney.</p>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Business Model Analysis</span>
+      <span class="popup-skill">Competitive Assessment</span>
+      <span class="popup-skill">Strategic Recommendation</span>
+      <span class="popup-skill">Data Interpretation</span>
+      <span class="popup-skill">Financial Valuation</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="training-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('training-popup')">×</button>
+    <h2 class="popup-title">Business Analytics Training Platform Proposal</h2>
+    <p class="popup-org">University of Southampton | Jan 2025</p>
+    <img src="https://tse2.mm.bing.net/th/id/OIP.4SZXJEIICsSiLLm4Zqv8NQHaE0?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Training Platform" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Client Challenge</h4>
+      <p>Developed a comprehensive proposal for an industry-leading online training platform specializing in business analytics and data science, addressing unique value proposition, scalability, and corporate course licensing strategy.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Deliverables</h4>
+      <ul>
+        <li>56-page professional proposal (4,800 words)</li>
+        <li>12 interactive Figma wireframes (learner dashboard, instructor CMS, mobile-responsive UI)</li>
+        <li>Digital marketing plan covering LinkedIn/Twitter strategy, SEO/SEM roadmap, performance tracking</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Key Contributions</h4>
+      <ul>
+        <li><strong>AI-Powered Learning:</strong> Designed adaptive learning scheduler using time-series analysis, proposed NLP chatbot (BERT model) for instant Q&A, developed personalized content recommendation engine</li>
+        <li><strong>UX Design Leadership:</strong> Created user workflow diagrams for 3 core personas, reduced onboarding steps from 7→4, implemented WCAG 2.1 accessibility standards</li>
+        <li><strong>Agile Team Coordination:</strong> Facilitated bi-weekly sprints using Trello, consolidated final deliverables ensuring brand consistency</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">AI Strategy</span>
+      <span class="popup-skill">Figma Prototyping</span>
+      <span class="popup-skill">UX Research</span>
+      <span class="popup-skill">Agile Methodology</span>
+      <span class="popup-skill">Marketing Strategy</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="sip-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('sip-popup')">×</button>
+    <h2 class="popup-title">Student Innovation Project (SIP)</h2>
+    <p class="popup-org">University of Southampton & Nimsdai Foundation | Jan 2025</p>
+    <img src="https://media.licdn.com/dms/image/v2/D5622AQE0v8hAHXTe_g/feedshare-shrink_800/B56ZVDOwuJGQAk-/0/1740589698898?e=1759968000&v=beta&t=aC22WkKsDep2f7n7WynTuX4eF8kUgGDE62BD39YC6v8" alt="SIP Project" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Project Overview</h4>
+      <p>Collaborated on a Student Innovation Project aimed at addressing challenges faced by bereaved families of mountaineers. Proposed innovative solutions for financial and emotional support.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Solutions Proposed</h4>
+      <ul>
+        <li>Digital platform for emotional support and resource access</li>
+        <li>Scholarships for dependents</li>
+        <li>Survivor Priority Index (SPI) scoring system for fair aid distribution</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Impact</h4>
+      <p>Recognized for creative problem-solving and human-centered design. The SPI model was praised for its fairness and scalability.</p>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Innovation Development</span>
+      <span class="popup-skill">Problem Solving</span>
+      <span class="popup-skill">Emotional Support Systems</span>
+      <span class="popup-skill">Project Management</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="des-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('des-popup')">×</button>
+    <h2 class="popup-title">Discrete-Event Simulation (DES)</h2>
+    <p class="popup-org">University of Southampton | Nov 2024 - Jan 2025</p>
+    <img src="https://thvnext.bing.com/th/id/OIP.1LyJj-CrPj-p8tAdOhYa6QHaDq?w=335&h=173&c=7&r=0&o=7&cb=ucfimg2&dpr=1.2&pid=1.7&rm=3&ucfimg=1" alt="DES Simulation" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Objective</h4>
+      <p>Solve the multi-armed bandit problem in digital marketing with non-stationary conversion probabilities and budget constraints.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Key Achievements</h4>
+      <ul>
+        <li>Modeled channel decay effects — conversion rates decreased 0.5–1.2% per hour due to audience fatigue</li>
+        <li>Implemented Thompson sampling logic for adaptive budget reallocation</li>
+        <li>Quantified value-at-risk (5% VaR = £3.8/hour) using empirical distributions</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Strategic Outcomes</h4>
+      <ul>
+        <li>Optimal Exploration-Exploitation Balance: 55% Social | 30% Ads | 15% Email</li>
+        <li>Adaptive Control System improved ROI by 29% vs fixed allocation</li>
+        <li>Identified Non-Linearities: Email effectiveness collapses beyond £14/hour</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Discrete-Event Simulation</span>
+      <span class="popup-skill">AnyLogic</span>
+      <span class="popup-skill">ROI Optimization</span>
+      <span class="popup-skill">Probability Modeling</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="health-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('health-popup')">×</button>
+    <h2 class="popup-title">Public Sector IT Failure Analysis</h2>
+    <p class="popup-org">University of Southampton | Nov 2024 - Jan 2025</p>
+    <img src="https://treinetic.com/wp-content/uploads/2021/07/Agile-Development-Methadology.jpg" alt="Health Waikato" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Objective</h4>
+      <p>Analyzed the failed implementation of Health Waikato’s Shared Medical System (SMS) using a Balance Sheet Framework.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Key Contributions</h4>
+      <ul>
+        <li>Developed a metrics-driven evaluation framework to assess success/failure in public-sector IT projects</li>
+        <li>Applied Agile Project Management (APM) principles through the ABC Model (Affective-Behavioral-Cognitive)</li>
+        <li>Proposed iterative feedback loops and sprint-based delivery to align with clinical workflows</li>
+        <li>Explored AI/NLP tools for real-time stakeholder feedback</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Report</h4>
+      <p>Authored a 3,273-word academic report with actionable recommendations for future digital health initiatives.</p>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Public Sector IT</span>
+      <span class="popup-skill">Agile Methodologies</span>
+      <span class="popup-skill">Stakeholder Analysis</span>
+      <span class="popup-skill">ABC Model</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="decoy-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('decoy-popup')">×</button>
+    <h2 class="popup-title">Academic Research: Decoy Effect</h2>
+    <p class="popup-org">University of Madras | Jan 2023</p>
+    <img src="https://behavioraldevlab.org/media/blog/img/decoy-effect.jpg" alt="Decoy Effect" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Research Focus</h4>
+      <p>Analyzed how asymmetric pricing strategies influence consumer decision-making through the decoy effect.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Methodology</h4>
+      <ul>
+        <li>Theoretical research on psychological mechanisms behind the decoy effect</li>
+        <li>Analysis of real-world case studies (OTT platforms, e-commerce)</li>
+        <li>Developed a framework for understanding pricing psychology in Indian markets</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Consumer Psychology</span>
+      <span class="popup-skill">Behavioral Economics</span>
+      <span class="popup-skill">Market Research</span>
+      <span class="popup-skill">Academic Research</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="freelance-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('freelance-popup')">×</button>
+    <h2 class="popup-title">Academic Research: Platformization of Freelance Work</h2>
+    <p class="popup-org">University of Madras | Jan 2022</p>
+    <img src="https://tse2.mm.bing.net/th/id/OIP.jmdik6wP9ba1h0XxosWjMQHaEK?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Freelance Research" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Research Focus</h4>
+      <p>Investigated gig economy trends and digital branding challenges faced by freelancers.</p>
+    </div>
+
+    <div class="popup-section">
+      <h4>Methodology</h4>
+      <ul>
+        <li>Secondary research on gig economy trends</li>
+        <li>Qualitative interviews with 2 freelancers on digital branding challenges</li>
+        <li>Analysis of peer-reviewed studies on social media’s role in freelance success</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Qualitative Research</span>
+      <span class="popup-skill">Content Analysis</span>
+      <span class="popup-skill">Online Marketing</span>
+      <span class="popup-skill">Labor Economics</span>
+    </div>
+  </div>
+</div>
+
+<!-- Education Popups -->
+
+<div class="popup" id="msc-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('msc-popup')">×</button>
+    <h2 class="popup-title">MSc Digital Strategy & Info Systems</h2>
+    <p class="popup-org">University of Southampton | Sep 2024 – Present</p>
+    <img src="https://imgs.search.brave.com/pmh8UXYugwt3qowqHcLk6wAmKuDJapeEe-jE1w7Twdk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTYx/NDE3NjkwMy9waG90/by90aGUtdW5pdmVy/c2l0eS1vZi1zb3V0/aGFtcHRvbi5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9U2VC/bXdHSVktZEhYQ1Fz/Nko1OXN1NFAwTHJl/YXFmVGNBMGV6Qm96/WTJCdz0" alt="University of Southampton" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Key Courses</h4>
+      <ul>
+        <li><strong>Digital Business:</strong> Osterwalder’s Canvas, competitive strategy, monetization models</li>
+        <li><strong>Web Development:</strong> HTML/CSS/JS/PHP/MySQL, Bootstrap, accessibility</li>
+        <li><strong>Simulation:</strong> AnyLogic modeling for marketing ROI and supply chain</li>
+        <li><strong>Data Analytics:</strong> Power BI, customer segmentation, predictive modeling</li>
+        <li><strong>Agile & Innovation:</strong> Sprint planning, stakeholder engagement, ABC model</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Relevant Projects</h4>
+      <ul>
+        <li>EcoWander Web App (Full-stack development)</li>
+        <li>Netflix Business Model Analysis (Strategic assessment)</li>
+        <li>Business Analytics Platform Proposal (AI & UX design)</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Digital Strategy</span>
+      <span class="popup-skill">Web Dev</span>
+      <span class="popup-skill">Data Analytics</span>
+      <span class="popup-skill">Agile</span>
+      <span class="popup-skill">AnyLogic</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="bcom-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('bcom-popup')">×</button>
+    <h2 class="popup-title">Bachelor of Commerce General</h2>
+    <p class="popup-org">University of Madras | Jul 2020 – Jul 2023</p>
+    <img src="https://imgs.search.brave.com/nWPxoBFhZuv7_b0TvTp_u0Gpr7zxnxxHzcE0YmaM_0g/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy82/LzYzL1VuaXZlcnNp/dHlfb2ZfTWFkcmFz/X0VudHJhbmNlX0Fy/Y2hfYXRfQ2hlcGF1/a19DYW1wdXMuSlBH" alt="University of Madras" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Key Courses</h4>
+      <ul>
+        <li><strong>Consumer Psychology:</strong> Decoy effect, pricing strategies, behavioral economics</li>
+        <li><strong>Financial Analysis:</strong> NPV/IRR, investment appraisal, risk assessment</li>
+        <li><strong>Marketing Research:</strong> Survey design, data interpretation, segmentation</li>
+        <li><strong>Project Management:</strong> Planning, execution, stakeholder coordination</li>
+      </ul>
+    </div>
+
+    <div class="popup-section">
+      <h4>Relevant Projects</h4>
+      <ul>
+        <li>Decoy Effect Research Paper</li>
+        <li>Platformization of Freelance Work Study</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Consumer Psychology</span>
+      <span class="popup-skill">Financial Analysis</span>
+      <span class="popup-skill">Market Research</span>
+      <span class="popup-skill">Project Management</span>
+    </div>
+  </div>
+</div>
+
+<!-- Skills Popups -->
+
+<div class="popup" id="web-dev-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('web-dev-popup')">×</button>
+    <h2 class="popup-title">Web Development</h2>
+    <p class="popup-org">Skills & Tools</p>
+    <img src="https://media.licdn.com/dms/image/v2/D5622AQFkCdN5xTob2A/feedshare-shrink_800/B56ZeKYf.GGoAk-/0/1750373369713?e=1759968000&v=beta&t=YTFX6jCfjAvoc5CMucDIZyLTWHYFJI7yjrUSCOUoMgg" alt="Web Development" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Where I Learned</h4>
+      <ul>
+        <li><strong>EcoWander Project:</strong> Built full-stack app with HTML5, CSS3, JavaScript, PHP, MySQL</li>
+        <li><strong>MSc Module:</strong> Used Bootstrap 5, responsive design, accessibility standards</li>
+        <li><strong>Self-Taught:</strong> Practiced with Canva, Adobe Suite, and live projects</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">HTML5</span>
+      <span class="popup-skill">CSS3</span>
+      <span class="popup-skill">JavaScript</span>
+      <span class="popup-skill">PHP</span>
+      <span class="popup-skill">MySQL</span>
+      <span class="popup-skill">Bootstrap</span>
+      <span class="popup-skill">Figma</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="strategy-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('strategy-popup')">×</button>
+    <h2 class="popup-title">Strategic Analysis</h2>
+    <p class="popup-org">Skills & Tools</p>
+    <img src="https://media.licdn.com/dms/image/v2/D5622AQEeOxWM5dvhIg/feedshare-shrink_800/B56ZcWfex8GoAg-/0/1748429043822?e=1759968000&v=beta&t=xkgqmmRkMWNhnY7DC25RW1UF9qUmwniHNjJLao2CtC4" alt="Strategy" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Where I Learned</h4>
+      <ul>
+        <li><strong>Netflix Analysis:</strong> Used Osterwalder’s Canvas to evaluate business models</li>
+        <li><strong>MSc Digital Business:</strong> Competitive benchmarking, strategic recommendations</li>
+        <li><strong>Consulting Projects:</strong> Developed frameworks improving efficiency by 22%</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Osterwalder’s Canvas</span>
+      <span class="popup-skill">Competitive Analysis</span>
+      <span class="popup-skill">Business Modeling</span>
+      <span class="popup-skill">Strategic Planning</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="analytics-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('analytics-popup')">×</button>
+    <h2 class="popup-title">Data Analytics</h2>
+    <p class="popup-org">Skills & Tools</p>
+    <img src="https://thvnext.bing.com/th/id/OIP.1LyJj-CrPj-p8tAdOhYa6QHaDq?w=335&h=173&c=7&r=0&o=7&cb=ucfimg2&dpr=1.2&pid=1.7&rm=3&ucfimg=1" alt="Data Analytics" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Where I Learned</h4>
+      <ul>
+        <li><strong>DES Simulation:</strong> Used AnyLogic for ROI optimization</li>
+        <li><strong>MSc Data Analytics:</strong> Power BI, A/B testing, customer segmentation</li>
+        <li><strong>Academic Research:</strong> Analyzed pricing psychology and gig economy trends</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Power BI</span>
+      <span class="popup-skill">AnyLogic</span>
+      <span class="popup-skill">A/B Testing</span>
+      <span class="popup-skill">ROI Optimization</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="project-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('project-popup')">×</button>
+    <h2 class="popup-title">Project Management</h2>
+    <p class="popup-org">Skills & Tools</p>
+    <img src="https://imgs.search.brave.com/hN3NcuhNd2sSKhUUssAyT6-MO0QnLwghQXkqjiFr8nE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE0/ODc0NDY1OS92ZWN0/b3IvdG9wLXZpZXct/b2YteW91bmctcGVv/cGxlLXNpdHRpbmct/YXQtdGhlLXRhYmxl/LWFuZC1sZWFybmlu/Zy1lbmdsaXNoLXN0/dWRlbnRzLXN0dWR5/aW5nLXRvZ2V0aGVy/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz01amJKTjhMQVdn/NnI5QjlhZUlqMWJ4/Y1JZUUhWd2NXV045/dUQ3OFlqT2RjPQ" alt="Project Management" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Where I Learned</h4>
+      <ul>
+        <li><strong>Managing Director:</strong> Led 10+ campaigns with 5-member team</li>
+        <li><strong>Business Analytics Project:</strong> Used Trello, agile sprints, stakeholder coordination</li>
+        <li><strong>MSc Agile Module:</strong> Applied ABC model for behavioral change</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">Agile</span>
+      <span class="popup-skill">Scrum</span>
+      <span class="popup-skill">Trello</span>
+      <span class="popup-skill">Stakeholder Coordination</span>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="ai-popup">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup('ai-popup')">×</button>
+    <h2 class="popup-title">AI & Innovation</h2>
+    <p class="popup-org">Skills & Tools</p>
+    <img src="https://www.canva.com/design/DAGyUSjy3Vc/Kr234RpCi6sd9RZEhV846Q/view?utm_content=DAGyUSjy3Vc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h04d20f5854" alt="AI Strategy" class="popup-image">
+    
+    <div class="popup-section">
+      <h4>Where I Learned</h4>
+      <ul>
+        <li><strong>Business Analytics Platform:</strong> Designed NLP chatbot (BERT), adaptive learning</li>
+        <li><strong>Academic Research:</strong> Explored AI in healthcare and gig economy</li>
+        <li><strong>MSc AI Strategy:</strong> Used generative AI for debugging with academic transparency</li>
+      </ul>
+    </div>
+
+    <div class="popup-skills">
+      <span class="popup-skill">AI Strategy</span>
+      <span class="popup-skill">NLP</span>
+      <span class="popup-skill">BERT</span>
+      <span class="popup-skill">Innovation</span>
+    </div>
+  </div>
+</div>
+
+  <!-- JavaScript -->
+  <script>
+    function openPopup(id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePopup(id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close popup on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.popup.active').forEach(popup => {
+          closePopup(popup.id);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
