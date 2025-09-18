@@ -62,16 +62,30 @@
       gap: 2.5rem;
     }
 
-    .nav-links a {
+    .nav-links a.nav-link {
       text-decoration: none;
       color: var(--dark);
       font-weight: 500;
       font-size: 1.1rem;
       transition: color 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
     }
 
-    .nav-links a:hover {
+    .nav-links a.nav-link:hover,
+    .nav-links a.nav-link.active {
       color: var(--deep-orange);
+    }
+
+    .nav-links a.nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--soft-orange);
+      border-radius: 3px;
     }
 
     /* Section */
@@ -356,37 +370,6 @@
       border-top: 1px solid #eee;
       margin-top: 3rem;
     }
-    /* Active Navigation Link */
-.nav-links a.nav-link {
-  position: relative;
-  color: var(--dark);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
-  padding: 0.5rem 0;
-  transition: color 0.3s ease;
-}
-
-/* Hover Effect */
-.nav-links a.nav-link:hover {
-  color: var(--deep-orange);
-}
-
-/* Active Link Indicator (Orange Underline) */
-.nav-links a.nav-link.active {
-  color: var(--deep-orange);
-}
-
-.nav-links a.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--soft-orange);
-  border-radius: 3px;
-}
 
     /* Responsive */
     @media (max-width: 900px) {
@@ -415,121 +398,151 @@
     <div class="header-container">
       <a href="index.html" class="logo">The Brand Called Me</a>
       <nav class="nav-links">
-<a href="index.html" class="nav-link">Home</a>
-<a href="about.html" class="nav-link">About Me</a>
-<a href="portfolio.html" class="nav-link">Portfolio</a>
-<a href="newsletter.html" class="nav-link active">Newsletter</a>
-<a href="contact.html" class="nav-link">Contact Me</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Me</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="newsletter.html" class="nav-link active">Newsletter</a>
+        <a href="contact.html" class="nav-link">Contact Me</a>
       </nav>
     </div>
   </header>
 
-<!-- Section: Newsletter -->
-<section class="section">
-  <div class="section-container">
-    <h2 class="section-title">Newsletter</h2>
-    <p class="section-subtitle">Thoughts, projects, and strategic insights — straight from the brand</p>
+  <!-- Section: Newsletter -->
+  <section class="section">
+    <div class="section-container">
+      <h2 class="section-title">Newsletter</h2>
+      <p class="section-subtitle">Thoughts, projects, and strategic insights straight from the brand</p>
 
-    <div class="article-grid">
-      <!-- Article 1: AI Insight (Newest) -->
-      <div class="article-card" onclick="openPopup('ai-popup')">
-        <img src="https://media.licdn.com/dms/image/v2/D5622AQHAco0bS5KBaQ/feedshare-shrink_1280/B56ZkkNHFGH8As-/0/1757249042045?e=1759968000&v=beta&t=Uos4QFOfxti87AJT_f4PP3nzGmTCeJnzAD3w-cE6iHk" alt="AI in Marketing" class="article-image">
-        <div class="article-content">
-          <div class="article-date">October 2025</div>
-          <h3 class="article-title">📌 Weekly Insight: AI in Promotional Content</h3>
-          <p class="article-summary">The real issue isn’t AI — it’s transparency. Why honesty builds trust, even when machines help create content.</p>
-          <div class="article-tags">
-            <span class="article-tag">#AI</span>
-            <span class="article-tag">#Transparency</span>
-            <span class="article-tag">#MarketingEthics</span>
+      <div class="article-grid">
+        <!-- Article 1: Uncover Things (Latest) -->
+        <div class="article-card" onclick="openPopup('uncover-popup')">
+          <img src="https://media.licdn.com/dms/image/v2/D4D22AQEWXpj6YUCGLA/feedshare-shrink_800/B4DZlYabLUG8Ag-/0/1758124947513?e=1761177600&v=beta&t=cM5dmbAQiEhT2PjZG3IbkKcBxYh81X1PRRARiOv05PE" alt="Uncover Things Campaign" class="article-image">
+          <div class="article-content">
+            <div class="article-date">September 2025</div>
+            <h3 class="article-title">🔍 Uncover Things 001: little mishap on My Personal Brand Launch</h3>
+            <p class="article-summary">My campaign “The Brand Called Me” didn’t go as planned. But that failure became my first real case study.</p>
+            <div class="article-tags">
+              <span class="article-tag">#PersonalBranding</span>
+              <span class="article-tag">#UncoverThings</span>
+              <span class="article-tag">#BrandStrategy</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Article 2: GAP vs AE -->
-      <div class="article-card" onclick="openPopup('gap-popup')">
-        <img src="https://media.licdn.com/dms/image/v2/D5622AQFZauS7bAnhCA/feedshare-shrink_800/B56ZjiSSW1IAAg-/0/1756143101964?e=1759968000&v=beta&t=Am2KekNW8xLRmnB409Dtm0wavnDnscliyN6iGsxQ8l4" alt="GAP vs American Eagle" class="article-image">
-        <div class="article-content">
-          <div class="article-date">August 2025</div>
-          <h3 class="article-title">📌 Weekly Insight:GAP’s Denim Danced. AE’s Ad Tripped.</h3>
-          <p class="article-summary">Why one campaign sparked joy and the other sparked backlash — and what it means for brand storytelling in 2025.</p>
-          <div class="article-tags">
-            <span class="article-tag">#Marketing</span>
-            <span class="article-tag">#BrandStrategy</span>
-            <span class="article-tag">#ViralMarketing</span>
+        <!-- Article 2: From Complexity to Clarity -->
+        <div class="article-card" onclick="openPopup('clarity-popup')">
+          <img src="https://media.licdn.com/dms/image/v2/D5622AQHDWkorFTzfFQ/feedshare-shrink_800/B56Zk4wFFwHkAg-/0/1757593753550?e=1761177600&v=beta&t=A-dQQCXEFBJiAxcyyhVUyZQqnrZZ0dE8dsVA7TAEzlU" alt="From Complexity to Clarity" class="article-image">
+          <div class="article-content">
+            <div class="article-date">September 2025</div>
+            <h3 class="article-title">📌 Weekly Insight: From Complexity to Clarity</h3>
+            <p class="article-summary">Why your brand needs a story (not just a logo). A lesson from a B2B rebrand that doubled visibility.</p>
+            <div class="article-tags">
+              <span class="article-tag">#BrandVisibility</span>
+              <span class="article-tag">#Storytelling</span>
+              <span class="article-tag">#BusinessStrategy</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Article 3: Brand Campaign -->
-      <div class="article-card" onclick="openPopup('brand-popup')">
-        <img src="https://media.licdn.com/dms/image/v2/D5622AQFxQUIKTG9qZw/feedshare-shrink_800/B56ZkB1i4CHQAg-/0/1756672440470?e=1759968000&v=beta&t=bKIgSnOY-NCZLk9mEJ3eURCBRy0NFuOgpEjOfMQQSh0" alt="The Brand Called Me" class="article-image">
-        <div class="article-content">
-          <div class="article-date">February 2025</div>
-          <h3 class="article-title">🚀 Not a Candidate. A Campaign.</h3>
-          <p class="article-summary">Introducing 'The Brand Called Me' — a personal brand campaign that blends strategy, creativity, and authenticity.</p>
-          <div class="article-tags">
-            <span class="article-tag">#PersonalBranding</span>
-            <span class="article-tag">#Marketing</span>
-            <span class="article-tag">#HireMe</span>
+        <!-- Article 3: AI Insight -->
+        <div class="article-card" onclick="openPopup('ai-popup')">
+          <img src="https://media.licdn.com/dms/image/v2/D5622AQHAco0bS5KBaQ/feedshare-shrink_1280/B56ZkkNHFGH8As-/0/1757249042045?e=1759968000&v=beta&t=Uos4QFOfxti87AJT_f4PP3nzGmTCeJnzAD3w-cE6iHk" alt="AI in Marketing" class="article-image">
+          <div class="article-content">
+            <div class="article-date">September 2025</div>
+            <h3 class="article-title">📌 Weekly Insight: AI in Promotional Content</h3>
+            <p class="article-summary">The real issue isn’t AI it’s transparency. Why honesty builds trust, even when machines help create content.</p>
+            <div class="article-tags">
+              <span class="article-tag">#AI</span>
+              <span class="article-tag">#Transparency</span>
+              <span class="article-tag">#MarketingEthics</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Article 4: Student Innovation Project -->
-      <div class="article-card" onclick="openPopup('sip-popup')">
-        <img src="https://media.licdn.com/dms/image/v2/D5622AQE0v8hAHXTe_g/feedshare-shrink_800/B56ZVDOwuJGQAk-/0/1740589698898?e=1759968000&v=beta&t=aC22WkKsDep2f7n7WynTuX4eF8kUgGDE62BD39YC6v8" alt="Student Innovation Project" class="article-image">
-        <div class="article-content">
-          <div class="article-date">January 2025</div>
-          <h3 class="article-title">Building a Support System for Mountaineer Families</h3>
-          <p class="article-summary">Our team designed a sustainable financial aid model for families affected by mountaineering accidents — blending empathy with innovation.</p>
-          <div class="article-tags">
-            <span class="article-tag">#Innovation</span>
-            <span class="article-tag">#SocialImpact</span>
-            <span class="article-tag">#Nimsdai</span>
+        <!-- Article 4: GAP vs AE -->
+        <div class="article-card" onclick="openPopup('gap-popup')">
+          <img src="https://media.licdn.com/dms/image/v2/D5622AQFZauS7bAnhCA/feedshare-shrink_800/B56ZjiSSW1IAAg-/0/1756143101964?e=1759968000&v=beta&t=Am2KekNW8xLRmnB409Dtm0wavnDnscliyN6iGsxQ8l4" alt="GAP vs American Eagle" class="article-image">
+          <div class="article-content">
+            <div class="article-date">August 2025</div>
+            <h3 class="article-title">📌 Weekly Insight: GAP’s Denim Danced. AE’s Ad Tripped.</h3>
+            <p class="article-summary">Why one campaign sparked joy and the other sparked backlash and what it means for brand storytelling in 2025.</p>
+            <div class="article-tags">
+              <span class="article-tag">#Marketing</span>
+              <span class="article-tag">#BrandStrategy</span>
+              <span class="article-tag">#ViralMarketing</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Article 5: MSc at Southampton -->
-      <div class="article-card" onclick="openPopup('msc-popup')">
-        <img src="https://media.licdn.com/dms/image/v2/D5622AQFkCdN5xTob2A/feedshare-shrink_800/B56ZeKYf.GGoAk-/0/1750373369713?e=1759968000&v=beta&t=YTFX6jCfjAvoc5CMucDIZyLTWHYFJI7yjrUSCOUoMgg" alt="MSc at Southampton" class="article-image">
-        <div class="article-content">
-          <div class="article-date">September 2024</div>
-          <h3 class="article-title">Starting My MSc at the University of Southampton</h3>
-          <p class="article-summary">Excited to begin my MSc in Digital Strategy & Information Systems — where data meets storytelling and innovation.</p>
-          <div class="article-tags">
-            <span class="article-tag">#MSc</span>
-            <span class="article-tag">#UniversityOfSouthampton</span>
-            <span class="article-tag">#DigitalStrategy</span>
+        <!-- Article 5: Brand Campaign -->
+        <div class="article-card" onclick="openPopup('brand-popup')">
+          <img src="https://media.licdn.com/dms/image/v2/D5622AQFxQUIKTG9qZw/feedshare-shrink_800/B56ZkB1i4CHQAg-/0/1756672440470?e=1759968000&v=beta&t=bKIgSnOY-NCZLk9mEJ3eURCBRy0NFuOgpEjOfMQQSh0" alt="The Brand Called Me" class="article-image">
+          <div class="article-content">
+            <div class="article-date">February 2025</div>
+            <h3 class="article-title">🚀 Not a Candidate. A Campaign.</h3>
+            <p class="article-summary">Introducing 'The Brand Called Me' a personal brand campaign that blends strategy, creativity, and authenticity.</p>
+            <div class="article-tags">
+              <span class="article-tag">#PersonalBranding</span>
+              <span class="article-tag">#Marketing</span>
+              <span class="article-tag">#HireMe</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Article 6: Internship Completion (Oldest) -->
-      <div class="article-card" onclick="openPopup('internship-popup')">
-        <img src="https://assets-global.website-files.com/5a1eb87c9afe1000014a4c7d/6263e7054c546e35514fa3c6_Poster%20(3).png" alt="Social Media Internship" class="article-image">
-        <div class="article-content">
-          <div class="article-date">December 2023</div>
-          <h3 class="article-title">From Intern to Strategist: My Remote Social Media Journey</h3>
-          <p class="article-summary">Completing my internship at Dezaina.tech taught me how to build strategy from scratch — using calendars, AI, and data to drive real engagement.</p>
-          <div class="article-tags">
-            <span class="article-tag">#Internship</span>
-            <span class="article-tag">#SocialMedia</span>
-            <span class="article-tag">#RemoteWork</span>
+        <!-- Article 6: Student Innovation Project -->
+        <div class="article-card" onclick="openPopup('sip-popup')">
+          <img src="https://media.licdn.com/dms/image/v2/D5622AQE0v8hAHXTe_g/feedshare-shrink_800/B56ZVDOwuJGQAk-/0/1740589698898?e=1759968000&v=beta&t=aC22WkKsDep2f7n7WynTuX4eF8kUgGDE62BD39YC6v8" alt="Student Innovation Project" class="article-image">
+          <div class="article-content">
+            <div class="article-date">January 2025</div>
+            <h3 class="article-title">Building a Support System for Mountaineer Families</h3>
+            <p class="article-summary">Our team designed a sustainable financial aid model for families affected by mountaineering accidents blending empathy with innovation.</p>
+            <div class="article-tags">
+              <span class="article-tag">#Innovation</span>
+              <span class="article-tag">#SocialImpact</span>
+              <span class="article-tag">#Nimsdai</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article 7: MSc at Southampton -->
+        <div class="article-card" onclick="openPopup('msc-popup')">
+          <img src="https://kortext.com/kortext/wp-content/uploads/southampton-mba.webp" alt="MSc at Southampton" class="article-image">
+          <div class="article-content">
+            <div class="article-date">September 2024</div>
+            <h3 class="article-title">Starting My MSc at the University of Southampton</h3>
+            <p class="article-summary">Excited to begin my MSc in Digital Strategy & Information Systems where data meets storytelling and innovation.</p>
+            <div class="article-tags">
+              <span class="article-tag">#MSc</span>
+              <span class="article-tag">#UniversityOfSouthampton</span>
+              <span class="article-tag">#DigitalStrategy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article 8: Internship Completion -->
+        <div class="article-card" onclick="openPopup('internship-popup')">
+          <img src="https://assets-global.website-files.com/5a1eb87c9afe1000014a4c7d/6263e7054c546e35514fa3c6_Poster%20(3).png" alt="Social Media Internship" class="article-image">
+          <div class="article-content">
+            <div class="article-date">December 2023</div>
+            <h3 class="article-title">From Intern to Strategist: My Remote Social Media Journey</h3>
+            <p class="article-summary">Completing my internship at Dezaina.tech taught me how to build strategy from scratch — using calendars, AI, and data to drive real engagement.</p>
+            <div class="article-tags">
+              <span class="article-tag">#Internship</span>
+              <span class="article-tag">#SocialMedia</span>
+              <span class="article-tag">#RemoteWork</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-about">
         <div class="footer-logo">The Brand Called Me</div>
-        <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future.</p>
+        <p>A personal brand campaign for Santhosh Selvan strategist, creator, and builder of the future.</p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i></a>
           <a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -555,13 +568,13 @@
         </ul>
       </div>
       <div class="footer-links">
-  <h4>Explore My Work</h4>
-  <ul>
-    <li><a href="portfolio.html">View Portfolio</a></li>
-    <li><a href="newsletter.html">Read Insights</a></li>
-    <li><a href="https://santhosh06.my.canva.site/" target="_blank">Interactive Presentation</a></li>
-  </ul>
-</div>
+        <h4>Explore My Work</h4>
+        <ul>
+          <li><a href="portfolio.html">View Portfolio</a></li>
+          <li><a href="newsletter.html">Read Insights</a></li>
+          <li><a href="https://santhosh06.my.canva.site/" target="_blank">Interactive Presentation</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
       &copy; 2025 The Brand Called Me. All rights reserved.
@@ -570,18 +583,110 @@
 
   <!-- Popups -->
 
-<!-- Popup 1: AI Insight (Oct 2025) -->
-<div class="popup" id="ai-popup">
+  <!-- Popup 1: Uncover Things (Oct 2025) -->
+  <div class="popup" id="uncover-popup">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup('uncover-popup')">✕</button>
+      <h2 class="popup-title">🔍 Uncover Things 001: little mishap on My Personal Brand Launch</h2>
+      <p class="popup-date">Septemper 2025</p>
+      <img src="https://media.licdn.com/dms/image/v2/D4D22AQEWXpj6YUCGLA/feedshare-shrink_800/B4DZlYabLUG8Ag-/0/1758124947513?e=1761177600&v=beta&t=cM5dmbAQiEhT2PjZG3IbkKcBxYh81X1PRRARiOv05PE" alt="Uncover Things Campaign" class="popup-image">
+      
+      <div class="popup-section">
+        <h4>So… I Did Something</h4>
+        <p>I launched my personal branding campaign titled "The Brand Called Me."</p>
+        <p>And it didn’t go the way I thought.</p>
+        <ul>
+          <li><strong>I skipped research.</strong></li>
+          <li><strong>I designed for myself, not my audience.</strong></li>
+          <li><strong>I chased visuals instead of strategy.</strong></li>
+        </ul>
+      </div>
+
+      <div class="popup-section">
+        <h4>The Twist: Failure Became My Case Study</h4>
+        <p>That misstep became my first real case study.</p>
+        <p>So I started a new series: <strong>Uncover Things</strong> where I dissect campaigns (including my own) to reveal what worked, what failed, and why.</p>
+        <p>Case 001 is live: <a href="https://medium.com/@beyondmovies3/uncover-things-001-the-brand-called-me-c993d2a02876" target="_blank">The Brand Called Me</a>. It’s honest. Raw. Maybe even messy.</p>
+        <p>But that’s the point brands aren’t built in a straight line.</p>
+      </div>
+
+      <div class="popup-section">
+        <h4>What I Learned</h4>
+        <p><strong>Authenticity</strong> > polish</p> 
+        <p><strong>Strategy</strong> > aesthetics </p>
+        <p>And every launch starts with a mistake.</p>
+      </div>
+
+      <div class="popup-skills">
+        <span class="popup-skill">Personal Branding</span>
+        <span class="popup-skill">Campaign Analysis</span>
+        <span class="popup-skill">Storytelling</span>
+        <span class="popup-skill">Self-Awareness</span>
+        <span class="popup-skill">Brand Strategy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup 2: From Complexity to Clarity (Sep 2025) -->
+  <div class="popup" id="clarity-popup">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup('clarity-popup')">✕</button>
+      <h2 class="popup-title">📌 Weekly Insight: From Complexity to Clarity</h2>
+      <p class="popup-date">September 2025</p>
+      <img src="https://media.licdn.com/dms/image/v2/D5622AQHDWkorFTzfFQ/feedshare-shrink_800/B56Zk4wFFwHkAg-/0/1757593753550?e=1761177600&v=beta&t=A-dQQCXEFBJiAxcyyhVUyZQqnrZZ0dE8dsVA7TAEzlU" alt="From Complexity to Clarity" class="popup-image">
+      
+      <div class="popup-section">
+        <h4>Why Your Brand Needs a Story (Not Just a Logo)</h4>
+        <p>Most businesses think rebranding is about colors, fonts, and shiny websites. But the truth is: it’s about <strong>clarity</strong>.</p>
+        <p>Take <strong>simple system GmbH</strong> a procurement platform needing to shift traditional buyers to a paid model. Tough conversation.</p>
+      </div>
+
+      <div class="popup-section">
+        <h4>The Solution: Big Picture Strategy</h4>
+        <p>Saupe Communication stepped in with a holistic approach:</p>
+        <ul>
+          <li>Defined core messaging</li>
+          <li>Aligned internal teams</li>
+          <li>Created a narrative, not just a logo</li>
+        </ul>
+        <p><strong>Results:</strong></p>
+        <ul>
+          <li>Doubled social media presence</li>
+          <li>Went from invisible to visible on Google</li>
+          <li>Lead generation on fire 🔥</li>
+          <li>Internal team stronger than ever</li>
+        </ul>
+      </div>
+
+      <div class="popup-section">
+        <h4>My Takeaway</h4>
+        <p>If your customers don’t understand your value, they won’t pay for it.</p>
+        <p>A strong brand doesn’t just make you “look good” it makes you <strong>grow good</strong>.</p>
+        <p>On a personal note: I’ve launched my own experiment <a href="https://lnkd.in/gshKVFFH" target="_blank">“The Brand Called Me”</a>.</p>
+        <p>Yes, the name is hard to promote… but great brands often start with a challenge.</p>
+      </div>
+
+      <div class="popup-skills">
+        <span class="popup-skill">Brand Strategy</span>
+        <span class="popup-skill">Storytelling</span>
+        <span class="popup-skill">Clarity</span>
+        <span class="popup-skill">B2B Marketing</span>
+        <span class="popup-skill">Transformation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="ai-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('ai-popup')">✕</button>
     <h2 class="popup-title">📌 Weekly Insight: AI in Promotional Content</h2>
-    <p class="popup-date">October 2025</p>
+    <p class="popup-date">September 2025</p>
     <img src="https://media.licdn.com/dms/image/v2/D5622AQHAco0bS5KBaQ/feedshare-shrink_1280/B56ZkkNHFGH8As-/0/1757249042045?e=1759968000&v=beta&t=Uos4QFOfxti87AJT_f4PP3nzGmTCeJnzAD3w-cE6iHk" alt="AI in Marketing" class="popup-image">
     
     <div class="popup-section">
-      <h4>The Real Issue Isn’t AI — It’s Trust</h4>
+      <h4>The Real Issue Isn’t AI It’s Trust</h4>
       <p>We keep hearing: "AI is ruining creativity." But what if the real issue isn’t the technology, but how we talk about it?</p>
-      <p>In a recent blind test, most participants couldn’t even spot AI-generated promotional posters. But when told the content was AI-made, trust dropped sharply — not because of quality, but because of secrecy.</p>
+      <p>In a recent blind test, most participants couldn’t even spot AI-generated promotional posters. But when told the content was AI-made, trust dropped sharply not because of quality, but because of secrecy.</p>
       <p>And here’s the shift: 23% of respondents blamed the Marketing/PR team, not the AI developers. That’s a wake-up call.</p>
     </div>
 
@@ -593,13 +698,13 @@
         <li><strong>Say so early:</strong> Label AI-assisted content clearly.</li>
         <li><strong>Frame it as a tool:</strong> Not a replacement, but an enhancer.</li>
         <li><strong>Credit human oversight:</strong> Show the team behind the machine.</li>
-        <li><strong>Own the narrative:</strong> Don’t wait for backlash — lead with honesty.</li>
+        <li><strong>Own the narrative:</strong> Don’t wait for backlash lead with honesty.</li>
       </ul>
     </div>
 
     <div class="popup-section">
       <h4>What I Learned</h4>
-      <p>Audiences aren’t asking for perfection. They’re asking for honesty. The future of ethical AI communication starts with conversation — and I’m committed to leading it.</p>
+      <p>Audiences aren’t asking for perfection. They’re asking for honesty. The future of ethical AI communication starts with conversation and I’m committed to leading it.</p>
     </div>
 
     <div class="popup-skills">
@@ -616,20 +721,20 @@
 <div class="popup" id="gap-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('gap-popup')">✕</button>
-    <h2 class="popup-title">GAP’s Denim Danced. AE’s Ad Tripped.</h2>
+    <h2 class="popup-title">📌 Weekly Insight: GAP’s Denim Danced. AE’s Ad Tripped.</h2>
     <p class="popup-date">August 2025</p>
     <img src="https://media.licdn.com/dms/image/v2/D5622AQFZauS7bAnhCA/feedshare-shrink_800/B56ZjiSSW1IAAg-/0/1756143101964?e=1759968000&v=beta&t=Am2KekNW8xLRmnB409Dtm0wavnDnscliyN6iGsxQ8l4" alt="GAP Denim Campaign" class="popup-image">
     
     <div class="popup-section">
       <h4>Why One Campaign Sparked Joy, the Other Backlash</h4>
-      <p>On August 19, GAP launched its denim campaign with KATSEYE, the global girl group. Y2K-inspired fits, sharp choreography, and Kelis’ “Milkshake” — but the brilliance was deeper.</p>
-      <p>Each member symbolized a different personality, background, and style. Together, they formed an iridescent whole — a metaphor for denim’s diversity.</p>
+      <p>On August 19, GAP launched its denim campaign with KATSEYE, the global girl group. Y2K-inspired fits, sharp choreography, and Kelis’ “Milkshake” but the brilliance was deeper.</p>
+      <p>Each member symbolized a different personality, background, and style. Together, they formed an iridescent whole a metaphor for denim’s diversity.</p>
       <p>GAP didn’t just show jeans. It showed range.</p>
     </div>
 
     <div class="popup-section">
       <h4>Now Compare to American Eagle x Sydney Sweeney</h4>
-      <p>Sydney is talented, influential — but AE branded her in the flattest way: a pun on “Great Jeans/Genes.”</p>
+      <p>Sydney is talented, influential but AE branded her in the flattest way: a pun on “Great Jeans/Genes.”</p>
       <p>Instead of celebrating individuality, they reduced her to biology. In 2025, when conversations around beauty standards are louder than ever, the ad backfired.</p>
       <p>Both went viral. But GAP sparked joy and nostalgia. AE sparked backlash and debate.</p>
     </div>
@@ -662,20 +767,20 @@
     <div class="popup-section">
       <h4>Introducing: The Brand Called Me</h4>
       <p>Every brand deserves a launch. This is mine.</p>
-      <p>This isn’t a job search. It’s a marketing drop — a mix of strategy, creativity, and a little bit of drama.</p>
+      <p>This isn’t a job search. It’s a marketing drop a mix of strategy, creativity, and a little bit of drama.</p>
       <p>I’m not just applying. I’m launching.</p>
     </div>
 
     <div class="popup-section">
       <h4>Why I’m Doing This</h4>
-      <p>In a world where candidates blend in, I want to stand out — not as a resume, but as a story.</p>
+      <p>In a world where candidates blend in, I want to stand out not as a resume, but as a story.</p>
       <p>The goal? To build a personal brand that reflects my values: strategic depth, creative execution, and authentic storytelling.</p>
-      <p>I want to work with teams that don’t just hire talent — they build movements.</p>
+      <p>I want to work with teams that don’t just hire talent they build movements.</p>
     </div>
 
     <div class="popup-section">
       <h4>The Aim</h4>
-      <p>To attract forward-thinking organizations in marketing, strategy, or product — where innovation is the norm, not the exception.</p>
+      <p>To attract forward-thinking organizations in marketing, strategy, or product where innovation is the norm, not the exception.</p>
       <p>Stay tuned for the rollout. This is just the beginning.</p>
     </div>
 
@@ -714,7 +819,7 @@
     <div class="popup-section">
       <h4>Team & Gratitude</h4>
       <p>Working with Ivan Chan, Xi Zhengyuan, Chenyi Wang, and 艺娜 Yina was inspiring. Special thanks to Glen Mallen from Nimsdai Foundation, and Rebecca Petty and Dan Bradley for their guidance.</p>
-      <p>This journey was about empathy, innovation, and impact — and I’m proud of what we built.</p>
+      <p>This journey was about empathy, innovation, and impact and I’m proud of what we built.</p>
     </div>
 
     <div class="popup-skills">
@@ -733,7 +838,7 @@
     <button class="popup-close" onclick="closePopup('msc-popup')">✕</button>
     <h2 class="popup-title">Starting My MSc at the University of Southampton</h2>
     <p class="popup-date">September 2024</p>
-    <img src="https://media.licdn.com/dms/image/v2/D5622AQFkCdN5xTob2A/feedshare-shrink_800/B56ZeKYf.GGoAk-/0/1750373369713?e=1759968000&v=beta&t=YTFX6jCfjAvoc5CMucDIZyLTWHYFJI7yjrUSCOUoMgg" alt="MSc at Southampton" class="popup-image">
+    <img src="https://kortext.com/kortext/wp-content/uploads/southampton-mba.webp" alt="MSc at Southampton" class="popup-image">
     
     <div class="popup-section">
       <h4>A New Chapter</h4>
@@ -807,8 +912,6 @@
     </div>
   </div>
 </div>
-
-
 
   <!-- JavaScript -->
   <script>
