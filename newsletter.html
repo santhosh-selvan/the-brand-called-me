@@ -11,6 +11,9 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
   <style>
     :root {
       --soft-orange: #F97316;
@@ -21,18 +24,22 @@
       --mid-gray: #6B7280;
     }
 
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Inter', sans-serif;
       color: var(--dark);
       background: var(--warm-cream);
       line-height: 1.7;
-      overflow-x: hidden;
     }
 
-    /* Header */
+    /* Header: Using Bootstrap's .navbar for responsiveness, keeping custom styling */
     .site-header {
-      padding: 2rem 0;
+      padding: 0; /* Bootstrap nav adds padding */
       background: white;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
       position: sticky;
@@ -40,39 +47,33 @@
       z-index: 1000;
     }
 
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
     .logo {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       font-weight: 700;
-      color: var(--deep-orange);
+      color: var(--deep-orange) !important;
       text-decoration: none;
+      padding: 1rem 0;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-    }
-
+    /* Navigation Links Styling (adjusted for Bootstrap navbar structure) */
     .nav-links a.nav-link {
-      text-decoration: none;
+      position: relative;
       color: var(--dark);
+      text-decoration: none;
       font-weight: 500;
       font-size: 1.1rem;
+      padding: 0.5rem 0.5rem; /* Adjusted for Bootstrap nav structure */
+      margin-left: 1.5rem;
       transition: color 0.3s ease;
-      position: relative;
-      padding: 0.5rem 0;
     }
 
-    .nav-links a.nav-link:hover,
+    /* Hover Effect */
+    .nav-links a.nav-link:hover {
+      color: var(--deep-orange);
+    }
+
+    /* Active Link Indicator (Orange Underline) - Adjusted for centered underline */
     .nav-links a.nav-link.active {
       color: var(--deep-orange);
     }
@@ -81,220 +82,289 @@
       content: '';
       position: absolute;
       bottom: 0;
-      left: 0;
-      width: 100%;
+      left: 50%; /* Centered the underline */
+      transform: translateX(-50%);
+      width: 70%; 
       height: 3px;
       background: var(--soft-orange);
       border-radius: 3px;
     }
 
-    /* Section */
-    .section {
-      padding: 6rem 2rem;
+    /* Newsletter Hero */
+    .newsletter-hero {
+      background: linear-gradient(135deg, var(--soft-orange), var(--deep-orange));
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
     }
 
-    .section-container {
-      max-width: 1200px;
+    .newsletter-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
       margin: 0 auto;
+    }
+
+    /* Newsletter Container */
+    .newsletter-container {
+      max-width: 1400px;
+      margin: 4rem auto;
       padding: 0 2rem;
     }
 
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: var(--dark);
-      text-align: center;
-      margin-bottom: 1.5rem;
+    /* Category Tabs */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
     }
 
-    .section-subtitle {
-      text-align: center;
+    .category-tab {
+      background: white;
       color: var(--mid-gray);
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 3rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
     }
 
-    /* Article Grid */
-    .article-grid {
+    .category-tab:hover {
+      border-color: var(--soft-orange);
+      color: var(--soft-orange);
+    }
+
+    .category-tab.active {
+      background: linear-gradient(135deg, var(--soft-orange), var(--deep-orange));
+      color: white;
+      border-color: var(--deep-orange);
+    }
+
+    /* News Grid */
+    .news-grid {
       display: grid;
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 4rem;
     }
 
-    /* Article Card */
-    .article-card {
+    /* Featured Article (Large Card) */
+    .featured-article {
+      grid-column: 1 / -1;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.4s ease;
     }
 
-    .article-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    .featured-article:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 60px rgba(249, 115, 22, 0.2);
     }
 
-    .article-image {
+    .featured-article-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .article-content {
-      padding: 2rem;
+    .featured-article-content {
+      padding: 3rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .article-date {
-      color: var(--soft-orange);
+    .article-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--soft-orange), var(--deep-orange));
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
       font-weight: 600;
-      font-size: 0.9rem;
-      margin: 0 0 0.5rem;
+      margin-bottom: 1rem;
+      width: fit-content;
     }
 
-    .article-title {
-      font-size: 1.8rem;
+    .featured-article-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
       color: var(--dark);
-      margin: 0 0 1rem;
+      margin-bottom: 1rem;
     }
 
-    .article-summary {
+    .featured-article-content p {
       color: var(--mid-gray);
-      margin: 0 0 1rem;
-      line-height: 1.7;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
     }
 
-    .article-tags {
+    .article-meta {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
+      gap: 1.5rem;
+      color: var(--mid-gray);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
     }
 
-    .article-tag {
-      background: rgba(249, 115, 22, 0.1);
-      color: var(--soft-orange);
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .read-more-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--soft-orange), var(--deep-orange));
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
       font-weight: 600;
+      transition: all 0.3s ease;
+      width: fit-content;
+    }
+
+    .read-more-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+    }
+
+    /* News Card */
+    .news-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .news-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(249, 115, 22, 0.15);
+    }
+
+    .news-card-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .news-card:hover .news-card-image {
+      transform: scale(1.1);
+    }
+
+    .news-card-content {
+      padding: 2rem;
+    }
+
+    .news-card-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .news-card-content p {
+      color: var(--mid-gray);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
     }
 
     /* Popups */
     .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.9);
       display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      padding: 20px;
-    }
-
-    .popup.active {
-      display: flex;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
     }
 
     .popup-content {
-      background: white;
-      width: 90%;
-      max-width: 900px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 16px;
+      background-color: #fefefe;
+      margin: 5% auto;
       padding: 3rem;
+      border-radius: 20px;
+      width: 80%;
+      max-width: 900px;
       position: relative;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
     }
 
     .popup-close {
       position: absolute;
       top: 1.5rem;
-      right: 1.5rem;
-      background: var(--deep-orange);
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      right: 2rem;
+      color: #aaa;
+      font-size: 2rem;
+      font-weight: bold;
       cursor: pointer;
-      font-size: 1.5rem;
-      border: none;
+      transition: color 0.3s ease;
     }
 
-    .popup-close:hover {
-      background: #D94600;
+    .popup-close:hover,
+    .popup-close:focus {
+      color: var(--dark);
     }
 
     .popup-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--dark);
-      margin: 0 0 0.5rem;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    .popup-date {
-      color: var(--soft-orange);
-      font-weight: 600;
-      margin: 0 0 1.5rem;
+    .popup-org {
+      color: var(--mid-gray);
+      font-weight: 500;
+      margin-bottom: 2rem;
     }
 
     .popup-image {
       width: 100%;
-      height: 300px;
+      max-height: 400px;
       object-fit: cover;
-      border-radius: 12px;
-      margin: 1.5rem 0;
+      border-radius: 15px;
+      margin-bottom: 2rem;
     }
 
     .popup-section {
-      margin: 1.5rem 0;
+      margin-bottom: 2rem;
     }
 
     .popup-section h4 {
-      color: var(--deep-orange);
-      margin: 0 0 1rem;
       font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--soft-orange);
+      padding-left: 1rem;
     }
 
-    .popup-section ul {
-      padding-left: 1.5rem;
-      margin: 0.5rem 0;
+    .popup-section p {
+      margin-bottom: 1rem;
     }
 
-    .popup-section li {
-      margin-bottom: 0.8rem;
-      color: var(--mid-gray);
-    }
 
-    .popup-skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-
-    .popup-skill {
-      background: rgba(249, 115, 22, 0.1);
-      color: var(--soft-orange);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
 
     /* Footer */
     .footer {
@@ -371,22 +441,24 @@
       margin-top: 3rem;
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .article-card {
+    @media (max-width: 1024px) {
+      .featured-article {
         grid-template-columns: 1fr;
-      }
-      .article-image {
-        height: 300px;
       }
     }
 
     @media (max-width: 768px) {
-      .section-title {
-        font-size: 2.2rem;
+      .newsletter-hero h1 {
+        font-size: 2.5rem;
       }
-      .popup-content {
-        padding: 1.5rem;
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
     }
   </style>
@@ -394,555 +466,277 @@
 <body>
 
   <!-- Header -->
-  <header class="site-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">The Brand Called Me</a>
-      <nav class="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About Me</a>
-        <a href="portfolio.html" class="nav-link">Portfolio</a>
-        <a href="newsletter.html" class="nav-link active">Newsletter</a>
-        <a href="contact.html" class="nav-link">Contact Me</a>
-      </nav>
+  <header class="site-header navbar navbar-expand-lg">
+    <div class="container">
+      <a href="index.html" class="navbar-brand logo">The Brand Called Me</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <nav class="navbar-nav nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About Me</a>
+          <a href="portfolio.html" class="nav-link">Portfolio</a>
+          <a href="newsletter.html" class="nav-link active">Newsletter</a>
+          <a href="contact.html" class="nav-link">Contact Me</a>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <!-- Section: Newsletter -->
-  <section class="section">
-    <div class="section-container">
-      <h2 class="section-title">Newsletter</h2>
-      <p class="section-subtitle">Thoughts, projects, and strategic insights straight from the brand</p>
-
-      <div class="article-grid">
-        <!-- Article 1: Uncover Things (Latest) -->
-        <div class="article-card" onclick="openPopup('uncover-popup')">
-          <img src="https://media.licdn.com/dms/image/v2/D4D22AQEWXpj6YUCGLA/feedshare-shrink_800/B4DZlYabLUG8Ag-/0/1758124947513?e=1761177600&v=beta&t=cM5dmbAQiEhT2PjZG3IbkKcBxYh81X1PRRARiOv05PE" alt="Uncover Things Campaign" class="article-image">
-          <div class="article-content">
-            <div class="article-date">September 2025</div>
-            <h3 class="article-title">🔍 Uncover Things 001: little mishap on My Personal Brand Launch</h3>
-            <p class="article-summary">My campaign “The Brand Called Me” didn’t go as planned. But that failure became my first real case study.</p>
-            <div class="article-tags">
-              <span class="article-tag">#PersonalBranding</span>
-              <span class="article-tag">#UncoverThings</span>
-              <span class="article-tag">#BrandStrategy</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Article 2: From Complexity to Clarity -->
-        <div class="article-card" onclick="openPopup('clarity-popup')">
-          <img src="https://media.licdn.com/dms/image/v2/D5622AQHDWkorFTzfFQ/feedshare-shrink_800/B56Zk4wFFwHkAg-/0/1757593753550?e=1761177600&v=beta&t=A-dQQCXEFBJiAxcyyhVUyZQqnrZZ0dE8dsVA7TAEzlU" alt="From Complexity to Clarity" class="article-image">
-          <div class="article-content">
-            <div class="article-date">September 2025</div>
-            <h3 class="article-title">📌 Weekly Insight: From Complexity to Clarity</h3>
-            <p class="article-summary">Why your brand needs a story (not just a logo). A lesson from a B2B rebrand that doubled visibility.</p>
-            <div class="article-tags">
-              <span class="article-tag">#BrandVisibility</span>
-              <span class="article-tag">#Storytelling</span>
-              <span class="article-tag">#BusinessStrategy</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Article 3: AI Insight -->
-        <div class="article-card" onclick="openPopup('ai-popup')">
-          <img src="https://media.licdn.com/dms/image/v2/D5622AQHAco0bS5KBaQ/feedshare-shrink_1280/B56ZkkNHFGH8As-/0/1757249042045?e=1759968000&v=beta&t=Uos4QFOfxti87AJT_f4PP3nzGmTCeJnzAD3w-cE6iHk" alt="AI in Marketing" class="article-image">
-          <div class="article-content">
-            <div class="article-date">September 2025</div>
-            <h3 class="article-title">📌 Weekly Insight: AI in Promotional Content</h3>
-            <p class="article-summary">The real issue isn’t AI it’s transparency. Why honesty builds trust, even when machines help create content.</p>
-            <div class="article-tags">
-              <span class="article-tag">#AI</span>
-              <span class="article-tag">#Transparency</span>
-              <span class="article-tag">#MarketingEthics</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Article 4: GAP vs AE -->
-        <div class="article-card" onclick="openPopup('gap-popup')">
-          <img src="https://media.licdn.com/dms/image/v2/D5622AQFZauS7bAnhCA/feedshare-shrink_800/B56ZjiSSW1IAAg-/0/1756143101964?e=1759968000&v=beta&t=Am2KekNW8xLRmnB409Dtm0wavnDnscliyN6iGsxQ8l4" alt="GAP vs American Eagle" class="article-image">
-          <div class="article-content">
-            <div class="article-date">August 2025</div>
-            <h3 class="article-title">📌 Weekly Insight: GAP’s Denim Danced. AE’s Ad Tripped.</h3>
-            <p class="article-summary">Why one campaign sparked joy and the other sparked backlash and what it means for brand storytelling in 2025.</p>
-            <div class="article-tags">
-              <span class="article-tag">#Marketing</span>
-              <span class="article-tag">#BrandStrategy</span>
-              <span class="article-tag">#ViralMarketing</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Article 5: Brand Campaign -->
-        <div class="article-card" onclick="openPopup('brand-popup')">
-          <img src="https://media.licdn.com/dms/image/v2/D5622AQFxQUIKTG9qZw/feedshare-shrink_800/B56ZkB1i4CHQAg-/0/1756672440470?e=1759968000&v=beta&t=bKIgSnOY-NCZLk9mEJ3eURCBRy0NFuOgpEjOfMQQSh0" alt="The Brand Called Me" class="article-image">
-          <div class="article-content">
-            <div class="article-date">February 2025</div>
-            <h3 class="article-title">🚀 Not a Candidate. A Campaign.</h3>
-            <p class="article-summary">Introducing 'The Brand Called Me' a personal brand campaign that blends strategy, creativity, and authenticity.</p>
-            <div class="article-tags">
-              <span class="article-tag">#PersonalBranding</span>
-              <span class="article-tag">#Marketing</span>
-              <span class="article-tag">#HireMe</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Article 6: Student Innovation Project -->
-        <div class="article-card" onclick="openPopup('sip-popup')">
-          <img src="https://media.licdn.com/dms/image/v2/D5622AQE0v8hAHXTe_g/feedshare-shrink_800/B56ZVDOwuJGQAk-/0/1740589698898?e=1759968000&v=beta&t=aC22WkKsDep2f7n7WynTuX4eF8kUgGDE62BD39YC6v8" alt="Student Innovation Project" class="article-image">
-          <div class="article-content">
-            <div class="article-date">January 2025</div>
-            <h3 class="article-title">Building a Support System for Mountaineer Families</h3>
-            <p class="article-summary">Our team designed a sustainable financial aid model for families affected by mountaineering accidents blending empathy with innovation.</p>
-            <div class="article-tags">
-              <span class="article-tag">#Innovation</span>
-              <span class="article-tag">#SocialImpact</span>
-              <span class="article-tag">#Nimsdai</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Article 7: MSc at Southampton -->
-        <div class="article-card" onclick="openPopup('msc-popup')">
-          <img src="https://kortext.com/kortext/wp-content/uploads/southampton-mba.webp" alt="MSc at Southampton" class="article-image">
-          <div class="article-content">
-            <div class="article-date">September 2024</div>
-            <h3 class="article-title">Starting My MSc at the University of Southampton</h3>
-            <p class="article-summary">Excited to begin my MSc in Digital Strategy & Information Systems where data meets storytelling and innovation.</p>
-            <div class="article-tags">
-              <span class="article-tag">#MSc</span>
-              <span class="article-tag">#UniversityOfSouthampton</span>
-              <span class="article-tag">#DigitalStrategy</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Article 8: Internship Completion -->
-        <div class="article-card" onclick="openPopup('internship-popup')">
-          <img src="https://assets-global.website-files.com/5a1eb87c9afe1000014a4c7d/6263e7054c546e35514fa3c6_Poster%20(3).png" alt="Social Media Internship" class="article-image">
-          <div class="article-content">
-            <div class="article-date">December 2023</div>
-            <h3 class="article-title">From Intern to Strategist: My Remote Social Media Journey</h3>
-            <p class="article-summary">Completing my internship at Dezaina.tech taught me how to build strategy from scratch — using calendars, AI, and data to drive real engagement.</p>
-            <div class="article-tags">
-              <span class="article-tag">#Internship</span>
-              <span class="article-tag">#SocialMedia</span>
-              <span class="article-tag">#RemoteWork</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Newsletter Hero -->
+  <section class="newsletter-hero">
+    <h1>📰 Uncover Things</h1>
+    <p>Strategic insights, brand analysis, and marketing deep dives — delivered fresh.</p>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-about">
-        <div class="footer-logo">The Brand Called Me</div>
-        <p>A personal brand campaign for Santhosh Selvan strategist, creator, and builder of the future.</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i></a>
-          <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank"><i class="fas fa-file-pdf"></i></a>
+  <!-- Newsletter Container -->
+  <div class="newsletter-container">
+    
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+      <div class="category-tab active" onclick="filterSelection('all')">All</div>
+      <div class="category-tab" onclick="filterSelection('Brand Strategy')">Brand Strategy</div>
+      <div class="category-tab" onclick="filterSelection('Marketing')">Marketing</div>
+      <div class="category-tab" onclick="filterSelection('Digital Trends')">Digital Trends</div>
+      <div class="category-tab" onclick="filterSelection('Case Studies')">Case Studies</div>
+    </div>
+
+    <!-- News Grid -->
+    <div class="news-grid">
+      
+      <!-- Featured Article: Uncover Things #002 -->
+      <article class="featured-article news-card" data-category="Brand Strategy, Marketing">
+        <img src="https://media.licdn.com/dms/image/v2/D5622AQFY-nIu9d6UpA/feedshare-shrink_800/B56ZmaS0bnI4Ag-/0/1759230250624?e=1762387200&v=beta&t=6dAwxN74t0vzKfc3nAQJIkdHpEXFGperlWoi7FiBje4" alt="Barbie Campaign Analysis" class="featured-article-image">
+        <div class="featured-article-content">
+          <span class="article-badge">🔥 Latest</span>
+          <h2>🔍 Uncover Things #002: Decoding the Uncopyable Success</h2>
+          <div class="article-meta">
+            <span><i class="fas fa-calendar-alt"></i> Oct 2, 2025</span>
+            <span><i class="fas fa-clock"></i> 5 min read</span>
+          </div>
+          <p>The industry's Q1 2025 Market Correction confirmed it: throwing a Massive Dual Engine budget at a campaign doesn't guarantee cultural saturation. For months, brands have been trying and failing to replicate the organic, high-velocity hype generated by Barbie.</p>
+          <a href="https://lnkd.in/gkyfbE-c" target="_blank" class="read-more-btn">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- News Card: Uncover Things #001 -->
+      <article class="news-card" data-category="Brand Strategy, PersonalBranding">
+        <img src="https://media.licdn.com/dms/image/v2/D4D22AQEWXpj6YUCGLA/feedshare-shrink_800/B4DZlYabLUG8Ag-/0/1758124947513?e=1762387200&v=beta&t=lu_vkOOGwGNTvOiQFyr1WswSYbcn94OXJ_JWnpQSaAQ" alt="Personal Branding" class="news-card-image">
+        <div class="news-card-content">
+          <span class="article-badge">Brand Strategy</span>
+          <h3>🔍 Uncover Things #001: The Brand Called Me</h3>
+          <div class="article-meta">
+            <span><i class="fas fa-calendar-alt"></i> Sep 28, 2025</span>
+          </div>
+          <p>I attempted to launch my own personal branding campaign... and it didn’t go the way I thought. But that failure became my first proper case study.</p>
+          <a href="https://lnkd.in/d94pTkYr" target="_blank" class="read-more-btn">Read Full Story <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- News Card: Gap vs. AE -->
+      <article class="news-card" data-category="Marketing, Case Studies">
+        <img src="https://media.licdn.com/dms/image/v2/D5622AQFZauS7bAnhCA/feedshare-shrink_800/B56ZjiSSW1IAAg-/0/1756143101964?e=1762387200&v=beta&t=demgpILD3TDHWqusjhpXss6am3k3EGqKToqKDBdY1Pk" alt="Gap vs. AE" class="news-card-image">
+        <div class="news-card-content">
+          <span class="article-badge">Case Studies</span>
+          <h3>Gap Denim Danced. American Eagle Tripped. 👖✨</h3>
+          <div class="article-meta">
+            <span><i class="fas fa-calendar-alt"></i> Sep 25, 2025</span>
+          </div>
+          <p>Not all virality is equal. Some ads make history. Others just make noise. A deep dive into why GAP's campaign soared while AE's stumbled.</p>
+          <a href="#" class="read-more-btn" onclick="openPopup('gap-ae-popup')">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- News Card: AI Marketing Stack -->
+      <article class="news-card" data-category="Digital Trends, Marketing">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Digital Transformation" class="news-card-image">
+        <div class="news-card-content">
+          <span class="article-badge">Digital Trends</span>
+          <h3>The AI Marketing Stack: Tools That Actually Work</h3>
+          <div class="article-meta">
+            <span><i class="fas fa-calendar-alt"></i> Sep 22, 2025</span>
+          </div>
+          <p>A practical guide to integrating AI tools into your marketing workflow without the hype.</p>
+          <a href="#" class="read-more-btn" onclick="openPopup('ai-stack-popup')">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- News Card: Netflix -->
+      <article class="news-card" data-category="Case Studies, Brand Strategy">
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80" alt="Team Collaboration" class="news-card-image">
+        <div class="news-card-content">
+          <span class="article-badge">Case Studies</span>
+          <h3>How Netflix Mastered Brand Sentiment Polarity</h3>
+          <div class="article-meta">
+            <span><i class="fas fa-calendar-alt"></i> Sep 18, 2025</span>
+          </div>
+          <p>A strategic breakdown of Netflix's business model and competitive positioning in the streaming wars.</p>
+          <a href="#" class="read-more-btn" onclick="openPopup('netflix-case-study-popup')">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Popups -->
+
+
+    <div id="gap-ae-popup" class="popup">
+      <div class="popup-content">
+        <span class="popup-close" onclick="closePopup('gap-ae-popup')">&times;</span>
+        <h2 class="popup-title">Gap Denim Danced. American Eagle Tripped. 👖✨</h2>
+        <p class="popup-org">Sep 25, 2025 | Marketing, Case Studies</p>
+        <img src="https://media.licdn.com/dms/image/v2/D5622AQFZauS7bAnhCA/feedshare-shrink_800/B56ZjiSSW1IAAg-/0/1756143101964?e=1762387200&v=beta&t=demgpILD3TDHWqusjhpXss6am3k3EGqKToqKDBdY1Pk" alt="Gap vs. AE" class="popup-image">
+        <div class="popup-section">
+          <p>Not all virality is equal. Some ads make history. Others just make noise.</p>
+          <p>👉 On August 19, GAP released its new denim campaign with KATSEYE, the global girl group. At first glance, it’s simple: Y2K-inspired denim fits, sharp choreography, and Kelis’ Milkshake. But the brilliance is deeper: each member of KATSEYE symbolizes a different personality, background, and style. Together, they form an iridescent whole. That’s the metaphor. That’s why it worked.</p>
+          <p>Denim isn’t one-size-fits-all and neither is culture. GAP didn’t just show jeans. It showed range.</p>
+          <p>👉Now compare that to American Eagle x Sydney Sweeney. Sydney is talented, recognizable, and influential. But AE branded her in the flattest way possible: a pun on “Great Jeans/Genes.” Instead of celebrating individuality, they reduced her to biology. And in 2025, when conversations around beauty standards and representation are louder than ever, the ad backfired. Yes, both campaigns went viral.</p>
+          <p>But while GAP sparked joy, nostalgia, and inclusivity, AE sparked backlash, think pieces, and political takes. The difference? GAP built a campaign people wanted to share. AE built a campaign people wanted to debate. And in marketing, those two outcomes couldn’t be further apart.</p>
+          <p>💡 Lesson for us marketers: A spokesperson is never just a person. They’re a symbol. KATSEYE became a metaphor for denim’s diversity. Sydney was reduced to a tagline.</p>
+          <p>✨ Attention is easy. Affection is earned.</p>
         </div>
       </div>
-      <div class="footer-links">
-        <h4>Pages</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="newsletter.html">Newsletter</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:santhoshselvan0603@gmail.com">Email Me</a></li>
-          <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank">LinkedIn</a></li>
-          <li><a href="tel:+447741024616">Call Me</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Explore My Work</h4>
-        <ul>
-          <li><a href="portfolio.html">View Portfolio</a></li>
-          <li><a href="newsletter.html">Read Insights</a></li>
-          <li><a href="https://santhosh06.my.canva.site/" target="_blank">Interactive Presentation</a></li>
-        </ul>
+    </div>
+
+    <div id="ai-stack-popup" class="popup">
+      <div class="popup-content">
+        <span class="popup-close" onclick="closePopup('ai-stack-popup')">&times;</span>
+        <h2 class="popup-title">The AI Marketing Stack: Tools That Actually Work</h2>
+        <p class="popup-org">Sep 22, 2025 | Digital Trends, Marketing</p>
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Digital Transformation" class="popup-image">
+        <div class="popup-section">
+          <h4>Cutting Through the Hype</h4>
+          <p>The term "AI" is everywhere in marketing, but what does it actually mean for your day-to-day workflow? This practical guide cuts through the noise to bring you a curated list of AI tools that are genuinely effective and easy to integrate. We'll explore how these tools can help you with everything from content creation and personalization to data analysis and customer segmentation.</p>
+          <h4>The Modern Marketer's AI Toolkit:</h4>
+          <ul>
+            <li><b>Content Generation & Optimization:</b> Tools that help you write more effective copy, generate creative ideas, and optimize your content for SEO.</li>
+            <li><b>Predictive Analytics & Personalization:</b> How to use AI to anticipate customer needs, personalize user experiences, and increase conversion rates.</li>
+            <li><b>Automated Workflows & Efficiency:</b> A look at the platforms that can automate repetitive tasks, freeing up your time for more strategic work.</li>
+          </ul>
+          <p>This isn't about futuristic concepts; it's about practical, accessible AI solutions that you can start using today to make your marketing more efficient, effective, and data-driven.</p>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2025 The Brand Called Me. All rights reserved.
-    </div>
-  </footer>
 
-  <!-- Popups -->
-
-  <!-- Popup 1: Uncover Things (Oct 2025) -->
-  <div class="popup" id="uncover-popup">
-    <div class="popup-content">
-      <button class="popup-close" onclick="closePopup('uncover-popup')">✕</button>
-      <h2 class="popup-title">🔍 Uncover Things 001: little mishap on My Personal Brand Launch</h2>
-      <p class="popup-date">Septemper 2025</p>
-      <img src="https://media.licdn.com/dms/image/v2/D4D22AQEWXpj6YUCGLA/feedshare-shrink_800/B4DZlYabLUG8Ag-/0/1758124947513?e=1761177600&v=beta&t=cM5dmbAQiEhT2PjZG3IbkKcBxYh81X1PRRARiOv05PE" alt="Uncover Things Campaign" class="popup-image">
-      
-      <div class="popup-section">
-        <h4>So… I Did Something</h4>
-        <p>I launched my personal branding campaign titled "The Brand Called Me."</p>
-        <p>And it didn’t go the way I thought.</p>
-        <ul>
-          <li><strong>I skipped research.</strong></li>
-          <li><strong>I designed for myself, not my audience.</strong></li>
-          <li><strong>I chased visuals instead of strategy.</strong></li>
-        </ul>
-      </div>
-
-      <div class="popup-section">
-        <h4>The Twist: Failure Became My Case Study</h4>
-        <p>That misstep became my first real case study.</p>
-        <p>So I started a new series: <strong>Uncover Things</strong> where I dissect campaigns (including my own) to reveal what worked, what failed, and why.</p>
-        <p>Case 001 is live: <a href="https://medium.com/@beyondmovies3/uncover-things-001-the-brand-called-me-c993d2a02876" target="_blank">The Brand Called Me</a>. It’s honest. Raw. Maybe even messy.</p>
-        <p>But that’s the point brands aren’t built in a straight line.</p>
-      </div>
-
-      <div class="popup-section">
-        <h4>What I Learned</h4>
-        <p><strong>Authenticity</strong> > polish</p> 
-        <p><strong>Strategy</strong> > aesthetics </p>
-        <p>And every launch starts with a mistake.</p>
-      </div>
-
-      <div class="popup-skills">
-        <span class="popup-skill">Personal Branding</span>
-        <span class="popup-skill">Campaign Analysis</span>
-        <span class="popup-skill">Storytelling</span>
-        <span class="popup-skill">Self-Awareness</span>
-        <span class="popup-skill">Brand Strategy</span>
+    <div id="netflix-case-study-popup" class="popup">
+      <div class="popup-content">
+        <span class="popup-close" onclick="closePopup('netflix-case-study-popup')">&times;</span>
+        <h2 class="popup-title">How Netflix Mastered Brand Sentiment Polarity</h2>
+        <p class="popup-org">Sep 18, 2025 | Case Studies, Brand Strategy</p>
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80" alt="Team Collaboration" class="popup-image">
+        <div class="popup-section">
+          <h4>The Art of Calculated Risks</h4>
+          <p>Netflix has long been a master of capturing the cultural zeitgeist, but its success isn't just about producing hit shows. It's about strategically managing brand sentiment polarity – the ability to engage with controversial topics and generate passionate debate without alienating its core audience. This case study delves into the mechanics of Netflix's approach, examining how it leverages data, creative freedom, and a deep understanding of its audience to navigate the complex landscape of modern media.</p>
+          <h4>Key Elements of Netflix's Strategy:</h4>
+          <ul>
+            <li><b>The Algorithm as a Shield:</b> How Netflix's recommendation engine allows it to cater to diverse and sometimes conflicting tastes simultaneously.</li>
+            <li><b>Empowering Creators:</b> The role of creative freedom in fostering groundbreaking content that sparks conversation.</li>
+            <li><b>The Global-Local Playbook:</b> How Netflix balances global brand consistency with localized content strategies to resonate with diverse cultural contexts.</li>
+          </ul>
+          <p>By understanding how Netflix not only survives but thrives in a world of polarized opinions, marketers can learn valuable lessons about brand resilience, audience engagement, and the power of a well-managed content strategy.</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Popup 2: From Complexity to Clarity (Sep 2025) -->
-  <div class="popup" id="clarity-popup">
-    <div class="popup-content">
-      <button class="popup-close" onclick="closePopup('clarity-popup')">✕</button>
-      <h2 class="popup-title">📌 Weekly Insight: From Complexity to Clarity</h2>
-      <p class="popup-date">September 2025</p>
-      <img src="https://media.licdn.com/dms/image/v2/D5622AQHDWkorFTzfFQ/feedshare-shrink_800/B56Zk4wFFwHkAg-/0/1757593753550?e=1761177600&v=beta&t=A-dQQCXEFBJiAxcyyhVUyZQqnrZZ0dE8dsVA7TAEzlU" alt="From Complexity to Clarity" class="popup-image">
-      
-      <div class="popup-section">
-        <h4>Why Your Brand Needs a Story (Not Just a Logo)</h4>
-        <p>Most businesses think rebranding is about colors, fonts, and shiny websites. But the truth is: it’s about <strong>clarity</strong>.</p>
-        <p>Take <strong>simple system GmbH</strong> a procurement platform needing to shift traditional buyers to a paid model. Tough conversation.</p>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <h3 class="footer-logo">The Brand Called Me</h3>
+          <p>Exploring the intersection of marketing, technology, and culture. A personal journey of discovery and analysis.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="#">Brand Strategy</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Digital Trends</a></li>
+            <li><a href="#">Case Studies</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Subscribe</h4>
+          <p>Get the latest insights delivered straight to your inbox.</p>
+          <!-- Add a subscription form here if desired -->
+        </div>
       </div>
-
-      <div class="popup-section">
-        <h4>The Solution: Big Picture Strategy</h4>
-        <p>Saupe Communication stepped in with a holistic approach:</p>
-        <ul>
-          <li>Defined core messaging</li>
-          <li>Aligned internal teams</li>
-          <li>Created a narrative, not just a logo</li>
-        </ul>
-        <p><strong>Results:</strong></p>
-        <ul>
-          <li>Doubled social media presence</li>
-          <li>Went from invisible to visible on Google</li>
-          <li>Lead generation on fire 🔥</li>
-          <li>Internal team stronger than ever</li>
-        </ul>
+      <div class="footer-bottom">
+        <p>&copy; 2025 The Brand Called Me. All Rights Reserved.</p>
       </div>
+    </footer>
 
-      <div class="popup-section">
-        <h4>My Takeaway</h4>
-        <p>If your customers don’t understand your value, they won’t pay for it.</p>
-        <p>A strong brand doesn’t just make you “look good” it makes you <strong>grow good</strong>.</p>
-        <p>On a personal note: I’ve launched my own experiment <a href="https://lnkd.in/gshKVFFH" target="_blank">“The Brand Called Me”</a>.</p>
-        <p>Yes, the name is hard to promote… but great brands often start with a challenge.</p>
-      </div>
+    <script>
+      function openPopup(popupId) {
+        document.getElementById(popupId).style.display = 'block';
+      }
 
-      <div class="popup-skills">
-        <span class="popup-skill">Brand Strategy</span>
-        <span class="popup-skill">Storytelling</span>
-        <span class="popup-skill">Clarity</span>
-        <span class="popup-skill">B2B Marketing</span>
-        <span class="popup-skill">Transformation</span>
-      </div>
-    </div>
-  </div>
+      function closePopup(popupId) {
+        document.getElementById(popupId).style.display = 'none';
+      }
 
-  <div class="popup" id="ai-popup">
-  <div class="popup-content">
-    <button class="popup-close" onclick="closePopup('ai-popup')">✕</button>
-    <h2 class="popup-title">📌 Weekly Insight: AI in Promotional Content</h2>
-    <p class="popup-date">September 2025</p>
-    <img src="https://media.licdn.com/dms/image/v2/D5622AQHAco0bS5KBaQ/feedshare-shrink_1280/B56ZkkNHFGH8As-/0/1757249042045?e=1759968000&v=beta&t=Uos4QFOfxti87AJT_f4PP3nzGmTCeJnzAD3w-cE6iHk" alt="AI in Marketing" class="popup-image">
-    
-    <div class="popup-section">
-      <h4>The Real Issue Isn’t AI It’s Trust</h4>
-      <p>We keep hearing: "AI is ruining creativity." But what if the real issue isn’t the technology, but how we talk about it?</p>
-      <p>In a recent blind test, most participants couldn’t even spot AI-generated promotional posters. But when told the content was AI-made, trust dropped sharply not because of quality, but because of secrecy.</p>
-      <p>And here’s the shift: 23% of respondents blamed the Marketing/PR team, not the AI developers. That’s a wake-up call.</p>
-    </div>
+      function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("news-card");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+      }
 
-    <div class="popup-section">
-      <h4>PR Is No Longer Just About Messaging</h4>
-      <p>It’s about ethical gatekeeping. In the age of synthetic media, transparency isn’t a risk — it’s the foundation of trust.</p>
-      <p>So if you’re using AI:</p>
-      <ul>
-        <li><strong>Say so early:</strong> Label AI-assisted content clearly.</li>
-        <li><strong>Frame it as a tool:</strong> Not a replacement, but an enhancer.</li>
-        <li><strong>Credit human oversight:</strong> Show the team behind the machine.</li>
-        <li><strong>Own the narrative:</strong> Don’t wait for backlash lead with honesty.</li>
-      </ul>
-    </div>
+      function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+        }
+      }
 
-    <div class="popup-section">
-      <h4>What I Learned</h4>
-      <p>Audiences aren’t asking for perfection. They’re asking for honesty. The future of ethical AI communication starts with conversation and I’m committed to leading it.</p>
-    </div>
+      function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);     
+          }
+        }
+        element.className = arr1.join(" ");
+      }
 
-    <div class="popup-skills">
-      <span class="popup-skill">AI Ethics</span>
-      <span class="popup-skill">Transparency</span>
-      <span class="popup-skill">Public Relations</span>
-      <span class="popup-skill">Brand Trust</span>
-      <span class="popup-skill">Marketing Strategy</span>
-    </div>
-  </div>
-</div>
-
-<!-- Popup 2: GAP vs AE (Aug 2025) -->
-<div class="popup" id="gap-popup">
-  <div class="popup-content">
-    <button class="popup-close" onclick="closePopup('gap-popup')">✕</button>
-    <h2 class="popup-title">📌 Weekly Insight: GAP’s Denim Danced. AE’s Ad Tripped.</h2>
-    <p class="popup-date">August 2025</p>
-    <img src="https://media.licdn.com/dms/image/v2/D5622AQFZauS7bAnhCA/feedshare-shrink_800/B56ZjiSSW1IAAg-/0/1756143101964?e=1759968000&v=beta&t=Am2KekNW8xLRmnB409Dtm0wavnDnscliyN6iGsxQ8l4" alt="GAP Denim Campaign" class="popup-image">
-    
-    <div class="popup-section">
-      <h4>Why One Campaign Sparked Joy, the Other Backlash</h4>
-      <p>On August 19, GAP launched its denim campaign with KATSEYE, the global girl group. Y2K-inspired fits, sharp choreography, and Kelis’ “Milkshake” but the brilliance was deeper.</p>
-      <p>Each member symbolized a different personality, background, and style. Together, they formed an iridescent whole a metaphor for denim’s diversity.</p>
-      <p>GAP didn’t just show jeans. It showed range.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4>Now Compare to American Eagle x Sydney Sweeney</h4>
-      <p>Sydney is talented, influential but AE branded her in the flattest way: a pun on “Great Jeans/Genes.”</p>
-      <p>Instead of celebrating individuality, they reduced her to biology. In 2025, when conversations around beauty standards are louder than ever, the ad backfired.</p>
-      <p>Both went viral. But GAP sparked joy and nostalgia. AE sparked backlash and debate.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4>The Lesson for Marketers</h4>
-      <p>A spokesperson is never just a person. They’re a symbol.</p>
-      <p>KATSEYE became a metaphor for denim’s diversity. Sydney was reduced to a tagline.</p>
-      <p><strong>Attention is easy. Affection is earned.</strong></p>
-    </div>
-
-    <div class="popup-skills">
-      <span class="popup-skill">Brand Strategy</span>
-      <span class="popup-skill">Viral Marketing</span>
-      <span class="popup-skill">Cultural Insight</span>
-      <span class="popup-skill">Advertising</span>
-      <span class="popup-skill">Marketing Analysis</span>
-    </div>
-  </div>
-</div>
-
-<!-- Popup 3: Brand Campaign (Feb 2025) -->
-<div class="popup" id="brand-popup">
-  <div class="popup-content">
-    <button class="popup-close" onclick="closePopup('brand-popup')">✕</button>
-    <h2 class="popup-title">🚀 Not a Candidate. A Campaign.</h2>
-    <p class="popup-date">February 2025</p>
-    <img src="https://media.licdn.com/dms/image/v2/D5622AQFxQUIKTG9qZw/feedshare-shrink_800/B56ZkB1i4CHQAg-/0/1756672440470?e=1759968000&v=beta&t=bKIgSnOY-NCZLk9mEJ3eURCBRy0NFuOgpEjOfMQQSh0" alt="The Brand Called Me" class="popup-image">
-    
-    <div class="popup-section">
-      <h4>Introducing: The Brand Called Me</h4>
-      <p>Every brand deserves a launch. This is mine.</p>
-      <p>This isn’t a job search. It’s a marketing drop a mix of strategy, creativity, and a little bit of drama.</p>
-      <p>I’m not just applying. I’m launching.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4>Why I’m Doing This</h4>
-      <p>In a world where candidates blend in, I want to stand out not as a resume, but as a story.</p>
-      <p>The goal? To build a personal brand that reflects my values: strategic depth, creative execution, and authentic storytelling.</p>
-      <p>I want to work with teams that don’t just hire talent they build movements.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4>The Aim</h4>
-      <p>To attract forward-thinking organizations in marketing, strategy, or product where innovation is the norm, not the exception.</p>
-      <p>Stay tuned for the rollout. This is just the beginning.</p>
-    </div>
-
-    <div class="popup-skills">
-      <span class="popup-skill">Personal Branding</span>
-      <span class="popup-skill">Marketing Strategy</span>
-      <span class="popup-skill">Creative Campaigns</span>
-      <span class="popup-skill">Storytelling</span>
-      <span class="popup-skill">Digital Marketing</span>
-    </div>
-  </div>
-</div>
-
-<!-- Popup 4: Student Innovation Project (Jan 2025) -->
-<div class="popup" id="sip-popup">
-  <div class="popup-content">
-    <button class="popup-close" onclick="closePopup('sip-popup')">✕</button>
-    <h2 class="popup-title">Building a Support System for Mountaineer Families</h2>
-    <p class="popup-date">January 2025</p>
-    <img src="https://media.licdn.com/dms/image/v2/D5622AQE0v8hAHXTe_g/feedshare-shrink_800/B56ZVDOwuJGQAk-/0/1740589698898?e=1759968000&v=beta&t=aC22WkKsDep2f7n7WynTuX4eF8kUgGDE62BD39YC6v8" alt="Student Innovation Project" class="popup-image">
-    
-    <div class="popup-section">
-      <h4>The Challenge</h4>
-      <p>My team and I took part in the Student Innovation Project with the Nimsdai Foundation and the University of Southampton. Our mission: develop a financial aid model for families affected by mountaineering accidents.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4>Our Solution</h4>
-      <ul>
-        <li><strong>Financial & Emotional Support:</strong> A digital platform for resource access and emotional care.</li>
-        <li><strong>Sustainable Funding:</strong> Explored models like memorial climbs and corporate sponsorships.</li>
-        <li><strong>Fair Application Process:</strong> Designed a Survivor Priority Index (SPI) for equitable aid distribution.</li>
-      </ul>
-    </div>
-
-    <div class="popup-section">
-      <h4>Team & Gratitude</h4>
-      <p>Working with Ivan Chan, Xi Zhengyuan, Chenyi Wang, and 艺娜 Yina was inspiring. Special thanks to Glen Mallen from Nimsdai Foundation, and Rebecca Petty and Dan Bradley for their guidance.</p>
-      <p>This journey was about empathy, innovation, and impact and I’m proud of what we built.</p>
-    </div>
-
-    <div class="popup-skills">
-      <span class="popup-skill">Innovation</span>
-      <span class="popup-skill">Social Impact</span>
-      <span class="popup-skill">Problem Solving</span>
-      <span class="popup-skill">Team Collaboration</span>
-      <span class="popup-skill">Sustainable Design</span>
-    </div>
-  </div>
-</div>
-
-<!-- Popup 5: MSc at Southampton (Sep 2024) -->
-<div class="popup" id="msc-popup">
-  <div class="popup-content">
-    <button class="popup-close" onclick="closePopup('msc-popup')">✕</button>
-    <h2 class="popup-title">Starting My MSc at the University of Southampton</h2>
-    <p class="popup-date">September 2024</p>
-    <img src="https://kortext.com/kortext/wp-content/uploads/southampton-mba.webp" alt="MSc at Southampton" class="popup-image">
-    
-    <div class="popup-section">
-      <h4>A New Chapter</h4>
-      <p>I’m thrilled to begin my MSc in Digital Strategy & Information Systems at the University of Southampton.</p>
-      <p>After months of preparation, I’ve moved to the UK, ready to dive into a curriculum that blends data, strategy, and innovation.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4>What I’m Excited About</h4>
-      <ul>
-        <li><strong>Digital Business:</strong> Osterwalder’s Canvas, competitive strategy, monetization models.</li>
-        <li><strong>Web Development:</strong> Building full-stack apps with HTML, CSS, JS, PHP, MySQL.</li>
-        <li><strong>Simulation:</strong> Using AnyLogic to model marketing ROI and supply chain dynamics.</li>
-        <li><strong>Agile & Innovation:</strong> Sprint planning, stakeholder engagement, ABC model.</li>
-      </ul>
-    </div>
-
-    <div class="popup-section">
-      <h4>Looking Ahead</h4>
-      <p>This is more than a degree. It’s a transformation. I’m ready to grow, learn, and contribute.</p>
-    </div>
-
-    <div class="popup-skills">
-      <span class="popup-skill">Digital Strategy</span>
-      <span class="popup-skill">Web Development</span>
-      <span class="popup-skill">Data Analytics</span>
-      <span class="popup-skill">Agile</span>
-      <span class="popup-skill">AnyLogic</span>
-    </div>
-  </div>
-</div>
-
-<!-- Popup 6: Internship Completion (Dec 2023) -->
-<div class="popup" id="internship-popup">
-  <div class="popup-content">
-    <button class="popup-close" onclick="closePopup('internship-popup')">✕</button>
-    <h2 class="popup-title">From Intern to Strategist: My Remote Social Media Journey</h2>
-    <p class="popup-date">December 2023</p>
-    <img src="https://assets-global.website-files.com/5a1eb87c9afe1000014a4c7d/6263e7054c546e35514fa3c6_Poster%20(3).png" alt="Social Media Internship" class="popup-image">
-    
-    <div class="popup-section">
-      <h4>The Experience</h4>
-      <p>I’m delighted to share that I successfully completed my Social Media Marketing internship at Dezaina.tech from August to September 2023.</p>
-      <p>It was a remote role, and I collaborated with a small but dynamic team to build and execute campaigns from scratch.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4>How I Did It</h4>
-      <ul>
-        <li><strong>Content Calendar:</strong> Created a one-month content calendar using Asana and Canva, aligning with market trends and audience behavior.</li>
-        <li><strong>Market Analysis:</strong> Researched competitors and trends to pitch data-driven content ideas.</li>
-        <li><strong>AI Tools:</strong> Used generative AI to brainstorm headlines and refine copy, always with human oversight.</li>
-        <li><strong>Team Collaboration:</strong> Coordinated with designers and copywriters to ensure brand consistency.</li>
-      </ul>
-    </div>
-
-    <div class="popup-section">
-      <h4>What I Learned</h4>
-      <p>This internship taught me how to turn strategy into action. I learned to balance creativity with data, and to communicate clearly in a remote environment.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4>Skills & Tools</h4>
-      <div class="popup-skills">
-        <span class="popup-skill">Content Creation</span>
-        <span class="popup-skill">Canva</span>
-        <span class="popup-skill">Asana</span>
-        <span class="popup-skill">AI Tools</span>
-        <span class="popup-skill">Remote Collaboration</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <!-- JavaScript -->
-  <script>
-    function openPopup(id) {
-      document.getElementById(id).classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closePopup(id) {
-      document.getElementById(id).classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Close popup on escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.popup.active').forEach(popup => {
-          closePopup(popup.id);
+      // Add active class to the current button (highlight it)
+      var btnContainer = document.getElementById("myBtnContainer");
+      var btns = btnContainer.getElementsByClassName("btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function(){
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
         });
       }
-    });
+    </script>
 
-    // Close popup if clicking outside the content
-    document.querySelectorAll('.popup').forEach(popup => {
-      popup.addEventListener('click', function(e) {
-        if (e.target === popup) {
-          closePopup(popup.id);
-        }
-      });
-    });
-  </script>
-
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
+
