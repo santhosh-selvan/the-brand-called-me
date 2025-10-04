@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SANTHOSH SELVAN I S</title>
 
-  <!-- Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
   <style>
+    /* VARIABLES: Keeping custom color palette */
     :root {
       --soft-orange: #F97316;
       --deep-orange: #EA580C;
@@ -19,6 +20,10 @@
       --dark: #111827;
       --mid-gray: #6B7280;
       --gradient-orange: linear-gradient(135deg, #F97316, #EA580C);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -31,7 +36,7 @@
       position: relative;
     }
 
-    /* Background Stripes - Alternating Zebra Pattern */
+    /* Background Stripes - Keeping original animation */
     .background-stripes {
       position: fixed;
       inset: 0;
@@ -64,39 +69,27 @@
 
     @keyframes scrollStripeAlternate {
       0% { transform: translateX(100%) skewY(-12deg); }
-      100% { transform: translateX(-100%) skewY(-12deg); }
+      100% { transform: translateX(-100%) skewY(-100%) skewY(-12deg); }
     }
 
-    /* Header */
+    /* Header: Using Bootstrap's .navbar for responsiveness, keeping custom styling */
     .site-header {
-      padding: 2rem 0;
+      padding: 0; /* Bootstrap nav has its own padding */
       background: white;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
+    
+    /* Custom styling for logo and nav links */
     .logo {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       font-weight: 700;
-      color: var(--deep-orange);
+      color: var(--deep-orange) !important; /* !important to override Bootstrap a:link color */
       text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
+      padding: 1rem 0;
     }
 
     .nav-links a.nav-link {
@@ -106,9 +99,9 @@
       font-size: 1.1rem;
       transition: color 0.3s ease;
       position: relative;
-      padding: 0.5rem 0;
+      padding: 0.5rem 0.5rem; /* Reduced padding for Bootstrap's structure */
+      margin-left: 1.5rem; /* Add spacing back */
     }
-
     .nav-links a.nav-link:hover {
       color: var(--deep-orange);
     }
@@ -121,39 +114,113 @@
       content: '';
       position: absolute;
       bottom: 0;
-      left: 0;
-      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%; /* Adjusted width */
       height: 3px;
       background: var(--soft-orange);
       border-radius: 3px;
     }
 
-    /* Hero */
+    /* Removing .header-container rules as Bootstrap's .container is now used */
+    
+    /* ========== INNOVATIVE BODY CONTENT ========== */
+
+    /* Hero Section - Keeping styles, using Bootstrap's padding helpers */
     .hero {
-      padding: 12rem 2rem 4rem;
+      padding: 8rem 0 4rem; /* Padding is now only top/bottom */
       text-align: center;
       position: relative;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Animations and Typography styles are preserved */
+    .hero-badge {
+      display: inline-block;
+      background: var(--gradient-orange);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      animation: fadeInDown 0.8s ease;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 4.5rem;
+      font-size: 5rem;
       font-weight: 700;
       color: var(--dark);
       margin-bottom: 1.5rem;
       line-height: 1.1;
+      animation: fadeInUp 1s ease;
     }
 
-    .hero p {
-      font-size: 1.5rem;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
       color: var(--mid-gray);
-      max-width: 800px;
-      margin: 0 auto 2.5rem;
+      max-width: 900px;
+      margin: 0 auto 1rem;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .hero .highlight {
       color: var(--soft-orange);
-      font-weight: 600;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gradient-orange);
+      border-radius: 3px;
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      color: var(--mid-gray);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
     }
 
     .cta-buttons {
@@ -161,7 +228,8 @@
       justify-content: center;
       gap: 1.5rem;
       flex-wrap: wrap;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
+      animation: fadeIn 1.4s ease;
     }
 
     .cta-btn {
@@ -170,70 +238,374 @@
       gap: 0.8rem;
       background: var(--gradient-orange);
       color: white;
-      padding: 1rem 2rem;
-      border-radius: 8px;
+      padding: 1.2rem 2.5rem;
+      border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 1.1rem;
       transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
     }
 
     .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(249, 115, 22, 0.5);
     }
 
-    /* Moving Skills inside body */
-    .skills-body-marquee {
-      margin: 2rem 0;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .skills-body-track {
-      display: inline-flex;
-      align-items: center;
-      gap: 2.5rem;
-      animation: scrollBodyLogos 35s linear infinite;
-    }
-
-    .skills-body-item {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-size: 1rem;
-      font-weight: 600;
+    .cta-btn.secondary {
+      background: white;
       color: var(--deep-orange);
-      text-decoration: none;
+      border: 2px solid var(--deep-orange);
     }
 
-    .skills-body-item i {
+    .cta-btn.secondary:hover {
+      background: var(--deep-orange);
+      color: white;
+    }
+
+    /* Quick Stats Section - Card styling preserved */
+    .stat-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+      height: 100%; /* Important for equal height in Bootstrap grid */
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(249, 115, 22, 0.2);
+      border-color: var(--soft-orange);
+    }
+
+    .stat-card i {
+      font-size: 3rem;
+      color: var(--soft-orange);
+      margin-bottom: 1rem;
+    }
+
+    .stat-card h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0.5rem 0;
+    }
+
+    .stat-card p {
+      color: var(--mid-gray);
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* Who Am I Section - Custom styles for cards */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: rgba(249, 115, 22, 0.1);
+      color: var(--deep-orange);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.3rem;
+      color: var(--mid-gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .identity-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      height: 100%; /* Important for equal height in Bootstrap grid */
+    }
+
+    .identity-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-orange);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .identity-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .identity-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(249, 115, 22, 0.2);
+    }
+
+    .identity-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--gradient-orange);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+    }
+
+    .identity-icon i {
+      font-size: 2rem;
+      color: white;
+    }
+
+    .identity-card h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .identity-card p {
+      color: var(--mid-gray);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .identity-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .identity-tag {
+      background: rgba(249, 115, 22, 0.1);
+      color: var(--deep-orange);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Skills Showcase - Custom styles for cards */
+    .skill-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      cursor: pointer;
+      height: 100%; /* Important for equal height in Bootstrap grid */
+    }
+
+    .skill-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 8px 30px rgba(249, 115, 22, 0.2);
+    }
+
+    .skill-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-orange);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .skill-icon i {
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .skill-info h4 {
       font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0 0 0.3rem 0;
     }
 
-    .skills-body-item:hover {
-      text-decoration: underline;
+    .skill-info p {
+      font-size: 0.9rem;
+      color: var(--mid-gray);
+      margin: 0;
     }
 
-    @keyframes scrollBodyLogos {
-      0% { transform: translateX(100%) }
-      100% { transform: translateX(-100%) }
+    /* Value Proposition - Preserved styles */
+    .value-proposition {
+      padding: 4rem 2rem;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
     }
 
-    /* Footer */
+    .value-proposition::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--gradient-orange);
+    }
+
+    .value-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .value-text p {
+      font-size: 1.2rem;
+      color: var(--mid-gray);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .value-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .value-list li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+
+    .value-list li:last-child {
+      border-bottom: none;
+    }
+
+    .value-list i {
+      color: var(--soft-orange);
+      font-size: 1.5rem;
+    }
+
+    .value-metric {
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(234, 88, 12, 0.05));
+      padding: 2rem;
+      border-radius: 16px;
+      border-left: 4px solid var(--soft-orange);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .value-metric:hover {
+      transform: translateX(10px);
+      box-shadow: 0 4px 20px rgba(249, 115, 22, 0.2);
+    }
+
+    .value-metric h4 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--deep-orange);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .value-metric p {
+      font-size: 1rem;
+      color: var(--dark);
+      margin: 0;
+      font-weight: 600;
+    }
+
+    /* CTA Section - Preserved styles */
+    .final-cta {
+      padding: 5rem 2rem;
+      background: var(--gradient-orange);
+      border-radius: 24px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 12px 40px rgba(249, 115, 22, 0.3);
+    }
+
+    .final-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .final-cta p {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+    }
+
+    .final-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: white;
+      color: var(--deep-orange);
+      padding: 1.2rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .final-cta-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .final-cta-btn.outline {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .final-cta-btn.outline:hover {
+      background: white;
+      color: var(--deep-orange);
+    }
+
+    /* Footer - Preserved styles */
     .footer {
       background: white;
-      padding: 4rem 2rem;
+      padding: 4rem 2rem 2rem;
       border-top: 1px solid #eee;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 4rem;
-      color: var(--mid-gray);
+      margin-top: 4rem;
     }
 
     .footer-logo {
@@ -294,35 +666,36 @@
       margin-top: 3rem;
     }
 
-    /* Responsive */
+    /* Responsive adjustments for typography in smaller screens */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 3rem;
       }
-      .hero p {
-        font-size: 1.2rem;
+      
+      .hero-subtitle {
+        font-size: 1.3rem;
       }
-      .nav-links {
-        gap: 1.2rem;
-        flex-wrap: wrap;
-        justify-content: center;
+
+      .section-title {
+        font-size: 2.5rem;
       }
+
+      .value-text h2 {
+        font-size: 2rem;
+      }
+
+      .final-cta h2 {
+        font-size: 2.5rem;
+      }
+      
       .background-stripes .stripe {
         font-size: 2.2rem;
-      }
-      .skills-body-item {
-        font-size: 0.9rem;
-      }
-      .skills-body-track {
-        gap: 1.2rem;
-        animation-duration: 40s;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Background Stripes -->
   <div class="background-stripes">
     <div class="stripe">STRATEGIST • CREATOR • INNOVATOR • ANALYST • LEADER • BUILDER</div>
     <div class="stripe">PUBLIC RELATIONS • MARKETING • DIGITAL STRATEGY • RESEARCH • COMMUNITY</div>
@@ -330,90 +703,417 @@
     <div class="stripe">RESULTS • INSIGHTS • STORYTELLING • SYSTEMS</div>
   </div>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">The Brand Called Me</a>
-      <nav class="nav-links">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="about.html" class="nav-link">About Me</a>
-        <a href="portfolio.html" class="nav-link">Portfolio</a>
-        <a href="newsletter.html" class="nav-link">Newsletter</a>
-        <a href="contact.html" class="nav-link">Contact Me</a>
-      </nav>
+  <header class="site-header navbar navbar-expand-lg">
+    <div class="container">
+      <a href="index.html" class="navbar-brand logo">The Brand Called Me</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <nav class="navbar-nav nav-links">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="about.html" class="nav-link">About Me</a>
+          <a href="portfolio.html" class="nav-link">Portfolio</a>
+          <a href="newsletter.html" class="nav-link">Newsletter</a>
+          <a href="contact.html" class="nav-link">Contact Me</a>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
-    <h1>SANTHOSH SELVAN I S</h1>
-    <p>A <span class="highlight">data-driven strategist</span> building a brand to <span class="highlight">earn his seat at the table</span>.<br>
-       Mobile tech enthusiast. Content creator. Community builder. Future innovator.</p>
-    <div class="cta-buttons">
-      <a href="portfolio.html" class="cta-btn"><i class="fas fa-briefcase"></i> View Portfolio</a>
-      <a href="contact.html" class="cta-btn"><i class="fas fa-envelope"></i> Get in Touch</a>
-    </div>
+    <div class="container">
+      <div class="hero-badge">
+        <i class="fas fa-star"></i> Available for Opportunities
+      </div>
+      <h1>SANTHOSH SELVAN I S</h1>
+      <p class="hero-subtitle">
+        A <span class="highlight">data-driven strategist</span> building a brand to <span class="highlight">earn his seat at the table</span>
+      </p>
+      <p class="hero-description">
+        Mobile tech enthusiast. Content creator. Community builder. Future innovator combining analytics, creativity, and strategic thinking to drive measurable impact.
+      </p>
+      <div class="cta-buttons">
+        <a href="portfolio.html" class="cta-btn">
+          <i class="fas fa-briefcase"></i> View Portfolio
+        </a>
+        <a href="contact.html" class="cta-btn secondary">
+          <i class="fas fa-envelope"></i> Get in Touch
+        </a>
+      </div>
 
-    <!-- Moving Skills inside body -->
-    <div class="skills-body-marquee">
-      <div class="skills-body-track">
-        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/Microsoft_Power_BI" target="_blank"><i class="fa-solid fa-square-poll-vertical"></i> Power BI</a>
-        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/Microsoft_Excel" target="_blank"><i class="fa-solid fa-file-excel"></i> Excel</a>
-        <span class="skills-body-item"><i class="fa-solid fa-chart-line"></i> Data Analytics</span>
-        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/Canva" target="_blank"><i class="fa-solid fa-palette"></i> Canva</a>
-        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/Figma" target="_blank"><i class="fa-brands fa-figma"></i> Figma</a>
-        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/C++" target="_blank"><i class="fa-solid fa-code"></i> C++</a>
-        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/HTML" target="_blank"><i class="fa-brands fa-html5"></i> HTML</a>
-        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/CSS" target="_blank"><i class="fa-brands fa-css3-alt"></i> CSS</a>
-        <a class="skills-body-item" href="https://en.wikipedia.org/wiki/Hootsuite" target="_blank"><i class="fa-solid fa-bullhorn"></i> Hootsuite</a>
-        <span class="skills-body-item"><i class="fa-solid fa-hashtag"></i> Social Media Management</span>
+      <div class="quick-stats row g-4 mt-5">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="stat-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>5+</h3>
+            <p>Years of Experience</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="stat-card">
+            <i class="fas fa-project-diagram"></i>
+            <h3>20+</h3>
+            <p>Projects Completed</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="stat-card">
+            <i class="fas fa-tools"></i>
+            <h3>10+</h3>
+            <p>Technical Skills</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <h3>100%</h3>
+            <p>Client Satisfaction</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-about">
-        <div class="footer-logo">The Brand Called Me</div>
-        <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future.</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i></a>
-          <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank"><i class="fas fa-file-pdf"></i></a>
+  <section class="who-am-i my-5 py-5">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">WHO I AM</span>
+        <h2 class="section-title">Multi-Dimensional Professional</h2>
+        <p class="section-subtitle">
+          I bring together diverse skills and perspectives to create innovative solutions that drive real business results.
+        </p>
+      </div>
+
+      <div class="identity-grid row g-4 mt-3">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="identity-card">
+            <div class="identity-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <h3>Data Analyst</h3>
+            <p>
+              Transforming raw data into actionable insights using Power BI, Excel, and advanced analytics.
+            </p>
+            <div class="identity-tags">
+              <span class="identity-tag">Power BI</span>
+              <span class="identity-tag">Excel</span>
+              <span class="identity-tag">Analytics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="identity-card">
+            <div class="identity-icon">
+              <i class="fas fa-bullhorn"></i>
+            </div>
+            <h3>Marketing Strategist</h3>
+            <p>
+              Crafting compelling campaigns and managing social media presence with tools like Hootsuite.
+            </p>
+            <div class="identity-tags">
+              <span class="identity-tag">Social Media</span>
+              <span class="identity-tag">Hootsuite</span>
+              <span class="identity-tag">PR</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="identity-card">
+            <div class="identity-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3>Creative Designer</h3>
+            <p>
+              Designing visually stunning content using Canva and Figma. I create designs that communicate effectively.
+            </p>
+            <div class="identity-tags">
+              <span class="identity-tag">Canva</span>
+              <span class="identity-tag">Figma</span>
+              <span class="identity-tag">UI/UX</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="identity-card">
+            <div class="identity-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Technical Developer</h3>
+            <p>
+              Building responsive websites and applications with HTML, CSS, and C++.
+            </p>
+            <div class="identity-tags">
+              <span class="identity-tag">HTML/CSS</span>
+              <span class="identity-tag">C++</span>
+              <span class="identity-tag">Web Dev</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="footer-links">
-        <h4>Pages</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="newsletter.html">Newsletter</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:santhoshselvan0603@gmail.com">Email Me</a></li>
-          <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank">LinkedIn</a></li>
-          <li><a href="tel:+447741024616">Call Me</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-  <h4>Explore My Work</h4>
-  <ul>
-    <li><a href="portfolio.html">View Portfolio</a></li>
-    <li><a href="newsletter.html">Read Insights</a></li>
-    <li><a href="https://santhosh06.my.canva.site/" target="_blank">Interactive Presentation</a></li>
-  </ul>
-</div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2025 The Brand Called Me. All rights reserved.
+  </section>
+
+  <section class="skills-showcase my-5 py-5">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">SKILLS & EXPERTISE</span>
+        <h2 class="section-title">Technical Arsenal</h2>
+        <p class="section-subtitle">
+          A comprehensive toolkit spanning analytics, design, development, and marketing.
+        </p>
+      </div>
+
+      <div class="skills-grid row g-3 mt-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fa-solid fa-square-poll-vertical"></i>
+            </div>
+            <div class="skill-info">
+              <h4>Power BI</h4>
+              <p>Advanced data visualization</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fa-solid fa-file-excel"></i>
+            </div>
+            <div class="skill-info">
+              <h4>Microsoft Excel</h4>
+              <p>Complex data analysis</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="skill-info">
+              <h4>Data Analytics</h4>
+              <p>Insights & reporting</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <div class="skill-info">
+              <h4>Canva</h4>
+              <p>Graphic design & branding</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fa-brands fa-figma"></i>
+            </div>
+            <div class="skill-info">
+              <h4>Figma</h4>
+              <p>UI/UX design</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="skill-info">
+              <h4>C++</h4>
+              <p>Programming & algorithms</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fa-brands fa-html5"></i>
+            </div>
+            <div class="skill-info">
+              <h4>HTML</h4>
+              <p>Web structure & semantics</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fa-brands fa-css3-alt"></i>
+            </div>
+            <div class="skill-info">
+              <h4>CSS</h4>
+              <p>Styling & responsive design</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fa-solid fa-bullhorn"></i>
+            </div>
+            <div class="skill-info">
+              <h4>Hootsuite</h4>
+              <p>Social media management</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="skill-item">
+            <div class="skill-icon">
+              <i class="fa-solid fa-hashtag"></i>
+            </div>
+            <div class="skill-info">
+              <h4>Social Media</h4>
+              <p>Strategy & engagement</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="value-proposition mx-auto my-5 py-5" style="max-width: 1200px;">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6 value-text">
+          <h2>Why Work With Me?</h2>
+          <p>
+            I don't just deliver projects I deliver results. My unique combination of analytical thinking, creative execution, and strategic planning ensures that every initiative drives measurable impact.
+          </p>
+          <ul class="value-list">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Data-driven decision making backed by analytics</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Creative solutions that stand out in the market</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Strategic thinking aligned with business goals</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Technical expertise to bring ideas to life</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Proven track record of successful projects</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6 value-visual">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="value-metric">
+                <h4>100%</h4>
+                <p>Project Completion Rate</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="value-metric">
+                <h4>5+</h4>
+                <p>Years of Experience</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="value-metric">
+                <h4>20+</h4>
+                <p>Successful Projects</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="value-metric">
+                <h4>10+</h4>
+                <p>Technical Skills Mastered</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta mx-auto my-5" style="max-width: 1200px;">
+    <h2>Let's Build Something Amazing Together</h2>
+    <p>Ready to bring data-driven strategy and creative execution to your next project?</p>
+    <div class="final-cta-buttons d-flex justify-content-center flex-wrap gap-3">
+      <a href="portfolio.html" class="final-cta-btn">
+        <i class="fas fa-briefcase"></i> Explore My Work
+      </a>
+      <a href="contact.html" class="final-cta-btn outline">
+        <i class="fas fa-paper-plane"></i> Start a Conversation
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-5 footer-container">
+        <div class="col-lg-5 col-md-6 footer-about">
+          <div class="footer-logo">The Brand Called Me</div>
+          <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future.</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank"><i class="fas fa-file-pdf"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:santhoshselvan0603@gmail.com">Email Me</a></li>
+            <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank">LinkedIn</a></li>
+            <li><a href="tel:+447741024616">Call Me</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Explore My Work</h4>
+          <ul>
+            <li><a href="portfolio.html">View Portfolio</a></li>
+            <li><a href="newsletter.html">Read Insights</a></li>
+            <li><a href="https://santhosh06.my.canva.site/" target="_blank">Interactive Presentation</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 The Brand Called Me. All rights reserved.
+      </div>
     </div>
   </footer>
-
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
