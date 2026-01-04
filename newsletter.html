@@ -39,56 +39,101 @@
 
     /* Header: Using Bootstrap's .navbar for responsiveness, keeping custom styling */
     .site-header {
-      padding: 0; /* Bootstrap nav adds padding */
-      background: white;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+  padding: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(234, 88, 12, 0.1);
+}
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--deep-orange) !important;
-      text-decoration: none;
-      padding: 1rem 0;
-    }
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--deep-orange) !important;
+  text-decoration: none;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+}
 
-    /* Navigation Links Styling (adjusted for Bootstrap navbar structure) */
-    .nav-links a.nav-link {
-      position: relative;
-      color: var(--dark);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.1rem;
-      padding: 0.5rem 0.5rem; /* Adjusted for Bootstrap nav structure */
-      margin-left: 1.5rem;
-      transition: color 0.3s ease;
-    }
+.logo::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--soft-orange);
+  border-radius: 50%;
+  margin-left: 12px;
+  animation: pulse 2s infinite;
+}
 
-    /* Hover Effect */
-    .nav-links a.nav-link:hover {
-      color: var(--deep-orange);
-    }
+@keyframes pulse {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.7; }
+}
 
-    /* Active Link Indicator (Orange Underline) - Adjusted for centered underline */
-    .nav-links a.nav-link.active {
-      color: var(--deep-orange);
-    }
+.navbar-toggler {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+}
 
-    .nav-links a.nav-link.active::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%; /* Centered the underline */
-      transform: translateX(-50%);
-      width: 70%; 
-      height: 3px;
-      background: var(--soft-orange);
-      border-radius: 3px;
-    }
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(17, 24, 39, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-links a.nav-link {
+  position: relative;
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 1.2rem 0.5rem;
+  margin-left: 0.8rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links a.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--soft-orange);
+  transition: width 0.3s ease;
+}
+
+.nav-links a.nav-link:hover {
+  color: var(--deep-orange);
+  transform: translateY(-2px);
+}
+
+.nav-links a.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-links a.nav-link.active {
+  color: var(--deep-orange);
+}
+
+.nav-links a.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-links a.nav-link i {
+  font-size: 0.9rem;
+  margin-right: 4px;
+}
 
     /* Newsletter Hero */
     .newsletter-hero {
@@ -368,78 +413,161 @@
 
     /* Footer */
     .footer {
-      background: white;
-      padding: 4rem 2rem;
-      border-top: 1px solid #eee;
-    }
+  background: linear-gradient(to bottom, white 0%, #faf8f5 100%);
+  padding: 5rem 2rem 3rem;
+  border-top: 1px solid rgba(234, 88, 12, 0.1);
+  position: relative;
+  overflow: hidden;
+}
 
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 4rem;
-      color: var(--mid-gray);
-    }
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--soft-orange), transparent);
+}
 
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--deep-orange);
-      margin-bottom: 1rem;
-    }
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--deep-orange);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+}
 
-    .footer-links h4 {
-      color: var(--dark);
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
+.footer-logo::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--soft-orange);
+  border-radius: 50%;
+  margin-left: 15px;
+}
 
-    .footer-links ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+.footer-about p {
+  font-size: 1.05rem;
+  color: var(--mid-gray);
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+}
 
-    .footer-links li {
-      margin-bottom: 0.8rem;
-    }
+.footer-links h4 {
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
 
-    .footer-links a {
-      color: var(--mid-gray);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
+.footer-links h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--soft-orange);
+  border-radius: 3px;
+}
 
-    .footer-links a:hover {
-      color: var(--deep-orange);
-    }
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
+.footer-links li {
+  margin-bottom: 0.9rem;
+}
 
-    .social-links a {
-      color: var(--mid-gray);
-      font-size: 1.3rem;
-      transition: color 0.3s ease;
-    }
+.footer-links a {
+  color: var(--mid-gray);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+  display: inline-block;
+}
 
-    .social-links a:hover {
-      color: var(--deep-orange);
-    }
+.footer-links a:hover {
+  color: var(--deep-orange);
+  transform: translateX(5px);
+}
 
-    .footer-bottom {
-      text-align: center;
-      padding: 2rem 0;
-      color: var(--mid-gray);
-      font-size: 0.9rem;
-      border-top: 1px solid #eee;
-      margin-top: 3rem;
-    }
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+
+.social-links a {
+  color: var(--mid-gray);
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(249, 115, 22, 0.08);
+}
+
+.social-links a:hover {
+  color: white;
+  background: var(--soft-orange);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 2rem 0 0;
+  color: var(--mid-gray);
+  font-size: 1rem;
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  padding-top: 1.5rem;
+}
+/* Scroll to top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 35px;
+  right: 35px;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--soft-orange), var(--deep-orange));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  z-index: 1000;
+  border: none;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(249, 115, 22, 0.6);
+}
+
+.scroll-to-top:active {
+  transform: translateY(-5px) scale(0.98);
+}
 
     @media (max-width: 1024px) {
       .featured-article {
@@ -465,26 +593,29 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header navbar navbar-expand-lg">
-    <div class="container">
-      <a href="index.html" class="navbar-brand logo">The Brand Called Me</a>
+<!-- Scroll to Top Button -->
+<button class="scroll-to-top" id="scrollToTop">
+  <i class="fas fa-arrow-up"></i>
+</button>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <nav class="navbar-nav nav-links">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="about.html" class="nav-link">About Me</a>
-          <a href="portfolio.html" class="nav-link">Portfolio</a>
-          <a href="newsletter.html" class="nav-link active">Newsletter</a>
-          <a href="contact.html" class="nav-link">Contact Me</a>
-        </nav>
-      </div>
+<!-- Header -->
+<header class="site-header navbar navbar-expand-lg">
+  <div class="container">
+    <a href="index.html" class="navbar-brand logo">The Brand Called Me</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <nav class="navbar-nav nav-links">
+        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html" class="nav-link"><i class="fas fa-user"></i> About Me</a>
+        <a href="portfolio.html" class="nav-link"><i class="fas fa-briefcase"></i> Portfolio</a>
+        <a href="newsletter.html" class="nav-link active"><i class="fas fa-newspaper"></i> Newsletter</a>
+        <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact Me</a>
+      </nav>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- Newsletter Hero -->
   <section class="newsletter-hero">
@@ -504,44 +635,61 @@
     </div>
 
     <!-- News Grid -->
-    <div class="news-grid">
-      
-      <!-- Featured Article: Uncover Things #004 -->
-      <article class="featured-article news-card" data-category="Brand Strategy, Digital Trends">
-        <img src="https://image2url.com/images/1764027561613-0ac38988-6cb6-42e2-8a8a-1de9e8477a2c.jpg" alt="ABO Desire" class="featured-article-image">
-        <div class="featured-article-content">
-          <span class="article-badge">🔥 Latest</span>
-          <h2>🔍 UNCOVER THINGS #004: Strategic Resilience Building a Global Brand Against Censorship</h2>
-          <div class="article-meta">
-            <span><i class="fas fa-calendar-alt"></i> Oct 10, 2025</span>
-            <span><i class="fas fa-clock"></i> 5 min read</span>
-          </div>
-          <p>A deep dive into how the Chinese drama ABO Desire achieved global success and multiple revenue streams by deliberately choosing to face censorship head-on rather than compromising its product.</p>
-          <a href="https://lnkd.in/gAiEsDmn" target="_blank" class="read-more-btn">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </article>
-
-
-
-    </div>
+  <div class="news-grid">
+    <article class="featured-article news-card" data-category="Academic">
+      <img src="https://image2url.com/r2/default/images/1767527365253-4a87edae-29bf-4189-9084-cacf3bce02e9.jpg" alt="Graduation" class="featured-article-image">
+      <div class="news-card-content p-5">
+        <span class="article-badge">🎓 Latest Milestone</span>
+        <h2 class="display-6 fw-bold mb-3">MSc Graduation: Digital Strategy & Information Systems</h2>
+        <p class="text-muted mb-4">I’ve officially graduated from the University of Southampton! This transformative journey allowed me to connect technology with people and master complex problem-solving across analytics, design, and project management.</p>
+        <p class="small text-secondary mb-4"><i class="fas fa-calendar-alt"></i> Dec 15, 2025</p>
+        <button class="read-more-btn border-0" onclick="alert('Thank you for sharing this moment with me!')">View Journey Details <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </article>
+  </div>
 
     <h2 style="text-align: center; margin-top: 4rem; margin-bottom: 2rem; font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--dark);">Older Issues</h2>
 
     <div class="news-grid">
+    <article class="news-card" data-category="Digital Trends, Marketing">
+      <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*35OjSHgMUxnPPzqM-UqjDg.jpeg" class="news-card-image" alt="Willy's Chocolate">
+      <div class="news-card-content">
+        <span class="article-badge">Digital Trends</span>
+        <h3>🔍 UNCOVER THINGS #006: The Case of the Fabricated Fantasy</h3>
+        <p>A strategic autopsy of the Willy’s Chocolate Experience (2024). Investigating how generative AI was used to weaponize brand trust and create a massive expectation-reality gap.</p>
+        <a href="https://medium.com/@beyondmovies3/uncover-things-006-the-case-of-the-fabricated-fantasy-213c38092288" target="_blank" class="read-more-btn">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
 
-      <!-- News Card: Uncover Things #003 -->
-      <article class="news-card" data-category="Marketing, Case Studies">
-        <img src="https://image2url.com/images/1764027474407-3f2991e4-e8bf-43c0-b072-8923f0e28458.jpg" alt="Drybar Phenomenon" class="news-card-image">
-        <div class="news-card-content">
-          <span class="article-badge">Case Studies</span>
-          <h3>🔍 UNCOVER THINGS #003: THE BLOWOUT PHENOMENON</h3>
-          <div class="article-meta">
-            <span><i class="fas fa-calendar-alt"></i> Oct 5, 2025</span>
-          </div>
-          <p>How a stay-at-home mom's mobile hair styling service transformed into a nationwide chain with 75+ locations and $100 million in annual revenue.</p>
-          <a href="https://lnkd.in/gJaQbbKr" target="_blank" class="read-more-btn">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </article>
+    <article class="news-card" data-category="Marketing, Case Studies">
+      <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/0*HN-itzaxjHbj26M4" class="news-card-image" alt="Love Your W">
+      <div class="news-card-content">
+        <span class="article-badge">Case Studies</span>
+        <h3>🔍 UNCOVER THINGS #005: The Event That Lost Its Way</h3>
+        <p>A strategic post-mortem of "Love Your W". Exploring how a breast cancer awareness campaign lost its core purpose to become a celebrity-focused spectacle.</p>
+        <a href="https://medium.com/@beyondmovies3/uncover-things-005-the-event-that-lost-its-way-a-strategic-post-mortem-of-love-your-w-7264a6f9f38c" target="_blank" class="read-more-btn">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="news-card" data-category="Brand Strategy, Digital Trends">
+      <img src="https://image2url.com/images/1764027561613-0ac38988-6cb6-42e2-8a8a-1de9e8477a2c.jpg" class="news-card-image">
+      <div class="news-card-content">
+        <span class="article-badge">Brand Strategy</span>
+        <h3>🔍 UNCOVER THINGS #004: Strategic Resilience</h3>
+        <p>A deep dive into how ABO Desire achieved global success by choosing to face censorship head-on rather than compromising its product.</p>
+        <a href="https://medium.com/@beyondmovies3/uncover-things-004-the-censorship-loophole-how-this-lgbtq-content-built-a-global-brand-9c856615f4bc" target="_blank" class="read-more-btn">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="news-card" data-category="Marketing, Case Studies">
+      <img src="https://image2url.com/images/1764027474407-3f2991e4-e8bf-43c0-b072-8923f0e28458.jpg" class="news-card-image">
+      <div class="news-card-content">
+        <span class="article-badge">Case Studies</span>
+        <h3>🔍 UNCOVER THINGS #003: THE BLOWOUT PHENOMENON</h3>
+        <p>How Drybar transformed a mobile hair styling service into a $100M nationwide chain.</p>
+        <a href="https://medium.com/@beyondmovies3/uncover-things-003-the-blowout-phenomenon-12cce9311da7" target="_blank" class="read-more-btn">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
 
       <!-- News Card: Uncover Things #002 -->
       <article class="news-card" data-category="Brand Strategy, Marketing">
@@ -735,48 +883,52 @@
       </div>
     </div>
 
-  <footer class="footer">
-    <div class="container"> <div class="row g-5"> <div class="col-lg-5 col-md-6 footer-about">
-          <div class="footer-logo">The Brand Called Me</div>
-          <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future.</p>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank"><i class="fas fa-file-pdf"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 footer-links">
-          <h4>Pages</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-md-6 footer-links">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:santhoshselvan0603@gmail.com">Email Me</a></li>
-            <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank">LinkedIn</a></li>
-            <li><a href="tel:+447741024616">Call Me</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Explore My Work</h4>
-          <ul>
-            <li><a href="portfolio.html">View Portfolio</a></li>
-            <li><a href="newsletter.html">Read Insights</a></li>
-            <li><a href="https://santhosh06.my.canva.site/" target="_blank">Interactive Presentation</a></li>
-          </ul>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-5 col-md-6 footer-about">
+        <div class="footer-logo">The Brand Called Me</div>
+        <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future. Where analytical rigor meets creative execution to drive meaningful impact.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:santhoshselvan0603@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank" aria-label="Resume"><i class="fas fa-file-pdf"></i></a>
+          <a href="https://santhosh06.my.canva.site/" target="_blank" aria-label="Presentation"><i class="fas fa-laptop-code"></i></a>
         </div>
       </div>
-      <div class="footer-bottom">
-        &copy; 2025 The Brand Called Me. All rights reserved.
+      <div class="col-lg-2 col-md-6 footer-links">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+          <li><a href="portfolio.html"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+          <li><a href="newsletter.html"><i class="fas fa-chevron-right"></i> Newsletter</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i> Email Me</a></li>
+          <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="tel:+447741024616"><i class="fas fa-phone"></i> Call Me</a></li>
+          </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 footer-links">
+        <h4>Explore My Work</h4>
+        <ul>
+          <li><a href="portfolio.html#projects"><i class="fas fa-briefcase"></i> View Portfolio</a></li>
+          <li><a href="newsletter.html"><i class="fas fa-newspaper"></i> Read Insights</a></li>
+          <li><a href="https://santhosh06.substack.com/" target="_blank"><i class="fas fa-rss"></i> Newsletter</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      &copy; 2025 The Brand Called Me. All rights reserved. Crafted with <i class="fas fa-heart text-danger"></i> and strategic thinking.
+    </div>
+  </div>
+</footer>
     
     <script>
       function openPopup(popupId) {
@@ -825,5 +977,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
-
 
