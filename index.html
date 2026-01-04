@@ -110,55 +110,101 @@
 
     /* Header: Using Bootstrap's .navbar for responsiveness, keeping custom styling */
     .site-header {
-      padding: 0; /* Bootstrap nav has its own padding */
-      background: white;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    
-    /* Custom styling for logo and nav links */
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--deep-orange) !important; /* !important to override Bootstrap a:link color */
-      text-decoration: none;
-      padding: 1rem 0;
-    }
+  padding: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(234, 88, 12, 0.1);
+}
 
-    .nav-links a.nav-link {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-      position: relative;
-      padding: 0.5rem 0.5rem; /* Reduced padding for Bootstrap's structure */
-      margin-left: 1.5rem; /* Add spacing back */
-    }
-    .nav-links a.nav-link:hover {
-      color: var(--deep-orange);
-    }
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--deep-orange) !important;
+  text-decoration: none;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+}
 
-    .nav-links a.nav-link.active {
-      color: var(--deep-orange);
-    }
+.logo::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--soft-orange);
+  border-radius: 50%;
+  margin-left: 12px;
+  animation: pulse 2s infinite;
+}
 
-    .nav-links a.nav-link.active::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%; /* Adjusted width */
-      height: 3px;
-      background: var(--soft-orange);
-      border-radius: 3px;
-    }
+@keyframes pulse {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.7; }
+}
 
-    /* Removing .header-container rules as Bootstrap's .container is now used */
+.navbar-toggler {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(17, 24, 39, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-links a.nav-link {
+  position: relative;
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 1.2rem 0.5rem;
+  margin-left: 0.8rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links a.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--soft-orange);
+  transition: width 0.3s ease;
+}
+
+.nav-links a.nav-link:hover {
+  color: var(--deep-orange);
+  transform: translateY(-2px);
+}
+
+.nav-links a.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-links a.nav-link.active {
+  color: var(--deep-orange);
+}
+
+.nav-links a.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-links a.nav-link i {
+  font-size: 0.9rem;
+  margin-right: 4px;
+}/* Removing .header-container rules as Bootstrap's .container is now used */
     
     /* ========== INNOVATIVE BODY CONTENT ========== */
 
@@ -636,71 +682,127 @@
       color: var(--deep-orange);
     }
 
-    /* Footer - Preserved styles */
-    .footer {
-      background: white;
-      padding: 4rem 2rem 2rem;
-      border-top: 1px solid #eee;
-      margin-top: 4rem;
-    }
+.footer {
+  background: linear-gradient(to bottom, white 0%, #faf8f5 100%);
+  padding: 5rem 2rem 3rem;
+  border-top: 1px solid rgba(234, 88, 12, 0.1);
+  position: relative;
+  overflow: hidden;
+}
 
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--deep-orange);
-      margin-bottom: 1rem;
-    }
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--soft-orange), transparent);
+}
 
-    .footer-links h4 {
-      color: var(--dark);
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--deep-orange);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+}
 
-    .footer-links ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+.footer-logo::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--soft-orange);
+  border-radius: 50%;
+  margin-left: 15px;
+}
 
-    .footer-links li {
-      margin-bottom: 0.8rem;
-    }
+.footer-about p {
+  font-size: 1.05rem;
+  color: var(--mid-gray);
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+}
 
-    .footer-links a {
-      color: var(--mid-gray);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
+.footer-links h4 {
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
 
-    .footer-links a:hover {
-      color: var(--deep-orange);
-    }
+.footer-links h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--soft-orange);
+  border-radius: 3px;
+}
 
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    .social-links a {
-      color: var(--mid-gray);
-      font-size: 1.3rem;
-      transition: color 0.3s ease;
-    }
+.footer-links li {
+  margin-bottom: 0.9rem;
+}
 
-    .social-links a:hover {
-      color: var(--deep-orange);
-    }
+.footer-links a {
+  color: var(--mid-gray);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+  display: inline-block;
+}
 
-    .footer-bottom {
-      text-align: center;
-      padding: 2rem 0;
-      color: var(--mid-gray);
-      font-size: 0.9rem;
-      border-top: 1px solid #eee;
-      margin-top: 3rem;
-    }
+.footer-links a:hover {
+  color: var(--deep-orange);
+  transform: translateX(5px);
+}
+
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+
+.social-links a {
+  color: var(--mid-gray);
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(249, 115, 22, 0.08);
+}
+
+.social-links a:hover {
+  color: white;
+  background: var(--soft-orange);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 2rem 0 0;
+  color: var(--mid-gray);
+  font-size: 1rem;
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  padding-top: 1.5rem;
+}
+
 
     /* Responsive adjustments for typography in smaller screens */
     @media (max-width: 768px) {
@@ -784,25 +886,23 @@
     <div class="stripe">RESULTS • INSIGHTS • STORYTELLING • SYSTEMS</div>
   </div>
 
-  <header class="site-header navbar navbar-expand-lg">
-    <div class="container">
-      <a href="index.html" class="navbar-brand logo">The Brand Called Me</a>
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <nav class="navbar-nav nav-links">
-          <a href="index.html" class="nav-link active">Home</a>
-          <a href="about.html" class="nav-link">About Me</a>
-          <a href="portfolio.html" class="nav-link">Portfolio</a>
-          <a href="newsletter.html" class="nav-link">Newsletter</a>
-          <a href="contact.html" class="nav-link">Contact Me</a>
-        </nav>
-      </div>
+<header class="site-header navbar navbar-expand-lg">
+  <div class="container">
+    <a href="index.html" class="navbar-brand logo">The Brand Called Me</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <nav class="navbar-nav nav-links">
+        <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html" class="nav-link"><i class="fas fa-user"></i> About Me</a>
+        <a href="portfolio.html" class="nav-link"><i class="fas fa-briefcase"></i> Portfolio</a>
+        <a href="newsletter.html" class="nav-link"><i class="fas fa-newspaper"></i> Newsletter</a>
+        <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact Me</a>
+      </nav>
     </div>
-  </header>
+  </div>
+</header>
 
   <main>
     <section class="hero">
@@ -1152,50 +1252,52 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="row g-5 footer-container">
-        <div class="col-lg-5 col-md-6 footer-about">
-          <div class="footer-logo">The Brand Called Me</div>
-          <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future.</p>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank" rel="noopener" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:santhoshselvan0603@gmail.com" aria-label="Email Contact"><i class="fas fa-envelope"></i></a>
-            <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank" rel="noopener" aria-label="Resume PDF"><i class="fas fa-file-pdf"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 footer-links">
-          <h4>Pages</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-md-6 footer-links">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:santhoshselvan0603@gmail.com">Email Me</a></li>
-            <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="tel:+447741024616">Call Me</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Explore My Work</h4>
-          <ul>
-            <li><a href="portfolio.html">View Portfolio</a></li>
-            <li><a href="newsletter.html">Read Insights</a></li>
-            <li><a href="https://santhosh06.my.canva.site/" target="_blank" rel="noopener">Interactive Presentation</a></li>
-          </ul>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-5 col-md-6 footer-about">
+        <div class="footer-logo">The Brand Called Me</div>
+        <p>A personal brand campaign for Santhosh Selvan — strategist, creator, and builder of the future. Where analytical rigor meets creative execution to drive meaningful impact.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:santhoshselvan0603@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://sotonac-my.sharepoint.com/:b:/g/personal/sird1n24_soton_ac_uk/EeZ3zXfXHsNKhkh-Cq4nTygBlDlr25e6Uo8JJgzmjvMzVA?e=Xm4BYo" target="_blank" aria-label="Resume"><i class="fas fa-file-pdf"></i></a>
+          <a href="https://santhosh06.my.canva.site/" target="_blank" aria-label="Presentation"><i class="fas fa-laptop-code"></i></a>
         </div>
       </div>
-      <div class="footer-bottom">
-        &copy; 2025 The Brand Called Me. All rights reserved.
+      <div class="col-lg-2 col-md-6 footer-links">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+          <li><a href="portfolio.html"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+          <li><a href="newsletter.html"><i class="fas fa-chevron-right"></i> Newsletter</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:santhoshselvan0603@gmail.com"><i class="fas fa-envelope"></i> Email Me</a></li>
+          <li><a href="https://www.linkedin.com/in/santhosh-selvan-i-s-884635147" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="tel:+447741024616"><i class="fas fa-phone"></i> Call Me</a></li>
+          </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 footer-links">
+        <h4>Explore My Work</h4>
+        <ul>
+          <li><a href="portfolio.html#projects"><i class="fas fa-briefcase"></i> View Portfolio</a></li>
+          <li><a href="newsletter.html"><i class="fas fa-newspaper"></i> Read Insights</a></li>
+          <li><a href="https://santhosh06.substack.com/" target="_blank"><i class="fas fa-rss"></i> Newsletter</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      &copy; 2025 The Brand Called Me. All rights reserved. Crafted with <i class="fas fa-heart text-danger"></i> and strategic thinking.
+    </div>
+  </div>
+</footer>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
