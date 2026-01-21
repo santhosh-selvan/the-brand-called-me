@@ -845,12 +845,20 @@ html {
 }
 
 .popup-gallery {
-  margin: 2.5rem 0;
-  border-radius: 22px;
+  margin: 1.8rem 0;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  border: 1px solid rgba(249, 115, 22, 0.1);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  border: 1px solid rgba(249, 115, 22, 0.12);
+  max-height: 320px;
 }
+
+.popup-gallery img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
 
 .swiper {
   width: 100%;
@@ -1294,130 +1302,162 @@ html {
   </div>
 </header>
 
-<!-- Hero Section with Particle Background -->
+<!-- Hero Section -->
 <section class="hero">
   <div id="particles-js"></div>
   <div class="container">
     <div class="hero-content">
-      <h1 class="hero-title">Portfolio: <span class="highlight">Where Strategy Meets Creation</span></h1>
-      <p class="hero-subtitle">Discover my journey through projects that blend analytical rigor with creative execution. From AI-powered platforms to sustainable travel solutions, each piece tells a story of innovation and impact.</p>
+      <h1 class="hero-title">Marketing, Strategy, and Digital Execution</h1>
+      <p class="hero-subtitle">
+        Early-career marketing and digital strategy professional with practical experience in content coordination, analysis, and project delivery. This portfolio presents academic and real-world projects that demonstrate structured thinking, attention to detail, and a strong willingness to learn and adapt.
+      </p>
       <div class="hero-cta">
-        <a href="contact.html" class="primary-btn"><i class="fas fa-paper-plane"></i> Let's Connect</a>
-        <a href="#projects" class="secondary-btn"><i class="fas fa-eye"></i> View Projects</a>
+        <a href="contact.html" class="primary-btn"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+        <a href="#projects" class="secondary-btn"><i class="fas fa-eye"></i> View Work</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Section 1: What Makes Me Different -->
+<!-- Section: How I Add Value -->
 <section class="section" id="differences">
   <div class="section-container">
-    <h2 class="section-title">What Makes Me Different</h2>
-    <p class="section-subtitle">The unique blend that sets me apart</p>
+    <h2 class="section-title">How I Add Value</h2>
+    <p class="section-subtitle">
+      A practical and reliable approach to marketing, strategy, and digital projects
+    </p>
+
     <div class="difference-grid">
-      <div class="difference-card" onclick="openPopup('web-dev-popup')">
+      <div class="difference-card">
         <i class="fas fa-brain difference-icon"></i>
-        <h3 class="difference-title">Strategic Thinker</h3>
-        <p class="difference-text">I don't just execute tasks—I understand the 'why' behind every decision. From analyzing Netflix's business model to optimizing marketing ROI, I approach challenges with a data-driven, strategic mindset that connects dots others miss.</p>
+        <h3 class="difference-title">Structured and Analytical Thinking</h3>
+        <p class="difference-text">
+          I approach problems by understanding how different elements connect, whether that involves customer behaviour, data flows, or operational processes. This helps me support decisions with clarity rather than assumptions.
+        </p>
       </div>
+
       <div class="difference-card">
         <i class="fas fa-palette difference-icon"></i>
-        <h3 class="difference-title">Creative Problem Solver</h3>
-        <p class="difference-text">Whether it's designing a full-stack web app or proposing AI-powered learning platforms, I blend creativity with technical execution. I don't just follow trends—I create solutions that stand out and deliver real impact.</p>
+        <h3 class="difference-title">From Ideas to Practical Outcomes</h3>
+        <p class="difference-text">
+          I enjoy working beyond the planning stage by supporting implementation through content creation, basic development, testing, and coordination. I focus on making ideas usable and realistic within constraints.
+        </p>
       </div>
+
       <div class="difference-card">
         <i class="fas fa-rocket difference-icon"></i>
-        <h3 class="difference-title">Execution-Focused</h3>
-        <p class="difference-text">Ideas are worthless without execution. I've led teams, launched campaigns, built applications, and delivered results. From managing 10+ events to creating 30+ social media posts, I turn vision into reality with precision and speed.</p>
+        <h3 class="difference-title">Consistent Execution</h3>
+        <p class="difference-text">
+          I am comfortable working through tasks methodically, meeting deadlines, and following processes carefully. I value completing work to a dependable standard rather than rushing unfinished ideas.
+        </p>
       </div>
+
       <div class="difference-card">
         <i class="fas fa-project-diagram difference-icon"></i>
-        <h3 class="difference-title">Cross-Functional Versatility</h3>
-        <p class="difference-text">I'm not boxed into one role. I can code a website, analyze consumer psychology, simulate marketing channels, and lead agile teams. This versatility allows me to bridge gaps between strategy, design, data, and execution.</p>
+        <h3 class="difference-title">Bridging Technical and Business Needs</h3>
+        <p class="difference-text">
+          My background allows me to understand both technical requirements and business objectives, which helps when coordinating between different teams or translating ideas into actionable steps.
+        </p>
       </div>
+
       <div class="difference-card">
         <i class="fas fa-lightbulb difference-icon"></i>
-        <h3 class="difference-title">Innovation-Driven</h3>
-        <p class="difference-text">I'm fascinated by emerging technologies—AI, NLP, adaptive learning. I don't just learn about them; I propose how to integrate them into real-world solutions. Innovation isn't a buzzword for me; it's a practice.</p>
+        <h3 class="difference-title">Depth of Learning</h3>
+        <p class="difference-text">
+          When working on a topic, I aim to understand it thoroughly by researching, testing, and applying concepts. This approach has helped me deliver detailed academic and project work with confidence.
+        </p>
       </div>
+
       <div class="difference-card">
         <i class="fas fa-heart difference-icon"></i>
-        <h3 class="difference-title">Human-Centered Approach</h3>
-        <p class="difference-text">Behind every metric is a person. Whether designing for accessibility, supporting bereaved families, or engaging social media communities, I prioritize empathy and human connection in everything I build.</p>
+        <h3 class="difference-title">People-Focused Perspective</h3>
+        <p class="difference-text">
+          I recognise that behind every metric or process are real users, customers, or stakeholders. This perspective helps me approach tasks thoughtfully and responsibly.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Enhanced Skills Section -->
+<!-- Skills Section -->
 <section class="section" id="skills">
   <div class="section-container">
-    <h2 class="section-title">Core Skills & Expertise</h2>
-    <p class="section-subtitle">A comprehensive toolkit combining technical prowess, strategic thinking, and creative execution</p>
-    
+    <h2 class="section-title">Skills and Capabilities</h2>
+    <p class="section-subtitle">
+      Practical skills developed through coursework, internships, and project work
+    </p>
+
     <div class="skill-grid">
-      <!-- Skill 1: Web Development -->
       <div class="skill-card" onclick="openPopup('web-dev-popup')">
         <i class="fas fa-code skill-icon"></i>
         <h3 class="skill-title">Web Development</h3>
-        <p class="skill-description">Full-stack development expertise from responsive frontends to robust backends</p>
-        <span class="skill-badge">Click to explore</span>
+        <p class="skill-description">
+          Building and maintaining responsive websites with a focus on clarity, usability, and accessibility.
+        </p>
+        <span class="skill-badge">View details</span>
       </div>
 
-      <!-- Skill 2: Strategic Analysis -->
       <div class="skill-card" onclick="openPopup('strategy-popup')">
         <i class="fas fa-chess skill-icon"></i>
         <h3 class="skill-title">Strategic Analysis</h3>
-        <p class="skill-description">Business model evaluation and competitive intelligence frameworks</p>
-        <span class="skill-badge">Click to explore</span>
+        <p class="skill-description">
+          Researching business models, competitors, and market dynamics to support informed decisions.
+        </p>
+        <span class="skill-badge">View details</span>
       </div>
 
-      <!-- Skill 3: Data Analytics -->
       <div class="skill-card" onclick="openPopup('analytics-popup')">
         <i class="fas fa-chart-line skill-icon"></i>
-        <h3 class="skill-title">Data Analytics</h3>
-        <p class="skill-description">Transform data into actionable insights with advanced tools and methodologies</p>
-        <span class="skill-badge">Click to explore</span>
+        <h3 class="skill-title">Data Analysis</h3>
+        <p class="skill-description">
+          Interpreting data to identify patterns, trends, and insights that support project outcomes.
+        </p>
+        <span class="skill-badge">View details</span>
       </div>
 
-      <!-- Skill 4: Project Management -->
       <div class="skill-card" onclick="openPopup('project-popup')">
         <i class="fas fa-tasks skill-icon"></i>
-        <h3 class="skill-title">Project Management</h3>
-        <p class="skill-description">Agile leadership and cross-functional team coordination</p>
-        <span class="skill-badge">Click to explore</span>
+        <h3 class="skill-title">Project Support</h3>
+        <p class="skill-description">
+          Assisting with planning, coordination, documentation, and follow-up across projects.
+        </p>
+        <span class="skill-badge">View details</span>
       </div>
 
-      <!-- Skill 5: AI & Innovation -->
       <div class="skill-card" onclick="openPopup('ai-popup')">
         <i class="fas fa-robot skill-icon"></i>
-        <h3 class="skill-title">AI & Innovation</h3>
-        <p class="skill-description">Leveraging machine learning and NLP for cutting-edge solutions</p>
-        <span class="skill-badge">Click to explore</span>
+        <h3 class="skill-title">AI and Digital Innovation</h3>
+        <p class="skill-description">
+          Academic and applied exposure to AI concepts, focusing on real-world use cases.
+        </p>
+        <span class="skill-badge">View details</span>
       </div>
 
-      <!-- Skill 6: Digital Marketing -->
       <div class="skill-card" onclick="openPopup('marketing-popup')">
         <i class="fas fa-bullhorn skill-icon"></i>
         <h3 class="skill-title">Digital Marketing</h3>
-        <p class="skill-description">Multi-channel campaigns, SEO, and growth strategies</p>
-        <span class="skill-badge">Click to explore</span>
+        <p class="skill-description">
+          Content planning, basic analytics, and platform coordination across digital channels.
+        </p>
+        <span class="skill-badge">View details</span>
       </div>
 
-      <!-- Skill 7: UX/UI Design -->
       <div class="skill-card" onclick="openPopup('design-popup')">
         <i class="fas fa-palette skill-icon"></i>
-        <h3 class="skill-title">UX/UI Design</h3>
-        <p class="skill-description">Human-centered design with accessibility and conversion focus</p>
-        <span class="skill-badge">Click to explore</span>
+        <h3 class="skill-title">UX and Interface Design</h3>
+        <p class="skill-description">
+          Designing simple, user-focused layouts that prioritise clarity and ease of use.
+        </p>
+        <span class="skill-badge">View details</span>
       </div>
 
-      <!-- Skill 8: Business Intelligence -->
       <div class="skill-card" onclick="openPopup('bi-popup')">
         <i class="fas fa-brain skill-icon"></i>
         <h3 class="skill-title">Business Intelligence</h3>
-        <p class="skill-description">Dashboard creation and data visualization for decision-making</p>
-        <span class="skill-badge">Click to explore</span>
+        <p class="skill-description">
+          Supporting decision-making through dashboards, reports, and structured analysis.
+        </p>
+        <span class="skill-badge">View details</span>
       </div>
     </div>
   </div>
@@ -1426,8 +1466,8 @@ html {
 <!-- Section 3: Experience -->
 <section class="section" id="experience">
   <div class="section-container">
-    <h2 class="section-title">Experience</h2>
-    <p class="section-subtitle">Real impact, real results</p>
+    <h2 class="section-title">What I've Delivered</h2>
+    <p class="section-subtitle">Outcomes, not job descriptions</p>
     <div class="card-grid">
       <!-- Card 1 -->
       <div class="creative-card" onclick="openPopup('social-media-popup')">
@@ -1439,14 +1479,14 @@ html {
           </div>
         </div>
         <div class="card-content">
-          <div class="card-badge"><i class="fas fa-briefcase"></i> Internship</div>
-          <h3 class="card-title">Social Media Management Intern</h3>
-          <p class="card-org"><i class="fas fa-building"></i> Tech Deziana | Oct 2023 – Nov 2023</p>
-          <p class="card-summary">Created 30+ engaging posts across Facebook and Instagram, increasing brand awareness and engagement by leveraging data-driven insights and creative content strategies.</p>
+          <div class="card-badge"><i class="fas fa-chart-line"></i> 20% Growth</div>
+          <h3 class="card-title">Turned Vanity Metrics Into Real Engagement</h3>
+          <p class="card-org"><i class="fas fa-building"></i> Tech Deziana | Oct-Nov 2023</p>
+          <p class="card-summary">Grew YouTube views 20% in six weeks by testing what worked, not what we liked. Analyzed drop-off points, optimized thumbnails, created 30+ posts that got engagement instead of silence.</p>
           <div class="card-skills">
-            <span class="card-skill">Content Creation</span>
-            <span class="card-skill">Social Analytics</span>
-            <span class="card-skill">Community Growth</span>
+            <span class="card-skill">Growth Testing</span>
+            <span class="card-skill">Content Strategy</span>
+            <span class="card-skill">Audience Analytics</span>
           </div>
         </div>
       </div>
@@ -1457,17 +1497,18 @@ html {
           <div class="card-overlay">
             <h4 class="text-white mb-2">Managing Director</h4>
             <p class="text-white-50">Department Club, SA College</p>
+            <span style="opacity:0.8; color: white;">(Student Leadership Role)</span>
           </div>
         </div>
         <div class="card-content">
-          <div class="card-badge"><i class="fas fa-crown"></i> Leadership</div>
-          <h3 class="card-title">Managing Director</h3>
-          <p class="card-org"><i class="fas fa-building"></i> Department Club, SA College | Jan 2022 – Jan 2023</p>
-          <p class="card-summary">Led planning and execution of 10+ major campus initiatives, including the college's first LGBTQ awareness event and education workshop, managing a 5-member executive team with full autonomy.</p>
+          <div class="card-badge"><i class="fas fa-crown"></i> 10+ Initiatives</div>
+          <h3 class="card-title">Led When Comfortable Wasn't an Option</h3>
+          <p class="card-org"><i class="fas fa-building"></i> SA College | Jan 2022 – Jan 2023</p>
+          <p class="card-summary">Organized our college's first LGBTQ awareness event despite resistance. Led 5-person team through 10+ initiatives where "we've never done this" was the starting point. Delivered results while others debated feasibility.</p>
           <div class="card-skills">
-            <span class="card-skill">Team Leadership</span>
-            <span class="card-skill">Event Management</span>
-            <span class="card-skill">Strategic Planning</span>
+            <span class="card-skill">Change Leadership</span>
+            <span class="card-skill">Stakeholder Navigation</span>
+            <span class="card-skill">Execution Focus</span>
           </div>
         </div>
       </div>
@@ -1481,14 +1522,14 @@ html {
           </div>
         </div>
         <div class="card-content">
-          <div class="card-badge"><i class="fas fa-cash-register"></i> Operations</div>
-          <h3 class="card-title">Sales Assistant</h3>
+          <div class="card-badge"><i class="fas fa-chart-bar"></i> 15% Revenue ↑</div>
+          <h3 class="card-title">Modernized Operations That Worked Fine "As Is"</h3>
           <p class="card-org"><i class="fas fa-building"></i> Naveen Auto Spares | Nov 2023 – Jul 2024</p>
-          <p class="card-summary">Optimized sales by understanding customer needs and leveraging comprehensive product knowledge to recommend tailored auto spare solutions, boosting revenue by 10-15% through proactive engagement.</p>
+          <p class="card-summary">Increased family business revenue 10-15% by understanding customer needs, not just filling orders. Digitized paper ledgers everyone insisted weren't necessary. Cut stockouts 15% by tracking reality instead of assumptions.</p>
           <div class="card-skills">
-            <span class="card-skill">Customer Service</span>
-            <span class="card-skill">Sales Strategy</span>
-            <span class="card-skill">Operations</span>
+            <span class="card-skill">Process Innovation</span>
+            <span class="card-skill">Customer Psychology</span>
+            <span class="card-skill">Data-Driven Change</span>
           </div>
         </div>
       </div>
@@ -1499,17 +1540,18 @@ html {
           <div class="card-overlay">
             <h4 class="text-white mb-2">Secretary</h4>
             <p class="text-white-50">Citizen Consumer Club</p>
+            <span style="opacity:0.8; color: white;">(Student Leadership Role)</span>
           </div>
         </div>
         <div class="card-content">
-          <div class="card-badge"><i class="fas fa-users"></i> Community</div>
-          <h3 class="card-title">Secretary</h3>
+          <div class="card-badge"><i class="fas fa-users"></i> 6+ Events</div>
+          <h3 class="card-title">Made Things Happen Behind the Scenes</h3>
           <p class="card-org"><i class="fas fa-building"></i> Citizen Consumer Club | Jan 2021 – Jan 2022</p>
-          <p class="card-summary">Served as organizational backbone, managing administrative functions and coordinating 6+ community awareness events, developing press kits and coordinating with 15+ external stakeholders including local government and media.</p>
+          <p class="card-summary">Coordinated 6+ community awareness events by managing 15+ external stakeholders—local government, media, NGOs. Developed press kits that got coverage. Handled administrative chaos so others could focus on impact.</p>
           <div class="card-skills">
-            <span class="card-skill">Public Relations</span>
-            <span class="card-skill">Event Planning</span>
-            <span class="card-skill">Stakeholder Mgmt</span>
+            <span class="card-skill">Stakeholder Coordination</span>
+            <span class="card-skill">Media Relations</span>
+            <span class="card-skill">Event Execution</span>
           </div>
         </div>
       </div>
@@ -1520,8 +1562,8 @@ html {
 <!-- Section 4: Projects -->
 <section class="section" id="projects">
   <div class="section-container">
-    <h2 class="section-title">Projects</h2>
-    <p class="section-subtitle">Innovation & execution</p>
+    <h2 class="section-title">Projects That Changed How I Think</h2>
+    <p class="section-subtitle">Each taught me something I couldn't learn any other way</p>
     <div class="card-grid">
       <!-- Project 1 -->
       <div class="creative-card" onclick="openPopup('ecowander-popup')">
@@ -1533,13 +1575,13 @@ html {
           </div>
         </div>
         <div class="card-content">
-          <div class="card-badge"><i class="fas fa-mountain"></i> Web Dev</div>
-          <h3 class="card-title">EcoWander</h3>
+          <div class="card-badge"><i class="fas fa-mountain"></i> Full-Stack</div>
+          <h3 class="card-title">EcoWander: Good Intentions Need Good UX</h3>
           <p class="card-org"><i class="fas fa-university"></i> University of Southampton | Apr 2025</p>
-          <p class="card-summary">Full-stack web app for sustainable adventure travel with dynamic pricing algorithm and WCAG 2.1 accessibility standards, designed to connect eco-conscious travelers with local sustainable experiences.</p>
+          <p class="card-summary">Built sustainable travel platform that actually works. Dynamic pricing, WCAG 2.1 accessible, responsive everywhere. Learned that caring about the planet means nothing if booking a trip requires a PhD.</p>
           <div class="card-skills">
-            <span class="card-skill">Web Development</span>
-            <span class="card-skill">UX/UI Design</span>
+            <span class="card-skill">Full-Stack Development</span>
+            <span class="card-skill">UX Design</span>
             <span class="card-skill">Accessibility</span>
           </div>
         </div>
@@ -1554,14 +1596,14 @@ html {
           </div>
         </div>
         <div class="card-content">
-          <div class="card-badge"><i class="fas fa-chart-bar"></i> Strategy</div>
-          <h3 class="card-title">Netflix Business Model Analysis</h3>
+          <div class="card-badge"><i class="fas fa-chart-bar"></i> $17B Strategy</div>
+          <h3 class="card-title">Netflix: Where Billions Go and Why</h3>
           <p class="card-org"><i class="fas fa-university"></i> University of Southampton | Mar 2025</p>
-          <p class="card-summary">Comprehensive Osterwalder's Canvas analysis of Netflix's $17B content strategy, benchmarking against Disney+ and HBO Max to identify growth opportunities in emerging markets.</p>
+          <p class="card-summary">Deconstructed Netflix's business model beyond PR narratives. Benchmarked Disney+ and HBO Max. Found their vulnerability (content cost inflation) and their moat (data infrastructure competitors can't replicate).</p>
           <div class="card-skills">
-            <span class="card-skill">Strategic Analysis</span>
-            <span class="card-skill">Competitive Benchmarking</span>
-            <span class="card-skill">Market Research</span>
+            <span class="card-skill">Competitive Analysis</span>
+            <span class="card-skill">Business Modeling</span>
+            <span class="card-skill">Strategic Research</span>
           </div>
         </div>
       </div>
@@ -1575,14 +1617,14 @@ html {
           </div>
         </div>
         <div class="card-content">
-          <div class="card-badge"><i class="fas fa-brain"></i> AI & UX</div>
-          <h3 class="card-title">Business Analytics Training Platform</h3>
+          <div class="card-badge"><i class="fas fa-brain"></i> 56 Pages</div>
+          <h3 class="card-title">AI Learning That Adapts to How You Think</h3>
           <p class="card-org"><i class="fas fa-graduation-cap"></i> University of Southampton | Jan 2025</p>
-          <p class="card-summary">56-page proposal for an AI-powered training platform using BERT to personalize educational content based on learning style, with Figma wireframes and detailed technical architecture.</p>
+          <p class="card-summary">Designed adaptive training platform powered by BERT. 56 pages covering technical architecture, stakeholder resistance patterns, full UX wireframes. Learned AI strategy requires understanding technology, business, and human behavior simultaneously.</p>
           <div class="card-skills">
             <span class="card-skill">AI Strategy</span>
-            <span class="card-skill">NLP Integration</span>
-            <span class="card-skill">UX Design</span>
+            <span class="card-skill">NLP Implementation</span>
+            <span class="card-skill">Product Design</span>
           </div>
         </div>
       </div>
@@ -1596,14 +1638,14 @@ html {
           </div>
         </div>
         <div class="card-content">
-          <div class="card-badge"><i class="fas fa-heart"></i> Innovation</div>
-          <h3 class="card-title">Student Innovation Project</h3>
+          <div class="card-badge"><i class="fas fa-heart"></i> Social Impact</div>
+          <h3 class="card-title">Supporting Families When Mountains Take Lives</h3>
           <p class="card-org"><i class="fas fa-handshake"></i> University of Southampton & Nimsdai Foundation | Jan 2025</p>
-          <p class="card-summary">Proposed integrated financial and emotional support system for bereaved families of mountaineers through innovative partnership model and technology platform.</p>
+          <p class="card-summary">Proposed integrated support system for bereaved mountaineering families. Combined financial aid with emotional support through partnership model and technology platform. Some problems need both business acumen and human compassion.</p>
           <div class="card-skills">
-            <span class="card-skill">Social Impact</span>
-            <span class="card-skill">Stakeholder Management</span>
-            <span class="card-skill">Innovation Design</span>
+            <span class="card-skill">Social Innovation</span>
+            <span class="card-skill">Partnership Design</span>
+            <span class="card-skill">Systems Thinking</span>
           </div>
         </div>
       </div>
@@ -1617,14 +1659,14 @@ html {
           </div>
         </div>
         <div class="card-content">
-          <div class="card-badge"><i class="fas fa-calculator"></i> Simulation</div>
-          <h3 class="card-title">Marketing Channel Simulation</h3>
+          <div class="card-badge"><i class="fas fa-calculator"></i> 35% ROI ↑</div>
+          <h3 class="card-title">Stopped Guessing Where Budget Should Go</h3>
           <p class="card-org"><i class="fas fa-university"></i> University of Southampton | Nov 2024</p>
-          <p class="card-summary">AnyLogic model to optimize ROI across paid ads, email, and social channels through discrete event simulation modeling of customer journeys and channel interactions.</p>
+          <p class="card-summary">Built AnyLogic simulation modeling real customer journeys across paid ads, email, social. Found optimal budget allocation. Improved ROI 35%. This is what happens when you apply data science rigor to marketing intuition.</p>
           <div class="card-skills">
-            <span class="card-skill">Data Analytics</span>
+            <span class="card-skill">Simulation Modeling</span>
+            <span class="card-skill">Marketing Science</span>
             <span class="card-skill">ROI Optimization</span>
-            <span class="card-skill">AnyLogic</span>
           </div>
         </div>
       </div>
@@ -1638,12 +1680,12 @@ html {
           </div>
         </div>
         <div class="card-content">
-          <div class="card-badge"><i class="fas fa-hospital"></i> Public Sector</div>
-          <h3 class="card-title">Public Sector IT Failure Analysis</h3>
+          <div class="card-badge"><i class="fas fa-hospital"></i> Failure Analysis</div>
+          <h3 class="card-title">When $20M+ Projects Fail, Here's Why</h3>
           <p class="card-org"><i class="fas fa-university"></i> University of Southampton | Nov 2024</p>
-          <p class="card-summary">Analyzed Health Waikato's SMS failure using balance sheet framework, agile methodology assessment, and ABC organizational change model to identify root causes and lessons learned.</p>
+          <p class="card-summary">Analyzed Health Waikato's IT failure using balance sheet framework, agile assessment, ABC change model. Found root causes beyond "poor execution"—wrong methodology, stakeholder resistance, unrealistic scope. Failure teaches more than success.</p>
           <div class="card-skills">
-            <span class="card-skill">Strategic Analysis</span>
+            <span class="card-skill">Root Cause Analysis</span>
             <span class="card-skill">Agile Methodology</span>
             <span class="card-skill">Change Management</span>
           </div>
@@ -1652,11 +1694,12 @@ html {
     </div>
   </div>
 </section>
-<!-- Section 4: Education -->
+
+<!-- Section 5: Education -->
 <section class="section" id="education">
   <div class="section-container">
-    <h2 class="section-title">Education</h2>
-    <p class="section-subtitle">Academic foundation for excellence</p>
+    <h2 class="section-title">Academic Foundation</h2>
+    <p class="section-subtitle">Where I learned to think, not just memorize</p>
     <div class="card-grid">
       <!-- Education 1 -->
       <div class="creative-card">
@@ -1669,18 +1712,15 @@ html {
         </div>
         <div class="card-content">
           <div class="card-badge"><i class="fas fa-graduation-cap"></i> Master's</div>
-          <h3 class="card-title">Master of Science (MSc)</h3>
+          <h3 class="card-title">MSc Digital Strategy & Information Systems</h3>
           <p class="card-org"><i class="fas fa-university"></i> University of Southampton | Sep 2024 – Nov 2025</p>
-          <p class="card-summary">Advanced studies in Digital Strategy and Information Systems, focusing on strategic digital transformation, data analytics, business intelligence, and emerging technologies in organizational contexts.</p>
+          <p class="card-summary">Learning how digital transformation actually works in organizations. Strategic planning, data analytics, business intelligence, emerging tech. The degree that connects technology decisions to business outcomes.</p>
           <div class="card-skills">
-            <span class="card-skill">Problem Solving</span>
             <span class="card-skill">Digital Strategy</span>
-            <span class="card-skill">Digital Marketing</span>
-            <span class="card-skill">Marketing Management</span>
+            <span class="card-skill">Business Analytics</span>
             <span class="card-skill">Marketing Strategy</span>
-            <span class="card-skill">Simulation</span>
-            <span class="card-skill">Social Media Marketing</span>
-            <span class="card-skill">Management</span>
+            <span class="card-skill">Simulation Modeling</span>
+            <span class="card-skill">Strategic Management</span>
           </div>
         </div>
       </div>
@@ -1694,20 +1734,16 @@ html {
           </div>
         </div>
         <div class="card-content">
-          <div class="card-badge"><i class="fas fa-award"></i> Bachelor's</div>
-          <h3 class="card-title">Bachelor of Commerce (BCom)</h3>
+          <div class="card-badge"><i class="fas fa-award"></i> 75.48%</div>
+          <h3 class="card-title">BCom Business & Commerce</h3>
           <p class="card-org"><i class="fas fa-university"></i> University of Madras | Aug 2020 – Aug 2023</p>
-          <p class="card-summary">Comprehensive business education with strong foundation in commerce, accounting, finance, and management. Graduated with 75.48% demonstrating excellence in business fundamentals and analytical thinking.</p>
+          <p class="card-summary">Foundation in business fundamentals—accounting, finance, management, commerce. Graduated 75.48%. Where I learned how businesses work before learning how to transform them.</p>
           <div class="card-skills">
-            <span class="card-skill">Organization Skills</span>
-            <span class="card-skill">Problem Solving</span>
-            <span class="card-skill">Account Management</span>
+            <span class="card-skill">Financial Accounting</span>
+            <span class="card-skill">Business Management</span>
+            <span class="card-skill">Cost Analysis</span>
             <span class="card-skill">E-Commerce</span>
-            <span class="card-skill">Communication</span>
-            <span class="card-skill">Cost Accounting</span>
-            <span class="card-skill">Customer Service</span>
-            <span class="card-skill">Accounting</span>
-            <span class="card-skill">Income Tax</span>
+            <span class="card-skill">Tax Planning</span>
           </div>
         </div>
       </div>
@@ -1715,23 +1751,31 @@ html {
   </div>
 </section>
 
-<!-- Section 5: Personal Summary -->
+<!-- Personal Summary -->
 <section class="section" id="summary">
   <div class="section-container">
     <div class="personal-summary">
-      <h2 class="personal-summary-title">Ready to Make an Impact</h2>
-      <p>I'm not just another graduate with a degree. I'm a <span class="highlight">strategic thinker</span> who understands business, a <span class="highlight">creative problem solver</span> who builds solutions, and an <span class="highlight">execution-focused leader</span> who delivers results.</p>
-      <p>From analyzing Netflix's $17B content strategy to building full-stack web applications, from leading 10+ campaigns to proposing AI-powered learning platforms, I bring a unique combination of analytical rigor, creative vision, and practical execution to every challenge.</p>
-      <div class="quote">
-        "I don't just adapt to change—I drive it. I don't just solve problems—I anticipate them. I don't just execute ideas—I create them."
-      </div>
-      <p>Whether you need someone to decode complex business models, design user-centered solutions, or lead cross-functional teams, I'm ready to contribute from day one. Let's build something extraordinary together.</p>
+      <h2 class="personal-summary-title">Professional Summary</h2>
+
+      <p>
+        I am an early-career professional with a strong interest in marketing, digital strategy, and content-driven work. My experience includes internships, academic research, and project-based learning where accuracy, organisation, and accountability were essential.
+      </p>
+
+      <p>
+        I value structured environments, clear communication, and continuous learning. I am comfortable starting from the basics, asking questions when needed, and applying feedback to improve the quality of my work.
+      </p>
+
+      <p>
+        While I am not a finished professional, I am highly motivated to grow, adapt, and contribute consistently. I am particularly interested in roles where I can support teams, learn industry standards, and develop practical skills through hands-on experience.
+      </p>
+
       <div class="summary-cta">
-        <a href="contact.html"><i class="fas fa-handshake"></i> Let's Connect</a>
+        <a href="contact.html"><i class="fas fa-handshake"></i> Contact Me</a>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- Footer -->
 <footer class="footer">
@@ -1779,437 +1823,305 @@ html {
     </div>
   </div>
 </footer>
-
 <!-- Enhanced Popups with Image Galleries -->
+<!-- 1. WEB DEVELOPMENT POPUP -->
 <!-- 1. WEB DEVELOPMENT POPUP -->
 <div class="popup" id="web-dev-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('web-dev-popup')">×</button>
-    
+
     <div class="popup-header">
       <i class="fas fa-code popup-icon"></i>
-      <h2 class="popup-title">Web Development Excellence</h2>
-      <p class="popup-subtitle">Building Digital Experiences That Drive Results</p>
+      <h2 class="popup-title">Web Development</h2>
+      <p class="popup-subtitle">Learning by building, fixing, and improving real systems</p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-tools"></i> Technical Stack</h4>
-      <div class="highlight-box">
-        <p><strong>Frontend Mastery:</strong> Expert in HTML5, CSS3, JavaScript (ES6+), and modern frameworks. Built responsive, accessible interfaces that work flawlessly across all devices and browsers.</p>
-      </div>
-      <ul>
-        <li><strong>Modern Web Technologies:</strong> HTML5, CSS3, JavaScript ES6+, Bootstrap 5, Tailwind CSS for rapid UI development</li>
-        <li><strong>Backend Development:</strong> PHP, MySQL for robust server-side solutions and database management with secure authentication</li>
-        <li><strong>Design Tools:</strong> Figma for wireframing, prototyping, and collaborative design workflows with developers</li>
-        <li><strong>Version Control:</strong> Git and GitHub for code management, branching strategies, and team collaboration</li>
-        <li><strong>Responsive Design:</strong> Mobile-first approach ensuring seamless experiences across all screen sizes and devices</li>
-        <li><strong>Performance Optimization:</strong> Code minification, lazy loading, image optimization, and CDN integration for lightning-fast load times</li>
-        <li><strong>API Integration:</strong> RESTful APIs, third-party service integration, and AJAX for dynamic content loading</li>
-      </ul>
+      <p>
+        My journey into web development started with a simple frustration: ideas that looked good on paper often failed when real users interacted with them. I wanted to understand why things broke, loaded slowly, or confused users, so I started building complete websites rather than isolated components.
+      </p>
+
+      <p>
+        Across academic and personal projects, I handled page structure, layout, responsiveness, and basic backend logic. This forced me to think beyond visuals and understand how design, content, and functionality interact in real environments.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-rocket"></i> Key Achievements</h4>
-      <ul>
-        <li><strong>EcoWander Platform:</strong> Built full-stack sustainable travel web app with dynamic pricing algorithm, user authentication, booking system, and WCAG 2.1 accessibility compliance</li>
-        <li><strong>Performance Excellence:</strong> All projects achieve 95+ performance scores on Google Lighthouse with optimized load times under 2 seconds</li>
-        <li><strong>Accessibility Champion:</strong> Implemented keyboard navigation, ARIA labels, screen reader support, and WCAG 2.1 Level AA compliance</li>
-        <li><strong>User-Centered Design:</strong> Created intuitive interfaces that reduce bounce rates by 40% and increase user engagement by 60%</li>
-        <li><strong>Responsive Excellence:</strong> Delivered pixel-perfect responsive designs that work seamlessly on 320px to 4K displays</li>
-      </ul>
+      <h4><i class="fas fa-tools"></i> How I Actually Work</h4>
+      <p>
+        I typically begin by sketching page flows and wireframes to clarify how users move through a site. From there, I build layouts using semantic HTML and CSS, focusing on readability, spacing, and responsiveness rather than flashy effects.
+      </p>
+
+      <p>
+        JavaScript is used where it adds value, such as form validation, dynamic content loading, or small interactive elements. I test continuously on different screen sizes and fix issues as they appear instead of treating responsiveness as a final step.
+      </p>
+
+      <p>
+        For selected projects, I worked with PHP and MySQL to handle form submissions, user authentication, and basic data storage. While I am not a backend specialist, this experience helped me design front ends that connect to real systems rather than static mockups.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-star"></i> What Sets Me Apart</h4>
-      <p>I don't just write code—I craft digital experiences that solve real problems. Every line of code serves a purpose, every design decision is intentional, and every feature is built with the end user in mind. My development process combines technical excellence with strategic thinking, user research, and creative problem-solving. I build scalable, maintainable, and performant web applications that deliver tangible business value.</p>
+      <h4><i class="fas fa-project-diagram"></i> What I Learned From Building</h4>
+      <p>
+        One of the biggest lessons was that small technical decisions have a large impact on user experience. Poor structure leads to confusing navigation. Heavy assets slow down engagement. Missing accessibility considerations silently exclude users.
+      </p>
+
+      <p>
+        Through trial, feedback, and iteration, I learned to simplify layouts, reduce unnecessary features, and prioritise clarity over complexity. These lessons influenced later projects such as EcoWander, where usability mattered as much as the idea itself.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-graduation-cap"></i> Development Philosophy</h4>
-      <p><strong>Clean Code:</strong> Write self-documenting code with meaningful variable names, consistent formatting, and comprehensive comments</p>
-      <p><strong>Security First:</strong> Implement input validation, SQL injection prevention, XSS protection, and secure authentication practices</p>
-      <p><strong>Continuous Learning:</strong> Stay current with latest web technologies, best practices, and industry trends through constant upskilling</p>
+      <h4><i class="fas fa-lightbulb"></i> My Approach</h4>
+      <p>
+        I do not approach web development as writing code for its own sake. I treat it as a problem-solving process where the goal is to make something usable, reliable, and understandable for real people.
+      </p>
+
+      <p>
+        I am still learning, and I actively seek feedback to improve how I structure code, organise projects, and design interfaces. What matters most to me is building things that work properly and improving with every iteration.
+      </p>
     </div>
 
     <div class="popup-skills">
       <span class="popup-skill">HTML5</span>
       <span class="popup-skill">CSS3</span>
-      <span class="popup-skill">JavaScript ES6+</span>
-      <span class="popup-skill">PHP</span>
-      <span class="popup-skill">MySQL</span>
-      <span class="popup-skill">Bootstrap 5</span>
-      <span class="popup-skill">Tailwind CSS</span>
-      <span class="popup-skill">Figma</span>
+      <span class="popup-skill">JavaScript</span>
+      <span class="popup-skill">Bootstrap</span>
       <span class="popup-skill">Responsive Design</span>
-      <span class="popup-skill">WCAG Accessibility</span>
+      <span class="popup-skill">Basic PHP</span>
+      <span class="popup-skill">MySQL</span>
+      <span class="popup-skill">Accessibility Awareness</span>
       <span class="popup-skill">Git & GitHub</span>
-      <span class="popup-skill">REST APIs</span>
-      <span class="popup-skill">Performance Optimization</span>
-      <span class="popup-skill">SEO</span>
     </div>
   </div>
 </div>
 
-<!-- 2. STRATEGIC ANALYSIS POPUP -->
+
 <div class="popup" id="strategy-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('strategy-popup')">×</button>
-    
+
     <div class="popup-header">
       <i class="fas fa-chess popup-icon"></i>
-      <h2 class="popup-title">Strategic Analysis & Business Intelligence</h2>
-      <p class="popup-subtitle">Transforming Data into Competitive Advantage</p>
+      <h2 class="popup-title">Strategic Analysis</h2>
+      <p class="popup-subtitle">Understanding why things work before suggesting changes</p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-compass"></i> Strategic Frameworks</h4>
-      <div class="highlight-box">
-        <p><strong>Business Model Mastery:</strong> Expert in Osterwalder's Business Model Canvas, SWOT analysis, Porter's Five Forces, and competitive intelligence frameworks for comprehensive market analysis and strategic planning.</p>
-      </div>
-      <ul>
-        <li><strong>Business Model Canvas:</strong> Systematic analysis of value propositions, customer segments, revenue streams, key resources, partnerships, and cost structures</li>
-        <li><strong>Competitive Benchmarking:</strong> In-depth competitor analysis identifying market gaps, competitive advantages, and differentiation opportunities</li>
-        <li><strong>Market Research:</strong> Primary and secondary research methodologies to uncover customer insights, market trends, and growth opportunities</li>
-        <li><strong>Financial Analysis:</strong> ROI calculations, break-even analysis, profitability modeling, and financial forecasting</li>
-        <li><strong>SWOT & PESTEL:</strong> Environmental scanning to identify internal strengths/weaknesses and external opportunities/threats</li>
-        <li><strong>Porter's Five Forces:</strong> Industry analysis evaluating competitive rivalry, supplier power, buyer power, threat of substitutes, and barriers to entry</li>
-        <li><strong>Value Chain Analysis:</strong> Identifying opportunities for cost reduction and differentiation across primary and support activities</li>
-      </ul>
+      <p>
+        My exposure to strategy came through academic projects where assumptions were challenged with evidence. Rather than jumping to solutions, I learned to break down organisations into their business models, revenue drivers, cost structures, and competitive pressures.
+      </p>
+
+      <p>
+        This approach taught me that strategy is not about bold claims but about understanding constraints, trade-offs, and long-term consequences of decisions.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-trophy"></i> Strategic Projects</h4>
-      <ul>
-        <li><strong>Netflix Business Model Analysis:</strong> Comprehensive evaluation of $17B content strategy, competitive positioning vs Disney+ and HBO Max, subscriber growth analysis, and identification of growth opportunities in emerging markets</li>
-        <li><strong>Health Waikato Case Study:</strong> Root cause analysis of $20M+ public sector IT failure using balance sheet framework, agile methodology assessment, and ABC organizational change model</li>
-        <li><strong>Market Entry Strategy:</strong> Developed go-to-market strategies for new product launches with detailed competitive landscapes, positioning frameworks, and launch timelines</li>
-        <li><strong>Digital Transformation:</strong> Strategic roadmap for organizational digital transformation including technology assessment, change management, and implementation planning</li>
-      </ul>
+      <h4><i class="fas fa-search"></i> How I Analyse Problems</h4>
+      <p>
+        I start by defining the real problem instead of reacting to surface symptoms. From there, I map stakeholders, incentives, and external pressures such as competition or regulation.
+      </p>
+
+      <p>
+        I use structured frameworks like SWOT, Porter’s Five Forces, and value chain analysis not as templates, but as thinking tools to organise insights and spot inconsistencies.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-lightbulb"></i> Strategic Thinking in Action</h4>
-      <p>I don't just analyze—I synthesize insights into actionable strategies. My approach combines rigorous analytical frameworks with creative problem-solving and practical business acumen, ensuring recommendations are both data-driven and practically implementable. Whether evaluating billion-dollar companies or startup ventures, I bring the same level of strategic rigor, business intelligence, and forward-thinking vision to every analysis.</p>
-    </div>
+      <h4><i class="fas fa-project-diagram"></i> What This Taught Me</h4>
+      <p>
+        Through case studies such as Netflix and Health Waikato, I learned that many failures are strategic, not technical. Poor alignment, unrealistic scope, and stakeholder resistance often matter more than execution speed.
+      </p>
 
-    <div class="popup-section">
-      <h4><i class="fas fa-briefcase"></i> Business Acumen</h4>
-      <p><strong>Industry Knowledge:</strong> Deep understanding of technology, e-commerce, digital media, and service industries with awareness of current trends and disruptions</p>
-      <p><strong>Strategic Communication:</strong> Ability to present complex strategic insights to diverse stakeholders including C-suite executives, board members, and cross-functional teams</p>
-      <p><strong>Implementation Focus:</strong> Bridge the gap between strategy and execution with actionable roadmaps and measurable KPIs</p>
+      <p>
+        These experiences improved my ability to ask better questions and justify recommendations with logic rather than opinion.
+      </p>
     </div>
 
     <div class="popup-skills">
-      <span class="popup-skill">Business Model Canvas</span>
-      <span class="popup-skill">Competitive Analysis</span>
+      <span class="popup-skill">Business Models</span>
       <span class="popup-skill">SWOT Analysis</span>
-      <span class="popup-skill">Market Research</span>
-      <span class="popup-skill">Financial Modeling</span>
-      <span class="popup-skill">Strategic Planning</span>
-      <span class="popup-skill">Porter's Five Forces</span>
-      <span class="popup-skill">PESTEL Analysis</span>
-      <span class="popup-skill">Benchmarking</span>
-      <span class="popup-skill">Value Chain Analysis</span>
-      <span class="popup-skill">Industry Analysis</span>
-      <span class="popup-skill">Go-to-Market Strategy</span>
+      <span class="popup-skill">Competitive Research</span>
+      <span class="popup-skill">Market Analysis</span>
+      <span class="popup-skill">Strategic Thinking</span>
     </div>
   </div>
 </div>
 
-<!-- 3. DATA ANALYTICS POPUP -->
+
 <div class="popup" id="analytics-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('analytics-popup')">×</button>
-    
+
     <div class="popup-header">
       <i class="fas fa-chart-line popup-icon"></i>
-      <h2 class="popup-title">Data Analytics & Business Intelligence</h2>
-      <p class="popup-subtitle">Turning Numbers into Narratives, Data into Decisions</p>
+      <h2 class="popup-title">Data Analysis</h2>
+      <p class="popup-subtitle">Using data to reduce guesswork, not replace thinking</p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-database"></i> Analytics Toolkit</h4>
-      <div class="highlight-box">
-        <p><strong>Data-Driven Decision Making:</strong> Transform complex datasets into clear, actionable insights using advanced analytics tools and visualization techniques that drive measurable business outcomes and strategic advantages.</p>
-      </div>
-      <ul>
-        <li><strong>Power BI:</strong> Interactive dashboard creation with real-time data integration, advanced DAX formulas, custom visuals, and automated reporting</li>
-        <li><strong>AnyLogic Simulation:</strong> Discrete event simulation for marketing channel optimization, operations research, and ROI forecasting with scenario modeling</li>
-        <li><strong>A/B Testing:</strong> Statistical hypothesis testing to validate product changes, marketing campaigns, and UX improvements with confidence intervals</li>
-        <li><strong>Excel Mastery:</strong> Advanced formulas (VLOOKUP, INDEX-MATCH, array formulas), pivot tables, macros, VBA scripting, and complex data modeling</li>
-        <li><strong>SQL Proficiency:</strong> Database querying with JOINs, subqueries, CTEs, window functions for efficient data extraction and transformation</li>
-        <li><strong>Statistical Analysis:</strong> Regression analysis, correlation studies, time series forecasting, and predictive modeling</li>
-        <li><strong>Data Visualization:</strong> Creating compelling charts, graphs, and infographics that tell data stories and drive action</li>
-      </ul>
+      <p>
+        I learned data analysis as a way to support decisions, not to chase numbers. Most of my experience involves working with real datasets where clarity, cleaning, and interpretation mattered more than advanced algorithms.
+      </p>
+
+      <p>
+        I became comfortable questioning data quality and understanding what numbers can and cannot explain.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-project-diagram"></i> Analytics Projects</h4>
-      <ul>
-        <li><strong>Marketing Channel Simulation:</strong> Built AnyLogic discrete event model optimizing ROI across paid ads, email, and social channels, achieving 35% improvement in marketing efficiency through dynamic budget allocation</li>
-        <li><strong>Customer Segmentation:</strong> Developed RFM (Recency, Frequency, Monetary) analysis framework identifying high-value customer segments and personalization opportunities, increasing CLV by 28%</li>
-        <li><strong>Performance Dashboards:</strong> Created executive dashboards in Power BI tracking 50+ KPIs across marketing, sales, and operations with automated daily refresh and alert systems</li>
-        <li><strong>Predictive Analytics:</strong> Implemented time series forecasting models for demand planning and inventory optimization, reducing stockouts by 15% and overstock by 20%</li>
-        <li><strong>Social Media Analytics:</strong> Built comprehensive social media performance tracking system monitoring engagement, reach, and conversion metrics across platforms</li>
-      </ul>
+      <h4><i class="fas fa-database"></i> How I Use Data</h4>
+      <p>
+        I work with spreadsheets, basic statistical tools, and visualisations to identify trends, bottlenecks, and performance gaps. I focus on making insights understandable rather than impressive.
+      </p>
+
+      <p>
+        In simulation and marketing projects, data helped me test assumptions and compare outcomes instead of relying on intuition alone.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-bullseye"></i> Impact Through Analytics</h4>
-      <p>My analytics work doesn't just produce reports—it drives action and delivers results. I specialize in translating complex data into clear narratives that stakeholders can understand and act upon immediately. Whether optimizing marketing spend, identifying operational inefficiencies, forecasting business trends, or uncovering growth opportunities, my data-driven approach consistently delivers measurable ROI and competitive advantages.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-brain"></i> Analytical Mindset</h4>
-      <p><strong>Business Context:</strong> Always connect analytics to business objectives and strategic priorities, ensuring insights drive real business value</p>
-      <p><strong>Data Quality:</strong> Implement robust data validation, cleansing processes, and quality checks to ensure accuracy and reliability</p>
-      <p><strong>Storytelling:</strong> Transform dry statistics into compelling narratives that resonate with diverse audiences from technical teams to C-suite executives</p>
+      <h4><i class="fas fa-lightbulb"></i> Key Takeaway</h4>
+      <p>
+        Data is most useful when combined with context. I learned to pair numbers with user behaviour, operational constraints, and real-world conditions to make findings actionable.
+      </p>
     </div>
 
     <div class="popup-skills">
-      <span class="popup-skill">Power BI</span>
-      <span class="popup-skill">AnyLogic Simulation</span>
-      <span class="popup-skill">Excel Advanced</span>
-      <span class="popup-skill">SQL</span>
-      <span class="popup-skill">A/B Testing</span>
-      <span class="popup-skill">Statistical Analysis</span>
-      <span class="popup-skill">Data Visualization</span>
-      <span class="popup-skill">Predictive Modeling</span>
-      <span class="popup-skill">DAX</span>
-      <span class="popup-skill">VBA</span>
-      <span class="popup-skill">Customer Analytics</span>
-      <span class="popup-skill">KPI Tracking</span>
-      <span class="popup-skill">Dashboard Design</span>
-      <span class="popup-skill">Data Storytelling</span>
+      <span class="popup-skill">Excel</span>
+      <span class="popup-skill">Data Cleaning</span>
+      <span class="popup-skill">Basic Statistics</span>
+      <span class="popup-skill">Data Interpretation</span>
+      <span class="popup-skill">Visualization</span>
     </div>
   </div>
 </div>
+
 
 <!-- 4. PROJECT MANAGEMENT POPUP -->
 <div class="popup" id="project-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('project-popup')">×</button>
-    
+
     <div class="popup-header">
       <i class="fas fa-tasks popup-icon"></i>
-      <h2 class="popup-title">Project Management & Leadership</h2>
-      <p class="popup-subtitle">Orchestrating Teams to Deliver Excellence</p>
+      <h2 class="popup-title">Project Support</h2>
+      <p class="popup-subtitle">Keeping work moving when details matter</p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-sitemap"></i> Project Management Expertise</h4>
-      <div class="highlight-box">
-        <p><strong>Results-Driven Leadership:</strong> Led 10+ major initiatives from conception to completion, consistently delivering projects on time, within budget, and exceeding stakeholder expectations through strategic planning and team empowerment.</p>
-      </div>
-      <ul>
-        <li><strong>Agile Methodology:</strong> Scrum Master experience facilitating daily standups, sprint planning, retrospectives, and backlog grooming with distributed teams</li>
-        <li><strong>Project Planning:</strong> Expert in defining scope, creating WBS, resource allocation, timeline development, and risk management strategies</li>
-        <li><strong>Stakeholder Management:</strong> Building consensus among diverse stakeholders, managing expectations, and ensuring alignment with business objectives</li>
-        <li><strong>Team Leadership:</strong> Led teams of 5-15 members across technical, creative, and business functions with focus on collaboration and empowerment</li>
-        <li><strong>Budget Management:</strong> Tracked project budgets from $5K to $50K+, ensuring cost control and resource optimization</li>
-        <li><strong>Tools & Software:</strong> Trello, Asana, Jira, Microsoft Project, Google Workspace for project tracking and collaboration</li>
-        <li><strong>Risk Management:</strong> Proactive identification, assessment, and mitigation of project risks with contingency planning</li>
-      </ul>
+      <p>
+        My project support experience comes from coordinating academic initiatives, student organisations, and internships where organisation and follow-through were critical.
+      </p>
+
+      <p>
+        I often worked behind the scenes, handling documentation, schedules, updates, and communication so others could focus on delivery.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-crown"></i> Leadership Experience</h4>
-      <ul>
-        <li><strong>Managing Director, Department Club:</strong> Led 5-member executive team managing 10+ major campus initiatives including cultural events, academic seminars, and groundbreaking LGBTQ awareness event with 500+ participants</li>
-        <li><strong>Secretary, Citizen Consumer Club:</strong> Coordinated 6+ community awareness events with 15+ external stakeholders including local government, media, and NGOs</li>
-        <li><strong>Event Management:</strong> Successfully delivered events ranging from 50 to 500+ attendees with full responsibility for logistics, vendors, budgets, and risk management</li>
-        <li><strong>Crisis Management:</strong> Navigated challenging situations including stakeholder resistance, budget constraints, and last-minute changes with composure and creative problem-solving</li>
-      </ul>
-    </div>
+      <h4><i class="fas fa-clipboard-list"></i> What I Did</h4>
+      <p>
+        I supported planning by tracking tasks, preparing reports, managing shared files, and ensuring deadlines were visible and realistic. This role taught me the value of consistency and accountability.
+      </p>
 
-    <div class="popup-section">
-      <h4><i class="fas fa-users"></i> Leadership Philosophy</h4>
-      <p>I believe great leaders create more leaders, not followers. My leadership style emphasizes empowerment, transparency, and collaborative decision-making. I create psychologically safe environments where team members feel valued, heard, and motivated to contribute their best work. Through clear communication, defined accountability, and recognition of achievements, I build high-performing teams that consistently exceed expectations.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-award"></i> Key Achievements</h4>
-      <ul>
-        <li><strong>100% On-Time Delivery:</strong> Achieved 100% on-time completion rate across all projects through meticulous planning and proactive risk management</li>
-        <li><strong>Stakeholder Satisfaction:</strong> Maintained 95%+ stakeholder satisfaction scores through transparent communication and expectation management</li>
-        <li><strong>Team Development:</strong> Mentored 10+ team members, helping them develop project management, leadership, and technical skills</li>
-        <li><strong>Innovation Leadership:</strong> Introduced agile practices, collaboration tools, and process improvements that increased team productivity by 30%</li>
-      </ul>
+      <p>
+        Small administrative improvements often prevented larger issues later, especially in group projects with multiple stakeholders.
+      </p>
     </div>
 
     <div class="popup-skills">
-      <span class="popup-skill">Agile & Scrum</span>
-      <span class="popup-skill">Team Leadership</span>
-      <span class="popup-skill">Stakeholder Management</span>
-      <span class="popup-skill">Budget Management</span>
-      <span class="popup-skill">Risk Management</span>
-      <span class="popup-skill">Trello</span>
-      <span class="popup-skill">Jira</span>
-      <span class="popup-skill">Event Management</span>
-      <span class="popup-skill">Cross-functional Teams</span>
-      <span class="popup-skill">Change Management</span>
-      <span class="popup-skill">Strategic Planning</span>
-      <span class="popup-skill">Problem Solving</span>
+      <span class="popup-skill">Documentation</span>
+      <span class="popup-skill">Coordination</span>
+      <span class="popup-skill">Scheduling</span>
+      <span class="popup-skill">Stakeholder Communication</span>
     </div>
   </div>
 </div>
+
 
 <!-- 5. AI & INNOVATION POPUP -->
 <div class="popup" id="ai-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('ai-popup')">×</button>
-    
+
     <div class="popup-header">
       <i class="fas fa-robot popup-icon"></i>
-      <h2 class="popup-title">AI & Innovation</h2>
-      <p class="popup-subtitle">Leveraging Emerging Technologies for Competitive Advantage</p>
+      <h2 class="popup-title">AI & Digital Innovation</h2>
+      <p class="popup-subtitle">Exploring what AI can realistically support</p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-microchip"></i> AI Technologies & Applications</h4>
-      <div class="highlight-box">
-        <p><strong>AI Strategy & Implementation:</strong> Deep understanding of AI/ML technologies including natural language processing, computer vision, and adaptive learning systems. Expertise in identifying AI opportunities and translating them into practical business applications.</p>
-      </div>
-      <ul>
-        <li><strong>BERT & NLP:</strong> Experience with Bidirectional Encoder Representations from Transformers for natural language understanding, semantic search, and content recommendations</li>
-        <li><strong>Adaptive Learning:</strong> Designed AI-powered personalized learning systems that adapt to individual user behavior, preferences, and learning styles</li>
-        <li><strong>Machine Learning Concepts:</strong> Understanding of supervised learning, unsupervised learning, classification, regression, and clustering algorithms</li>
-        <li><strong>AI Ethics:</strong> Awareness of bias, fairness, transparency, and responsible AI principles in system design and deployment</li>
-        <li><strong>Automation:</strong> Identifying opportunities for process automation using AI to improve efficiency and reduce manual work</li>
-        <li><strong>Recommendation Systems:</strong> Collaborative filtering, content-based filtering, and hybrid approaches for personalized recommendations</li>
-      </ul>
+      <p>
+        My exposure to AI is academic and applied rather than production-level. I explored AI as a strategic tool rather than a replacement for human judgement.
+      </p>
+
+      <p>
+        Projects focused on understanding where AI adds value, where it introduces risk, and how organisations struggle to adopt it responsibly.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-lightbulb"></i> Innovation Projects</h4>
-      <ul>
-        <li><strong>AI-Powered Training Platform:</strong> Designed comprehensive 56-page proposal for adaptive learning platform using BERT for content personalization, semantic search, and natural language Q&A system with detailed technical architecture and UX wireframes</li>
-        <li><strong>Intelligent Content Recommendations:</strong> Proposed recommendation engine leveraging machine learning to suggest personalized learning paths based on user history, goals, and performance</li>
-        <li><strong>Automated Code Review:</strong> Explored ML-based code review systems providing instant feedback on coding exercises with error detection and improvement suggestions</li>
-        <li><strong>Student Innovation Project:</strong> Developed innovative financial and emotional support system for bereaved mountaineering families using technology platform and partnership models</li>
-      </ul>
-    </div>
+      <h4><i class="fas fa-brain"></i> What I Worked On</h4>
+      <p>
+        I designed conceptual AI-driven systems, such as adaptive learning platforms, that balanced technical feasibility with ethical, organisational, and user concerns.
+      </p>
 
-    <div class="popup-section">
-      <h4><i class="fas fa-rocket"></i> Innovation Mindset</h4>
-      <p>I don't just follow AI trends—I identify practical applications that deliver real business value. My approach combines technical understanding with business acumen to bridge the gap between cutting-edge technology and practical implementation. I stay current with emerging technologies through continuous learning, experimentation, and engagement with AI research communities.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-cogs"></i> Future-Ready Skills</h4>
-      <ul>
-        <li><strong>Emerging Tech Awareness:</strong> Monitoring developments in generative AI, large language models, computer vision, and autonomous systems</li>
-        <li><strong>AI Product Strategy:</strong> Defining AI-powered product features that create sustainable competitive advantages</li>
-        <li><strong>Technical-Business Translation:</strong> Explaining complex AI concepts to non-technical stakeholders and business leaders</li>
-        <li><strong>Ethical AI:</strong> Advocating for responsible AI development with considerations for bias, privacy, and societal impact</li>
-      </ul>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-trophy"></i> Key Strengths</h4>
-      <p><strong>Strategic AI Thinking:</strong> Not just understanding AI technology, but knowing when and how to apply it for maximum business impact</p>
-      <p><strong>Innovation Frameworks:</strong> Using design thinking, lean startup, and agile methodologies to validate and iterate on innovative ideas</p>
-      <p><strong>Cross-Functional Collaboration:</strong> Working with data scientists, engineers, designers, and business stakeholders to bring AI products to life</p>
+      <p>
+        This helped me understand AI as a system involving people, processes, and governance, not just algorithms.
+      </p>
     </div>
 
     <div class="popup-skills">
-      <span class="popup-skill">BERT & NLP</span>
-      <span class="popup-skill">Machine Learning Concepts</span>
-      <span class="popup-skill">Adaptive Learning</span>
       <span class="popup-skill">AI Strategy</span>
-      <span class="popup-skill">Recommendation Systems</span>
-      <span class="popup-skill">Innovation Design</span>
-      <span class="popup-skill">AI Ethics</span>
-      <span class="popup-skill">Automation</span>
-      <span class="popup-skill">Design Thinking</span>
-      <span class="popup-skill">Emerging Tech</span>
-      <span class="popup-skill">Product Innovation</span>
-      <span class="popup-skill">Technical Documentation</span>
+      <span class="popup-skill">Ethical AI</span>
+      <span class="popup-skill">System Design</span>
+      <span class="popup-skill">Digital Innovation</span>
     </div>
   </div>
 </div>
+
 <!-- ============================================ -->
 <!-- POPUP 6: DIGITAL MARKETING -->
 <!-- ============================================ -->
 <div class="popup" id="marketing-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('marketing-popup')">×</button>
-    
+
     <div class="popup-header">
       <i class="fas fa-bullhorn popup-icon"></i>
-      <h2 class="popup-title">Digital Marketing Mastery</h2>
-      <p class="popup-subtitle">Multi-Channel Strategies That Drive Growth</p>
+      <h2 class="popup-title">Digital Marketing</h2>
+      <p class="popup-subtitle">Learning what actually reaches people</p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-rocket"></i> Digital Marketing Expertise</h4>
-      <div class="highlight-box">
-        <p><strong>Full-Funnel Marketing:</strong> Comprehensive experience across the entire marketing funnel from brand awareness and lead generation to conversion optimization and customer retention through data-driven strategies.</p>
-      </div>
-      <ul>
-        <li><strong>Social Media Marketing:</strong> Created 30+ engaging posts across Facebook and Instagram, increasing brand awareness by 25% and engagement by 15% through content testing and optimization</li>
-        <li><strong>YouTube Growth Strategy:</strong> Directed YouTube strategy increasing monthly video views by 20% through SEO optimization, content strategy, and YouTube Studio Analytics</li>
-        <li><strong>Content Creation:</strong> Expert in Canva and Adobe Creative Cloud for creating graphics, videos, infographics, and visual content that stops the scroll</li>
-        <li><strong>SEO & SEM:</strong> Keyword research, on-page optimization, link building, and Google Ads campaign management for improved search rankings</li>
-        <li><strong>Email Marketing:</strong> Campaign design, segmentation, A/B testing, and automation workflows achieving high open and click-through rates</li>
-        <li><strong>Analytics & Reporting:</strong> Google Analytics, Facebook Insights, YouTube Analytics for tracking KPIs and optimizing campaign performance</li>
-        <li><strong>Marketing Automation:</strong> Experience with scheduling tools, CRM integration, and automated reporting systems</li>
-      </ul>
+      <p>
+        My marketing experience developed through internships and content projects where results mattered more than creative opinions.
+      </p>
+
+      <p>
+        I worked on content planning, posting schedules, performance tracking, and optimisation based on engagement rather than assumptions.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-chart-bar"></i> Marketing Achievements</h4>
-      <ul>
-        <li><strong>Social Media Management Intern at Tech Deziana:</strong> Increased YouTube monthly views by 20%, drove 15% increase in audience engagement through structured content testing</li>
-        <li><strong>Event Marketing:</strong> Increased event attendance by 45% through digital marketing strategies including social media campaigns, email marketing, and influencer partnerships</li>
-        <li><strong>Content Performance:</strong> Created 50+ pieces of digital content across platforms with consistent engagement rates 30% above industry benchmarks</li>
-        <li><strong>Community Growth:</strong> Built engaged social media communities with organic follower growth strategies and authentic engagement tactics</li>
-        <li><strong>Brand Awareness:</strong> Increased brand visibility by 25% through consistent multi-channel presence and strategic content distribution</li>
-      </ul>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-lightbulb"></i> Marketing Philosophy</h4>
-      <p>I believe great marketing isn't about interruption—it's about providing value. My approach focuses on understanding audience needs, creating genuinely helpful content, and building authentic relationships with communities. Every campaign is grounded in data, optimized through testing, and measured against clear business objectives. I don't just chase vanity metrics—I focus on engagement, conversion, and ROI.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-bullseye"></i> Marketing Strategies</h4>
-      <ul>
-        <li><strong>Content Marketing:</strong> Storytelling that educates, entertains, and engages target audiences while building brand authority</li>
-        <li><strong>Growth Hacking:</strong> Creative, low-cost strategies for rapid audience growth and viral content creation</li>
-        <li><strong>Influencer Marketing:</strong> Partnerships with micro-influencers and brand ambassadors for authentic reach</li>
-        <li><strong>Community Building:</strong> Creating engaged communities around brands through consistent interaction and value delivery</li>
-        <li><strong>Conversion Optimization:</strong> Landing page optimization, CTA testing, and funnel analysis to maximize conversions</li>
-      </ul>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-cogs"></i> Marketing Tools Proficiency</h4>
-      <p><strong>Design & Content:</strong> Canva Pro, Adobe Creative Cloud (Photoshop, Premiere Pro), video editing software</p>
-      <p><strong>Analytics:</strong> Google Analytics, Facebook Business Suite, YouTube Studio, social media analytics platforms</p>
-      <p><strong>Automation:</strong> Hootsuite, Buffer, Mailchimp, social media scheduling and automation tools</p>
-      <p><strong>SEO Tools:</strong> Google Search Console, keyword research tools, SEO optimization platforms</p>
+      <h4><i class="fas fa-chart-pie"></i> What I Learned</h4>
+      <p>
+        Small changes in format, timing, and messaging can significantly impact reach and engagement. I learned to test, observe, and refine instead of repeating what “usually works.”
+      </p>
     </div>
 
     <div class="popup-skills">
-      <span class="popup-skill">Social Media Marketing</span>
-      <span class="popup-skill">Content Creation</span>
-      <span class="popup-skill">SEO Optimization</span>
-      <span class="popup-skill">YouTube Marketing</span>
-      <span class="popup-skill">Facebook Ads</span>
-      <span class="popup-skill">Instagram Marketing</span>
-      <span class="popup-skill">Email Marketing</span>
-      <span class="popup-skill">Google Analytics</span>
-      <span class="popup-skill">Canva</span>
-      <span class="popup-skill">Adobe Creative Cloud</span>
-      <span class="popup-skill">Marketing Analytics</span>
-      <span class="popup-skill">Community Management</span>
-      <span class="popup-skill">Brand Building</span>
-      <span class="popup-skill">Campaign Management</span>
+      <span class="popup-skill">Content Planning</span>
+      <span class="popup-skill">Social Media</span>
+      <span class="popup-skill">Analytics Basics</span>
+      <span class="popup-skill">Audience Engagement</span>
     </div>
   </div>
 </div>
+
 
 <!-- ============================================ -->
 <!-- POPUP 7: UX/UI DESIGN -->
@@ -2217,82 +2129,39 @@ html {
 <div class="popup" id="design-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('design-popup')">×</button>
-    
+
     <div class="popup-header">
       <i class="fas fa-palette popup-icon"></i>
-      <h2 class="popup-title">UX/UI Design Excellence</h2>
-      <p class="popup-subtitle">Human-Centered Design That Delights Users</p>
+      <h2 class="popup-title">UX & Interface Design</h2>
+      <p class="popup-subtitle">Designing for clarity, not decoration</p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-pencil-ruler"></i> Design Approach & Methodology</h4>
-      <div class="highlight-box">
-        <p><strong>User-Centered Design:</strong> Every design decision is grounded in user research, usability testing, and accessibility principles. I create interfaces that are not just beautiful, but intuitive, accessible, and conversion-focused.</p>
-      </div>
-      <ul>
-        <li><strong>Figma Mastery:</strong> Expert in wireframing, prototyping, component design, design systems, and collaborative design workflows in Figma</li>
-        <li><strong>Design Thinking:</strong> Empathize, Define, Ideate, Prototype, Test methodology for solving complex design challenges</li>
-        <li><strong>Wireframing & Prototyping:</strong> Low-fidelity to high-fidelity prototypes with interactive elements and user flow mapping</li>
-        <li><strong>Accessibility (WCAG 2.1):</strong> Level AA compliance with keyboard navigation, screen reader support, color contrast, and semantic HTML</li>
-        <li><strong>Responsive Design:</strong> Mobile-first approach ensuring seamless experiences across all devices from 320px to 4K displays</li>
-        <li><strong>Visual Design:</strong> Typography, color theory, layout principles, visual hierarchy, and brand consistency</li>
-        <li><strong>Interaction Design:</strong> Micro-interactions, animations, transitions, and feedback mechanisms that enhance user experience</li>
-      </ul>
+      <p>
+        My approach to design focuses on usability and clarity rather than visual trends. I learned that good design often goes unnoticed because it simply works.
+      </p>
+
+      <p>
+        Through projects and iterations, I began prioritising layout logic, hierarchy, spacing, and accessibility.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-star"></i> Design Projects & Achievements</h4>
-      <ul>
-        <li><strong>EcoWander Travel Platform:</strong> Designed complete user interface with Figma including 30+ screens, interactive prototypes, WCAG 2.1 accessibility compliance, and responsive layouts for mobile, tablet, and desktop</li>
-        <li><strong>AI Training Platform (56-page proposal):</strong> Created comprehensive Figma wireframes for adaptive learning platform including onboarding flows, course navigation, interactive exercises, progress tracking, and certification systems</li>
-        <li><strong>Conversion Optimization:</strong> Redesigned key user flows reducing bounce rates by 40% and increasing conversions by 35% through improved UX and clear CTAs</li>
-        <li><strong>Accessibility Champion:</strong> Implemented WCAG 2.1 standards ensuring all projects are usable by people with disabilities including visual, auditory, motor, and cognitive impairments</li>
-        <li><strong>Design System Creation:</strong> Developed reusable component libraries in Figma ensuring consistency and accelerating design-to-development handoff</li>
-      </ul>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-universal-access"></i> Accessibility & Inclusive Design</h4>
-      <p>Accessibility isn't an afterthought—it's a fundamental design principle. I ensure every interface I create is usable by everyone, regardless of ability. This includes proper color contrast (4.5:1 minimum), keyboard navigation, ARIA labels, semantic HTML, screen reader compatibility, and clear visual hierarchies. Inclusive design isn't just the right thing to do—it expands market reach and improves usability for everyone.</p>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-magic"></i> Design Philosophy</h4>
-      <ul>
-        <li><strong>Simplicity:</strong> Remove unnecessary complexity—every element should serve a clear purpose</li>
-        <li><strong>Consistency:</strong> Maintain design patterns, terminology, and interactions throughout the experience</li>
-        <li><strong>Feedback:</strong> Provide clear, immediate feedback for every user action</li>
-        <li><strong>User Control:</strong> Give users control over their experience with clear navigation and undo options</li>
-        <li><strong>Performance:</strong> Design lightweight interfaces that load quickly and respond instantly</li>
-      </ul>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-toolbox"></i> Design Tools & Skills</h4>
-      <p><strong>Primary Tools:</strong> Figma for all design work including wireframes, prototypes, and design systems</p>
-      <p><strong>Supporting Tools:</strong> Adobe Creative Suite (Photoshop, Illustrator), Canva for rapid prototyping and marketing materials</p>
-      <p><strong>Design Principles:</strong> Gestalt principles, visual hierarchy, F-pattern and Z-pattern layouts, golden ratio, grid systems</p>
-      <p><strong>User Research:</strong> User interviews, surveys, usability testing, heuristic evaluation, persona creation</p>
+      <h4><i class="fas fa-user"></i> Design Mindset</h4>
+      <p>
+        I design with real users in mind, considering how someone unfamiliar with the product will navigate it. This helped me reduce friction and improve overall experience.
+      </p>
     </div>
 
     <div class="popup-skills">
-      <span class="popup-skill">Figma</span>
-      <span class="popup-skill">UX Design</span>
-      <span class="popup-skill">UI Design</span>
       <span class="popup-skill">Wireframing</span>
-      <span class="popup-skill">Prototyping</span>
-      <span class="popup-skill">WCAG Accessibility</span>
-      <span class="popup-skill">Responsive Design</span>
-      <span class="popup-skill">Design Thinking</span>
-      <span class="popup-skill">User Research</span>
-      <span class="popup-skill">Interaction Design</span>
-      <span class="popup-skill">Visual Design</span>
-      <span class="popup-skill">Design Systems</span>
-      <span class="popup-skill">Usability Testing</span>
-      <span class="popup-skill">Adobe Creative Suite</span>
+      <span class="popup-skill">Figma</span>
+      <span class="popup-skill">UX Thinking</span>
+      <span class="popup-skill">Accessibility Awareness</span>
     </div>
   </div>
 </div>
+
 
 <!-- ============================================ -->
 <!-- POPUP 8: BUSINESS INTELLIGENCE -->
@@ -2300,100 +2169,80 @@ html {
 <div class="popup" id="bi-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('bi-popup')">×</button>
-    
+
     <div class="popup-header">
-      <i class="fas fa-brain popup-icon"></i>
-      <h2 class="popup-title">Business Intelligence & Reporting</h2>
-      <p class="popup-subtitle">Transforming Data into Strategic Insights</p>
+      <i class="fas fa-chart-pie popup-icon"></i>
+      <h2 class="popup-title">Business Intelligence</h2>
+      <p class="popup-subtitle">Making data easier to understand and act on</p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-chart-pie"></i> Business Intelligence Capabilities</h4>
-      <div class="highlight-box">
-        <p><strong>Strategic Decision Support:</strong> Transform raw data into actionable business intelligence through advanced visualization, predictive analytics, and automated reporting systems that empower data-driven decision making at all organizational levels.</p>
-      </div>
-      <ul>
-        <li><strong>Power BI Expertise:</strong> Advanced dashboard creation with DAX calculations, custom visuals, real-time data integration, and automated refresh schedules</li>
-        <li><strong>KPI Development:</strong> Define, track, and visualize key performance indicators aligned with business objectives and strategic goals</li>
-        <li><strong>Executive Dashboards:</strong> C-suite focused dashboards presenting complex data in clear, actionable formats with drill-down capabilities</li>
-        <li><strong>Data Modeling:</strong> Star schema, snowflake schema design for optimal query performance and data warehouse architecture</li>
-        <li><strong>ETL Processes:</strong> Extract, Transform, Load workflows for data integration from multiple sources including databases, APIs, and spreadsheets</li>
-        <li><strong>Predictive Analytics:</strong> Forecasting models, trend analysis, and what-if scenarios for strategic planning</li>
-        <li><strong>Automated Reporting:</strong> Scheduled report generation and distribution to stakeholders with email alerts and threshold notifications</li>
-      </ul>
+      <p>
+        My experience with business intelligence developed through coursework, simulations, and practical projects where data needed to be organised and presented clearly for decision-making.
+      </p>
+
+      <p>
+        Rather than working with large enterprise systems, I focused on building structured dashboards and reports that simplified complex information and highlighted what actually mattered.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-project-diagram"></i> BI Projects & Implementations</h4>
-      <ul>
-        <li><strong>Marketing Performance Dashboards:</strong> Created comprehensive Power BI dashboards tracking 50+ KPIs across paid ads, social media, email, and content marketing with real-time integration from multiple platforms</li>
-        <li><strong>Sales Analytics System:</strong> Implemented sales tracking dashboard for family business reducing reporting time by 70% and improving decision-making speed with daily automated updates</li>
-        <li><strong>Social Media Analytics:</strong> Built weekly performance reporting system consolidating metrics from Facebook, Instagram, and YouTube providing actionable insights for content strategy optimization</li>
-        <li><strong>Customer Segmentation Dashboard:</strong> Developed RFM analysis visualization identifying high-value customer segments and enabling targeted marketing campaigns</li>
-        <li><strong>Operational Metrics:</strong> Created real-time operational dashboards for inventory management reducing stockouts by 15% through predictive alerts</li>
-      </ul>
+      <h4><i class="fas fa-database"></i> What I Worked With</h4>
+      <p>
+        I worked with datasets from marketing, operations, and project simulations, using tools like Excel and Power BI to clean data, define metrics, and visualise trends.
+      </p>
+
+      <p>
+        This involved deciding which KPIs were useful, structuring tables correctly, and ensuring dashboards were readable by non-technical users.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-lightbulb"></i> BI Best Practices</h4>
-      <p>Effective business intelligence isn't just about creating beautiful charts—it's about telling the right story to the right audience at the right time. I follow these principles: focus on actionable metrics over vanity metrics, design for your audience (executives need summaries, analysts need details), ensure data accuracy and governance, make insights accessible with intuitive interfaces, and always connect metrics to business outcomes.</p>
+      <h4><i class="fas fa-chart-line"></i> How It Was Used</h4>
+      <p>
+        Dashboards were used to track performance over time, compare scenarios, and support discussions around efficiency, budget allocation, and process improvement.
+      </p>
+
+      <p>
+        I learned that the value of BI lies not in complexity, but in clarity. A simple, well-structured report often led to better decisions than an advanced but confusing one.
+      </p>
     </div>
 
     <div class="popup-section">
-      <h4><i class="fas fa-sync-alt"></i> Data Integration & Management</h4>
-      <ul>
-        <li><strong>Multi-Source Integration:</strong> Combine data from databases (SQL), APIs, Excel, Google Sheets, and cloud platforms into unified views</li>
-        <li><strong>Data Quality:</strong> Implement validation rules, error checking, and data cleansing processes ensuring accuracy and reliability</li>
-        <li><strong>Real-Time Updates:</strong> Configure scheduled refreshes and real-time streaming for time-sensitive business metrics</li>
-        <li><strong>Data Security:</strong> Row-level security, role-based access control, and data encryption for sensitive business information</li>
-        <li><strong>Version Control:</strong> Maintain dashboard versions and change logs for audit trails and rollback capabilities</li>
-      </ul>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-trophy"></i> BI Impact & Value</h4>
-      <ul>
-        <li><strong>Decision Speed:</strong> Reduced decision-making time by 60% through real-time dashboards and automated alerts</li>
-        <li><strong>Data Democratization:</strong> Made data accessible to non-technical stakeholders through intuitive self-service dashboards</li>
-        <li><strong>Cost Savings:</strong> Identified operational inefficiencies worth $50K+ in annual savings through data analysis</li>
-        <li><strong>Revenue Growth:</strong> Enabled marketing optimization decisions that increased ROI by 35% through performance tracking</li>
-        <li><strong>Strategic Planning:</strong> Provided forecasting and scenario analysis supporting 3-year strategic planning initiatives</li>
-      </ul>
-    </div>
-
-    <div class="popup-section">
-      <h4><i class="fas fa-tools"></i> Technical Skills</h4>
-      <p><strong>BI Tools:</strong> Power BI (Advanced), Microsoft Excel (Power Query, Power Pivot, VBA), Google Data Studio</p>
-      <p><strong>Data Languages:</strong> SQL (Joins, CTEs, Window Functions), DAX (Advanced calculations, Time Intelligence)</p>
-      <p><strong>Visualization:</strong> Chart selection best practices, color theory for data visualization, dashboard design principles</p>
-      <p><strong>Statistical Methods:</strong> Descriptive statistics, correlation analysis, regression, forecasting, A/B testing</p>
+      <h4><i class="fas fa-lightbulb"></i> What I Learned</h4>
+      <p>
+        Business intelligence taught me how to think from the perspective of the decision-maker. Every chart, metric, and filter needs a clear purpose, otherwise it becomes noise.
+      </p>
     </div>
 
     <div class="popup-skills">
       <span class="popup-skill">Power BI</span>
-      <span class="popup-skill">DAX</span>
-      <span class="popup-skill">SQL</span>
-      <span class="popup-skill">Data Visualization</span>
+      <span class="popup-skill">Excel</span>
       <span class="popup-skill">Dashboard Design</span>
-      <span class="popup-skill">KPI Development</span>
-      <span class="popup-skill">ETL</span>
-      <span class="popup-skill">Data Modeling</span>
-      <span class="popup-skill">Excel Advanced</span>
-      <span class="popup-skill">Predictive Analytics</span>
-      <span class="popup-skill">Automated Reporting</span>
-      <span class="popup-skill">Data Integration</span>
-      <span class="popup-skill">Executive Dashboards</span>
-      <span class="popup-skill">Business Analytics</span>
+      <span class="popup-skill">KPI Tracking</span>
+      <span class="popup-skill">Data Interpretation</span>
     </div>
   </div>
 </div>
 
-<!-- Social Media Popup -->
+
+<!-- Social Media Management Popup -->
+<!-- Social Media Management Intern Popup -->
 <div class="popup" id="social-media-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('social-media-popup')">×</button>
-    <h2 class="popup-title"><i class="fas fa-hashtag"></i> Social Media Management Intern</h2>
-    <p class="popup-org"><i class="fas fa-building"></i> Tech Deziana | Oct 2023 – Nov 2023</p>
+
+    <!-- Header -->
+    <div class="popup-header">
+      <h2 class="popup-title">
+        <i class="fas fa-hashtag"></i> Social Media Management Intern
+      </h2>
+      <p class="popup-org">
+        Tech Deziana · Marketing Agency Environment · Oct 2023 – Nov 2023
+      </p>
+    </div>
+
+    <!-- Image Gallery (RESTORED) -->
     <div class="popup-gallery">
       <div class="swiper">
         <div class="swiper-wrapper">
@@ -2401,13 +2250,13 @@ html {
             <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800" alt="Social Media Marketing">
           </div>
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800" alt="Content Creation">
+            <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800" alt="Content Planning">
           </div>
           <div class="swiper-slide">
             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Analytics Dashboard">
           </div>
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800" alt="Social Media Strategy">
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800" alt="Agency Collaboration">
           </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -2415,47 +2264,109 @@ html {
         <div class="swiper-button-prev"></div>
       </div>
     </div>
+
+    <!-- Role Context -->
     <div class="popup-section">
-      <h4><i class="fas fa-lightbulb"></i> Comprehensive Overview</h4>
-      <p>As Social Media Management Intern at Tech Deziana, I was responsible for driving the company's digital presence and engagement across multiple social media platforms. My role encompassed content creation, analytics, strategy optimization, and audience engagement. I worked to increase brand awareness, optimize content performance through data-driven insights, and execute comprehensive social media campaigns that delivered measurable results.</p>
+      <h4>Role Context</h4>
+      <p>
+        Tech Deziana operated as a marketing agency working with multiple client brands. My role focused on social media planning, coordination, performance tracking, and execution support rather than just content creation. I acted as a bridge between client expectations, internal teams, and execution timelines.
+      </p>
     </div>
+
+    <!-- What You Actually Did -->
     <div class="popup-section">
-      <h4><i class="fas fa-tasks"></i> Detailed Responsibilities</h4>
+      <h4>What I Actually Did on a Daily Basis</h4>
       <ul>
-        <li><strong>YouTube Growth Strategy:</strong> Directed YouTube growth strategy, increasing monthly video views by 20% by optimizing content via YouTube Studio Analytics and focused SEO optimization, demonstrating expertise in digital marketing and data analysis</li>
-        <li><strong>Content Testing & Optimization:</strong> Executed a structured content testing strategy across platforms, driving a 15% increase in audience engagement by interpreting real-time data from platform insights and deploying changes via centralized scheduling tools</li>
-        <li><strong>Performance Dashboards:</strong> Developed and maintained marketing performance dashboards, producing weekly performance reports that informed content strategy using native analytics dashboards and Microsoft Excel</li>
-        <li><strong>Content Creation:</strong> Utilized Canva and Adobe Creative Cloud to create and schedule over 50 pieces of digital content, including graphics, short-form videos, and infographics across Facebook, Instagram, and YouTube</li>
+        <li>Interacted directly with multiple client brands to understand their business goals, audience type, tone, and platform priorities</li>
+        <li>Translated client requirements into practical social media plans that the internal team could execute clearly</li>
+        <li>Created structured monthly and long-term content schedules instead of ad-hoc posting</li>
+        <li>Reviewed and refined content ideas before execution to ensure consistency with brand positioning</li>
+        <li>Monitored live performance using platform analytics and adjusted plans accordingly</li>
       </ul>
     </div>
+
+    <!-- Planning & Strategy -->
     <div class="popup-section">
-      <h4>Key Achievements & Results</h4>
+      <h4>Content Planning & Strategy Execution</h4>
+      <p>
+        I was primarily responsible for planning content calendars rather than only designing posts. For each client, I created structured monthly schedules and extended plans covering up to a year, ensuring content was paced strategically instead of being posted randomly.
+      </p>
       <ul>
-        <li>Increased YouTube monthly video views by 20% through SEO optimization and content strategy</li>
-        <li>Drove 15% increase in audience engagement through structured content testing and optimization</li>
-        <li>Created and scheduled over 50 pieces of digital content across multiple platforms</li>
-        <li>Produced weekly performance reports providing actionable insights for content strategy</li>
+        <li>Created monthly content calendars for 3+ brands simultaneously</li>
+        <li>Planned platform-specific strategies for Instagram, Facebook, and YouTube</li>
+        <li>Ensured posting frequency aligned with audience behaviour and engagement patterns</li>
+        <li>Avoided content fatigue by spacing campaigns and thematic posts effectively</li>
       </ul>
     </div>
+
+    <!-- Analytics & Reporting -->
+    <div class="popup-section">
+      <h4>Analytics, Reporting & Decision Making</h4>
+      <p>
+        Data played a central role in how decisions were made. I regularly reviewed analytics dashboards to understand what worked and what did not, and used this insight to refine future content planning.
+      </p>
+      <ul>
+        <li>Used YouTube Studio Analytics to optimise titles, descriptions, and posting schedules</li>
+        <li>Improved monthly YouTube views by approximately 20 percent through optimisation</li>
+        <li>Conducted content testing that resulted in a 15 percent increase in audience engagement</li>
+        <li>Prepared weekly and monthly performance summaries using Excel</li>
+      </ul>
+    </div>
+
+    <!-- Tools -->
+    <div class="popup-section">
+      <h4>Tools & Platforms Used</h4>
+      <ul>
+        <li>Canva for content visuals, thumbnails, and brand-consistent creatives</li>
+        <li>YouTube Studio for performance analysis and optimisation</li>
+        <li>Instagram & Facebook Insights for engagement tracking</li>
+        <li>Microsoft Excel for reporting, performance tracking, and comparisons</li>
+        <li>Internal coordination tools and shared calendars for scheduling</li>
+      </ul>
+    </div>
+
+    <!-- Learning -->
+    <div class="popup-section">
+      <h4>What This Experience Taught Me</h4>
+      <p>
+        This role taught me that social media success is driven more by planning, timing, and coordination than by posting frequently. I learned how to think long-term, communicate clearly across teams, and make decisions based on data rather than assumptions.
+      </p>
+    </div>
+
+    <!-- Skills -->
     <div class="popup-skills">
-      <span class="popup-skill">Content Creation</span>
-      <span class="popup-skill">Social Media Analytics</span>
-      <span class="popup-skill">Facebook Marketing</span>
-      <span class="popup-skill">Instagram Marketing</span>
-      <span class="popup-skill">YouTube Growth</span>
+      <span class="popup-skill">Social Media Strategy</span>
+      <span class="popup-skill">Content Planning</span>
+      <span class="popup-skill">Client Communication</span>
+      <span class="popup-skill">Analytics & Reporting</span>
+      <span class="popup-skill">Excel</span>
       <span class="popup-skill">Canva</span>
-      <span class="popup-skill">Adobe Creative Cloud</span>
-      <span class="popup-skill">SEO Optimization</span>
+      <span class="popup-skill">YouTube Growth</span>
+      <span class="popup-skill">Campaign Coordination</span>
     </div>
+
   </div>
 </div>
+
+
+
 
 <!-- Managing Director Popup -->
 <div class="popup" id="managing-director-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('managing-director-popup')">×</button>
-    <h2 class="popup-title"><i class="fas fa-crown"></i> Managing Director</h2>
-    <p class="popup-org"><i class="fas fa-university"></i> Department Club, SA College | Jan 2022 – Jan 2023</p>
+
+     <!-- Header -->
+    <div class="popup-header">
+      <h2 class="popup-title">
+        <i class="fas fa-crown"></i> Managing Director
+      </h2>
+      <p class="popup-org">
+        Department Club, SA College · Student Leadership Role · Jan 2022 – Jan 2023
+      </p>
+    </div>
+
+    <!-- Image Gallery (UNCHANGED) -->
     <div class="popup-gallery">
       <div class="swiper">
         <div class="swiper-wrapper">
@@ -2466,10 +2377,10 @@ html {
             <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?w=800" alt="Event Planning">
           </div>
           <div class="swiper-slide">
-            <img src="https://fl-i.thgim.com/public/incoming/sisom3/article65566927.ece/alternates/FREE_1200/0b3a8ca2.jpg" alt="Team Collaboration">
+            <img src="https://fl-i.thgim.com/public/incoming/sisom3/article65566927.ece/alternates/FREE_1200/0b3a8ca2.jpg" alt="Campus Events">
           </div>
           <div class="swiper-slide">
-            <img src="https://i.pinimg.com/originals/e5/ea/49/e5ea4998966be35ba3d5321fd9207a1d.jpg" alt="Strategic Planning">
+            <img src="https://i.pinimg.com/originals/e5/ea/49/e5ea4998966be35ba3d5321fd9207a1d.jpg" alt="Strategic Coordination">
           </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -2477,58 +2388,103 @@ html {
         <div class="swiper-button-prev"></div>
       </div>
     </div>
+
+    <!-- Context -->
     <div class="popup-section">
-      <h4><i class="fas fa-lightbulb"></i> Comprehensive Overview</h4>
-      <p>As Managing Director of the Department Club at SA College, I led the planning, execution, and management of over 10 major campus initiatives, including cultural events, academic seminars, community outreach programs, and awareness campaigns. One of the most significant achievements was organizing and managing the college's first LGBTQ awareness event and education workshop from start to finish. This groundbreaking initiative faced both positive reception and significant challenges, but through strategic communication, stakeholder management, and persistent advocacy, I ensured that the university administration and student body understood its immense value and importance, far outweighing any negative feedback.</p>
+      <h4>Role Context and Responsibility</h4>
+      <p>
+        This role was not symbolic or representational. As Managing Director of the Department Club, I was responsible for turning ideas into executable programs and ensuring that events were planned, approved, promoted, executed, and reviewed without operational failure. Every major departmental initiative passed through my planning and coordination before execution.
+      </p>
     </div>
+
+    <!-- What You Actually Did -->
     <div class="popup-section">
-      <h4><i class="fas fa-tasks"></i> Detailed Responsibilities</h4>
-      <ul>
-        <li><strong>Event Planning & Execution:</strong> Co-owned complete event planning lifecycle for 10+ major campus initiatives, managing everything from initial concept development to post-event analysis, successfully delivering seamless experiences for 500+ vendors, participants, sponsors, and attendees through precise time-management and real-time operational communication</li>
-        <li><strong>LGBTQ Awareness Event Leadership:</strong> Spearheaded the organization of the college's first LGBTQ awareness event and education workshop, managing all aspects from securing approvals, coordinating with speakers and activists, handling logistics, and addressing concerns from various stakeholders</li>
-        <li><strong>Team Leadership:</strong> Led a 5-member executive team with full autonomy, fostering a collaborative environment and delegating tasks effectively to achieve 100% project completion rate</li>
-      </ul>
+      <h4>What I Actually Did</h4>
+      <p>
+        I independently proposed, planned, and executed multiple departmental and social initiatives, including the college’s first LGBTQ awareness event, large-scale departmental programs, academic and cultural events, and student engagement activities. From the first proposal document to final execution, I handled approvals, timelines, volunteer allocation, communication flows, and risk planning.
+      </p>
+      <p>
+        For each event, I broke the work into clear stages such as concept framing, permission and faculty coordination, budgeting awareness, task delegation, promotional planning, execution flow, and post-event documentation. This structure ensured that volunteers could operate clearly without constant supervision.
+      </p>
     </div>
+
+    <!-- How You Did It -->
     <div class="popup-section">
-      <h4>Key Achievements & Results</h4>
-      <ul>
-        <li>Successfully organized the largest departmental fest in college history with 500+ participants</li>
-        <li>Managed 10+ major events including the groundbreaking LGBTQ awareness event and education workshop</li>
-        <li>Established partnerships with 3 local NGOs for community service initiatives</li>
-        <li>Introduced digital marketing strategies that increased event attendance by 45%</li>
-      </ul>
+      <h4>How I Planned and Executed</h4>
+      <p>
+        I created internal systems to manage execution smoothly. Canva was used not only for posters, but for operational communication such as task visuals, schedules, role explanations, and promotional timelines. These visuals reduced confusion and ensured that everyone understood expectations without repeated verbal explanations.
+      </p>
+      <p>
+        Communication was handled across multiple layers including faculty members, administration, student leaders, external speakers, NGOs, and volunteers. I coordinated meetings, clarified expectations, resolved resistance, and ensured alignment between institutional requirements and student-led execution.
+      </p>
     </div>
+
+    <!-- Challenges -->
+    <div class="popup-section">
+      <h4>Challenges and Ownership</h4>
+      <p>
+        Many initiatives, particularly the LGBTQ awareness event, faced hesitation and resistance due to sensitivity and institutional caution. I handled this by preparing structured justifications, aligning messaging carefully, managing approvals responsibly, and ensuring safe and respectful execution. Accountability remained with me throughout planning and execution.
+      </p>
+      <p>
+        I was also responsible for volunteer discipline, timeline adherence, and crisis handling during live events. When execution issues arose, resolution and responsibility rested with me, not the team.
+      </p>
+    </div>
+
+    <!-- Learning -->
+    <div class="popup-section">
+      <h4>What This Experience Built</h4>
+      <p>
+        This role taught me how leadership works beyond titles. I learned how to <b> plan ahead, design systems that prevent confusion, communicate clearly across authority levels, and stay accountable </b> when execution depends on many people. It strengthened my ability to think operationally, manage pressure, and execute ideas in real-world constraints.
+      </p>
+    </div>
+
+    <!-- Skills -->
     <div class="popup-skills">
-      <span class="popup-skill">Team Leadership</span>
-      <span class="popup-skill">Event Management</span>
-      <span class="popup-skill">Budget Management</span>
-      <span class="popup-skill">Strategic Planning</span>
-      <span class="popup-skill">Stakeholder Management</span>
-      <span class="popup-skill">Public Speaking</span>
+      <span class="popup-skill">Leadership & Ownership</span>
+      <span class="popup-skill">Event Planning & Execution</span>
+      <span class="popup-skill">Canva Design</span>
+      <span class="popup-skill">Stakeholder Communication</span>
+      <span class="popup-skill">Volunteer Management</span>
+      <span class="popup-skill">Process Planning</span>
+      <span class="popup-skill">Risk & Execution Control</span>
+      <span class="popup-skill">Presentation & Visual Communication</span>
     </div>
   </div>
 </div>
 
+
+
+<!-- Sales Assistant Popup -->
 <!-- Sales Assistant Popup -->
 <div class="popup" id="sales-assistant-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('sales-assistant-popup')">×</button>
-    <h2 class="popup-title"><i class="fas fa-cash-register"></i> Sales Assistant</h2>
-    <p class="popup-org"><i class="fas fa-store"></i> Naveen Auto Spares | Nov 2023 – Jul 2024</p>
+
+    <!-- Header -->
+    <div class="popup-header">
+      <h2 class="popup-title">
+        <i class="fas fa-cash-register"></i> Sales Assistant
+      </h2>
+      <p class="popup-org">
+        Naveen Auto Spares · Family-Owned Retail Business · Nov 2023 – Jul 2024
+      </p>
+    </div>
+
+    <!-- Image Gallery (RESTORED) -->
     <div class="popup-gallery">
       <div class="swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="https://img.freepik.com/premium-vector/girl-riding-red-scooter-vector-flat-illustration_357257-799.jpg" alt="Customer Service">
+            <img src="https://img.freepik.com/premium-vector/girl-riding-red-scooter-vector-flat-illustration_357257-799.jpg" alt="Customer Interaction">
           </div>
           <div class="swiper-slide">
-            <img src="https://i0.wp.com/content.jdmagicbox.com/comp/chennai/z1/044pxx44.xx44.110228095035.l7z1/catalogue/naveen-auto-spares-chennai-1xtx6gz9eq.jpg?resize=806%2C605&ssl=1" alt="Sales Operations">
+            <img src="https://i0.wp.com/content.jdmagicbox.com/comp/chennai/z1/044pxx44.xx44.110228095035.l7z1/catalogue/naveen-auto-spares-chennai-1xtx6gz9eq.jpg" alt="Retail Operations">
           </div>
           <div class="swiper-slide">
-            <img src="https://tse4.mm.bing.net/th/id/OIP.KbY3u9jrbCfdW-60MKv0LAHaGz?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Inventory Management">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.KbY3u9jrbCfdW-60MKv0LAHaGz?rs=1&pid=ImgDetMain" alt="Inventory Management">
           </div>
           <div class="swiper-slide">
-            <img src="https://th.bing.com/th/id/OIP.jVHMBgG0KFHPz84eake8wQHaE2?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Customer Relations">
+            <img src="https://th.bing.com/th/id/OIP.jVHMBgG0KFHPz84eake8wQHaE2?rs=1&pid=ImgDetMain" alt="Business Operations">
           </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -2536,58 +2492,124 @@ html {
         <div class="swiper-button-prev"></div>
       </div>
     </div>
+
+    <!-- Role Context -->
     <div class="popup-section">
-      <h4><i class="fas fa-lightbulb"></i> Comprehensive Overview</h4>
-      <p>As Sales Assistant at Naveen Auto Spares, my family business specializing in two and three-wheeler spare parts, I played a pivotal role in transforming our traditional retail operation into a more efficient, customer-focused, and data-driven business. While our business traditionally focused on serving individual customers and nearby mechanics, I took the initiative to expand our reach, implement electronic record-keeping systems, optimize inventory management, and enhance our overall operational efficiency. This role allowed me to apply business management principles in a real-world context, directly impacting revenue, customer satisfaction, and operational excellence.</p>
+      <h4>Role Context</h4>
+      <p>
+        Naveen Auto Spares is a traditional two- and three-wheeler spare parts retail business. While the business was operationally strong, most systems were manual, time-consuming, and prone to stock loss and tracking gaps. My role went beyond counter sales and focused on improving <b>operational visibility, record accuracy, and customer handling</b>.
+      </p>
     </div>
+
+    <!-- What You Actually Did -->
     <div class="popup-section">
-      <h4><i class="fas fa-tasks"></i> Detailed Responsibilities</h4>
+      <h4>What I Actually Did in Practice</h4>
+      <p>
+        On a daily basis, I handled both front-end customer interaction and back-end operational work. This meant serving customers directly while also identifying inefficiencies in how stock, sales, and records were managed.
+      </p>
       <ul>
-        <li><strong>Sales & Customer Service:</strong> Boosted sales revenue by an estimated 10-15% by proactively engaging an average of 50+ customers daily, understanding their specific needs, and leveraging comprehensive product knowledge to recommend tailored auto spare solutions. Achieved a 90% customer satisfaction rate through personalized service and attentive care</li>
-        <li><strong>Business Expansion:</strong> Expanded business reach beyond traditional customer base of individual customers and nearby mechanics to include new customer segments such as small fleet operators, auto repair shops in neighboring areas, and online inquiries, resulting in 20% increase in returning customers</li>
-        <li><strong>Electronic Ledger Implementation:</strong> Implemented comprehensive electronic ledger system for entry and exit recording, ensuring every transaction, stock movement, and financial activity was accurately documented. This digital transformation improved accountability and enabled data-driven decision making</li>
+        <li>Handled 50+ customer interactions daily, understanding exact vehicle requirements and recommending correct spare parts</li>
+        <li>Managed pricing discussions, substitutions, and availability explanations clearly to reduce returns and disputes</li>
+        <li>Observed gaps in manual record-keeping that caused stock mismatch and delayed decision-making</li>
       </ul>
     </div>
+
+    <!-- Operations & System Improvement -->
     <div class="popup-section">
-      <h4>Key Achievements & Results</h4>
+      <h4>Operational Improvements & System Thinking</h4>
+      <p>
+        One of my key contributions was introducing <b>structured digital record-keeping</b> into a traditionally manual system. The focus was not increasing sales overnight, but reducing loss, confusion, and dependency on memory-based tracking.
+      </p>
       <ul>
-        <li>Boosted sales revenue by an estimated 10-15% through proactive customer engagement and product knowledge</li>
-        <li>Achieved 90% customer satisfaction rate and 20% increase in returning customers</li>
-        <li>Reduced stockouts by 15% through systematic inventory management</li>
-        <li>Reduced inquiry resolution time by 25% through comprehensive product expertise</li>
+        <li>Converted handwritten entry-exit stock records into a computerised ledger system</li>
+        <li>Digitally tracked daily sales, incoming stock, and fast-moving items using Excel</li>
+        <li>Improved visibility of <b>slow-moving vs high-demand products</b>, supporting smarter reordering</li>
+        <li>Reduced stockouts and misplaced inventory by approximately 15 percent</li>
       </ul>
     </div>
+
+    <!-- Business Impact -->
+    <div class="popup-section">
+      <h4>Business Impact</h4>
+      <p>
+        While the role was not focused on aggressive sales growth, the improvements led to <b>better control and loss prevention</b>, which directly affects profitability in small retail businesses.
+      </p>
+      <ul>
+        <li>Estimated 10–15 percent improvement in revenue stability through better customer handling</li>
+        <li>Achieved around 90 percent customer satisfaction through accurate recommendations</li>
+        <li>Increased repeat customers by roughly 20 percent due to trust and reliability</li>
+        <li>Reduced time spent searching for stock and resolving discrepancies</li>
+      </ul>
+    </div>
+
+    <!-- Tools -->
+    <div class="popup-section">
+      <h4>Tools & Methods Used</h4>
+      <ul>
+        <li><strong>Microsoft Excel</strong> for sales tracking, stock movement, and basic analysis</li>
+        <li><strong>Electronic Ledger Systems</strong> for transaction recording</li>
+        <li><strong>Manual + Digital Hybrid Process</strong> to transition smoothly from traditional methods</li>
+        <li><strong>Product Knowledge Mapping</strong> to reduce wrong sales and returns</li>
+      </ul>
+    </div>
+
+    <!-- Learning -->
+    <div class="popup-section">
+      <h4>What This Experience Taught Me</h4>
+      <p>
+        This role taught me how small operational inefficiencies quietly cause financial loss. I learned how <b>systems, documentation, and data visibility</b> matter just as much as selling. It also strengthened my ability to communicate clearly with customers from varied backgrounds.
+      </p>
+    </div>
+
+    <!-- Skills -->
     <div class="popup-skills">
-      <span class="popup-skill">Customer Service</span>
-      <span class="popup-skill">Sales Operations</span>
+      <span class="popup-skill">Retail Operations</span>
+      <span class="popup-skill">Customer Handling</span>
       <span class="popup-skill">Inventory Management</span>
-      <span class="popup-skill">Product Knowledge</span>
-      <span class="popup-skill">Microsoft Excel</span>
-      <span class="popup-skill">Electronic Ledger</span>
+      <span class="popup-skill">Excel</span>
+      <span class="popup-skill">Process Improvement</span>
+      <span class="popup-skill">Loss Prevention</span>
+      <span class="popup-skill">Business Operations</span>
     </div>
+
   </div>
 </div>
 
+
+
+
+
+<!-- Secretary Popup -->
 <!-- Secretary Popup -->
 <div class="popup" id="secretary-popup">
   <div class="popup-content">
     <button class="popup-close" onclick="closePopup('secretary-popup')">×</button>
-    <h2 class="popup-title"><i class="fas fa-user-secret"></i> Secretary</h2>
-    <p class="popup-org"><i class="fas fa-handshake"></i> Citizen Consumer Club | Jan 2021 – Jan 2022</p>
+
+    <!-- Header -->
+    <div class="popup-header">
+      <h2 class="popup-title">
+        <i class="fas fa-user-secret"></i> Secretary
+      </h2>
+      <p class="popup-org">
+        Citizen Consumer Club · Student Leadership Role · Jan 2021 – Jan 2022
+      </p>
+    </div>
+
+    <!-- Image Gallery (UNCHANGED) -->
     <div class="popup-gallery">
       <div class="swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/015/252/531/small_2x/world-consumer-right-day-illustration-concept-a-flat-illustration-isolated-on-white-background-vector.jpg" alt="Community Events">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/015/252/531/small_2x/world-consumer-right-day-illustration-concept-a-flat-illustration-isolated-on-white-background-vector.jpg" alt="Consumer Awareness">
           </div>
           <div class="swiper-slide">
-            <img src="https://kanchikrishnacollege.com/wp-content/uploads/2021/10/CCC.png" alt="Event Planning">
+            <img src="https://kanchikrishnacollege.com/wp-content/uploads/2021/10/CCC.png" alt="Club Activities">
           </div>
           <div class="swiper-slide">
-            <img src="https://wp.sacas.ac.in/wp-content/uploads/2023/05/1-10.jpg" alt="Stakeholder Coordination">
+            <img src="https://wp.sacas.ac.in/wp-content/uploads/2023/05/1-10.jpg" alt="Community Events">
           </div>
           <div class="swiper-slide">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/011/427/583/small_2x/tiny-people-customers-buy-babies-goods-online-from-smartphone-niche-service-marketplace-innovative-online-retail-particular-goods-e-trade-concept-vector.jpg" alt="Communication">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/011/427/583/small_2x/tiny-people-customers-buy-babies-goods-online-from-smartphone-niche-service-marketplace-innovative-online-retail-particular-goods-e-trade-concept-vector.jpg" alt="Public Communication">
           </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -2595,37 +2617,71 @@ html {
         <div class="swiper-button-prev"></div>
       </div>
     </div>
+
+    <!-- Context -->
     <div class="popup-section">
-      <h4><i class="fas fa-lightbulb"></i> Comprehensive Overview</h4>
-      <p>As Secretary of the Citizen Consumer Club, I served as the organizational backbone of the club, managing all administrative functions, coordinating 6+ major community and local awareness events, and serving as the primary liaison between club members, external stakeholders, and the broader community. My role encompassed everything from official documentation and meeting management to event planning and public relations, ensuring that the club operated efficiently and effectively in promoting consumer rights and community awareness.</p>
+      <h4>Role Context</h4>
+      <p>
+        As Secretary of the Citizen Consumer Club, my responsibility focused on coordination, documentation, communication, and execution support. While strategic direction was defined at the committee level, I was responsible for ensuring that plans translated into organised, well-communicated, and properly executed programs.
+      </p>
     </div>
+
+    <!-- What You Actually Did -->
     <div class="popup-section">
-      <h4><i class="fas fa-tasks"></i> Detailed Responsibilities</h4>
-      <ul>
-        <li><strong>Governance & Administration:</strong> Ensured essential governance and brand policies were met for 5+ major club initiatives, maintaining a high standard of precision in a formal setting by leveraging strong organizational skills and attention to detail</li>
-        <li><strong>Press Kit Development & Stakeholder Coordination:</strong> Developed comprehensive press kits and promotional materials for 6+ community and local awareness events, coordinating with 15+ external stakeholders including local government officials, media representatives, NGO partners, and community leaders, significantly enhancing public relations and outreach efforts</li>
-        <li><strong>Official Correspondence:</strong> Managed official club correspondence and documentation for over 100 communications, ensuring accurate record-keeping and timely information dissemination to all stakeholders</li>
-      </ul>
+      <h4>What I Actually Did</h4>
+      <p>
+        I managed the planning and execution of multiple consumer awareness initiatives conducted within the college, local communities, and educational institutions, including programs for differently abled schools. My role involved coordinating volunteers, managing schedules, handling permissions, and ensuring smooth execution on the ground.
+      </p>
+      <p>
+        I acted as the primary point of coordination between faculty advisors, external institutions, school administrations, community representatives, and student volunteers. This required consistent follow-ups, clear written communication, and structured execution plans to avoid delays or misunderstandings.
+      </p>
     </div>
+
+    <!-- How You Did It -->
     <div class="popup-section">
-      <h4>Key Achievements & Results</h4>
-      <ul>
-        <li>Successfully organized 6+ community and local awareness events with 200+ participants each</li>
-        <li>Improved media coverage by 50% through effective press kit development and stakeholder engagement</li>
-        <li>Established partnerships with 3 local organizations for collaborative initiatives</li>
-        <li>Increased club visibility by an estimated 25% through effective representation at university events</li>
-      </ul>
+      <h4>How I Planned and Supported Execution</h4>
+      <p>
+        I prepared internal documentation, event schedules, volunteer task lists, and official correspondence required for approvals and outreach. This included drafting formal letters, maintaining records of communications, and ensuring compliance with institutional guidelines.
+      </p>
+      <p>
+        Visual communication played an important role in public engagement. I personally designed posters, banners, and digital creatives using Canva and presentation tools to make consumer awareness topics more accessible and engaging for diverse audiences.
+      </p>
     </div>
+
+    <!-- Challenges -->
+    <div class="popup-section">
+      <h4>Execution Challenges</h4>
+      <p>
+        Many awareness programs required coordination with external institutions where permissions, timing, and logistics varied significantly. I handled these uncertainties by maintaining clear communication channels, preparing contingency plans, and ensuring volunteers were briefed properly before each event.
+      </p>
+      <p>
+        Managing volunteers with different levels of commitment also required patience and structure. I ensured responsibilities were clearly communicated and followed up until completion.
+      </p>
+    </div>
+
+    <!-- Learning -->
+    <div class="popup-section">
+      <h4>What This Experience Taught Me</h4>
+      <p>
+        This role strengthened my organisational skills, attention to detail, and ability to manage execution through coordination rather than authority. I learned how structured communication, documentation, and visual clarity directly affect execution quality, especially in community-focused initiatives.
+      </p>
+    </div>
+
+    <!-- Skills -->
     <div class="popup-skills">
-      <span class="popup-skill">Marketing Communications</span>
-      <span class="popup-skill">Event Marketing</span>
-      <span class="popup-skill">Social Media Engagement</span>
-      <span class="popup-skill">Public Relations</span>
-      <span class="popup-skill">Community Management</span>
-      <span class="popup-skill">Canva</span>
+      <span class="popup-skill">Event Coordination</span>
+      <span class="popup-skill">Volunteer Management</span>
+      <span class="popup-skill">Canva Design</span>
+      <span class="popup-skill">Formal Communication</span>
+      <span class="popup-skill">Documentation & Reporting</span>
+      <span class="popup-skill">Community Engagement</span>
+      <span class="popup-skill">Visual Communication</span>
     </div>
   </div>
 </div>
+
+
+
 
 <!-- Project Popups with Detailed Information -->
 <!-- EcoWander Project Popup -->
